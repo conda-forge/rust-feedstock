@@ -18,11 +18,13 @@ requirements:
     - toolchain
     - cmake
     - pkg-config
-    - llvmdev 4.0.*
+    # use the same llvm version as in the source tarball
+    - llvmdev 3.9.0
     - python 2.7*
     - openssl 1.0.*
     - curl 7.52.*
     - zlib 1.2.8
+    - jemalloc
   run:
     - openssl 1.0.*
     - curl 7.52.*
@@ -33,6 +35,8 @@ test:
     - rustc --help
     - rustdoc --help
     - cargo --help
+    # test compilation
+    - RUST_BACKTRACE=1 cargo install xsv
 
 about:
   home: https://www.rust-lang.org

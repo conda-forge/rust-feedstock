@@ -24,6 +24,7 @@ requirements:
     - openssl 1.0.*
     - curl 7.52.*
     - zlib 1.2.8
+    - jemalloc
   run:
     - openssl 1.0.*
     - curl 7.52.*

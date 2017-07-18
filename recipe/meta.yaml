@@ -18,7 +18,8 @@ requirements:
     - toolchain
     - cmake
     - pkg-config
-    - llvmdev 4.0.*
+    # use the same llvm version as in the source tarball
+    - llvmdev 3.9.0
     - python 2.7*
     - openssl 1.0.*
     - curl 7.52.*

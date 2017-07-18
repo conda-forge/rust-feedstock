@@ -33,6 +33,8 @@ test:
     - rustc --help
     - rustdoc --help
     - cargo --help
+    # test compilation
+    - cargo install xsv
 
 about:
   home: https://www.rust-lang.org

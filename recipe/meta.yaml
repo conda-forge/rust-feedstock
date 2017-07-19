@@ -5,34 +5,21 @@ package:
   version: {{ version }}
 
 source:
-  fn: rust-{{ version }}.tar.gz
-  url: https://static.rust-lang.org/dist/rustc-{{ version }}-src.tar.gz
-  sha256: d2dc36e99b9e2269488b2bcddde43c234e6bde03edf70cba82a027ff49c36111
+  url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux]
+  url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz       # [osx]
+  sha256: abdc9f37870c979dd241ba8c7c06d8bb99696292c462ed852c0af7f988bb5887            # [linux]
+  sha256: 30f210e3133121812d74995a2831cfb3fe79c271b3cb1721815943bd4f7eb297            # [osx]
 
 build:
   number: 0
   skip: true  # [win]
-
-requirements:
-  build:
-    - toolchain
-    - cmake
-    - pkg-config
-    - llvmdev 4.0.*
-    - python 2.7*
-    - openssl 1.0.*
-    - curl 7.52.*
-    - zlib 1.2.8
-  run:
-    - openssl 1.0.*
-    - curl 7.52.*
-    - zlib 1.2.8
 
 test:
   commands:
     - rustc --help
     - rustdoc --help
     - cargo --help
+    - cargo install xsv
 
 about:
   home: https://www.rust-lang.org

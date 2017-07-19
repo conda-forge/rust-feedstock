@@ -11,8 +11,10 @@ source:
   sha256: 30f210e3133121812d74995a2831cfb3fe79c271b3cb1721815943bd4f7eb297            # [osx]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
+  # the distributed binaries are already relocatable
+  binary_relocation: False
 
 test:
   commands:

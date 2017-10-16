@@ -1,4 +1,4 @@
-{% set version = "1.19.0" %}
+{% set version = "1.21.0" %}
 
 package:
   name: rust

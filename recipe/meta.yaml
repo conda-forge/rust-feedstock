@@ -1,4 +1,4 @@
-{% set version = "1.19.0" %}
+{% set version = "1.21.0" %}
 
 package:
   name: rust
@@ -7,8 +7,8 @@ package:
 source:
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz       # [osx]
-  sha256: 30ff67884464d32f6bbbde4387e7557db98868e87fb2afbb77c9b7716e3bff09                   # [linux]
-  sha256: 5c668fb60a3ba3e97dc2cb8967fc4bb9422b629155284dcb89f94d116bb17820                   # [osx]
+  sha256: b41e70e018402bc04d02fde82f91bea24428e6be432f0df12ac400cfb03108e8                   # [linux]
+  sha256: 75a7f4bd7c72948030bb9e421df27e8a650dea826fb5b836cf59d23d6f985a0d                   # [osx]
 
 build:
   number: 1
@@ -35,3 +35,4 @@ about:
 extra:
   recipe-maintainers:
     - johanneskoester
+    - abhi18av

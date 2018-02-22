@@ -1,4 +1,4 @@
-{% set version = "1.21.0" %}
+{% set version = "1.24.0" %}
 
 package:
   name: rust
@@ -7,21 +7,20 @@ package:
 source:
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz       # [osx]
-  sha256: b41e70e018402bc04d02fde82f91bea24428e6be432f0df12ac400cfb03108e8                   # [linux]
-  sha256: 75a7f4bd7c72948030bb9e421df27e8a650dea826fb5b836cf59d23d6f985a0d                   # [osx]
+  sha256: 336cf7af6c857cdaa110e1425719fa3a1652351098dc73f156e5bf02ed86443c                   # [linux]
+  sha256: 1aecba7cab4bc1a9e0e931c04aa00849e930b567d243da7b676ede8f527a2992                   # [osx]
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
   # the distributed binaries are already relocatable
   binary_relocation: False
 
 test:
+  files: 
+    - forge_test.sh
   commands:
-    - rustc --help
-    - rustdoc --help
-    - cargo --help
-    - cargo install xsv
+    - time bash ./forge_test.sh  # [not win]
 
 about:
   home: https://www.rust-lang.org
@@ -37,3 +36,4 @@ extra:
     - johanneskoester
     - abhi18av
     - pkgw
+    - dlaehnemann

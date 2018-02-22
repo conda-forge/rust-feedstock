@@ -17,11 +17,10 @@ build:
   binary_relocation: False
 
 test:
+  files: 
+    - test_forge.sh
   commands:
-    - rustc --help
-    - rustdoc --help
-    - cargo --help
-    - cargo install xsv
+    - time bash ./forge_test.sh  # [not win]
 
 about:
   home: https://www.rust-lang.org

@@ -18,7 +18,7 @@ build:
 
 test:
   files: 
-    - test_forge.sh
+    - forge_test.sh
   commands:
     - time bash ./forge_test.sh  # [not win]
 

@@ -7,20 +7,27 @@ package:
 source:
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz       # [osx]
+  url: https://static.rust-lang.org/dist/rust-{{ version }}-i686-pc-windows-msvc.tar.gz      # [win32]
+  url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz    # [win64]
   sha256: 4567e7f6e5e0be96e9a5a7f5149b5452828ab6a386099caca7931544f45d5327                   # [linux]
   sha256: 9d4aacdb5849977ea619d399903c9378163bd9c76ea11dac5ef6eca27849f501                   # [osx]
+  sha256: f04ef2d8732079021c4118a5ff66b13d9722984146108d86cc4ed0c67e7dcad2                   # [win32]
+  sha256: 78d4dbd4bba3e00de8ecc128a4fc331a997a6de535dda760798a927349b60125                   # [win64]
 
 build:
   number: 0
-  skip: true  # [win]
   # the distributed binaries are already relocatable
   binary_relocation: False
+
+requirements:
+  build:
+    - posix  # [win]
 
 test:
   files: 
     - forge_test.sh
   commands:
-    - time bash ./forge_test.sh  # [not win]
+    - time bash ./forge_test.sh
 
 about:
   home: https://www.rust-lang.org

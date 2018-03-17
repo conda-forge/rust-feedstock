@@ -27,7 +27,8 @@ test:
   files: 
     - forge_test.sh
   commands:
-    - time bash ./forge_test.sh
+    - time bash ./forge_test.sh  # [not win]
+    - bash forge_test.sh  # [win]
 
 about:
   home: https://www.rust-lang.org

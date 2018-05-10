@@ -16,14 +16,16 @@ This package provides the compiler (rustc) and the documentation utilities rustd
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/rust-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/rust-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/rust-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/rust-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/rust-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/rust-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/rust-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/rust-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/rust-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/rust-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/rust-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/rust-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/rust/badges/version.svg)](https://anaconda.org/conda-forge/rust)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/rust/badges/downloads.svg)](https://anaconda.org/conda-forge/rust)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-rust-green.svg)](https://anaconda.org/conda-forge/rust) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rust.svg)](https://anaconda.org/conda-forge/rust) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rust.svg)](https://anaconda.org/conda-forge/rust) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rust.svg)](https://anaconda.org/conda-forge/rust) |
 
 Installing rust
 ===============

@@ -16,6 +16,13 @@ build:
   number: 0
   # the distributed binaries are already relocatable
   binary_relocation: False
+  missing_dso_whitelist:
+    - /usr/lib/libresolv.9.dylib
+    - /usr/lib/libc++.1.dylib
+    - /usr/lib/libc++abi.dylib
+    - /usr/lib/libiconv.2.dylib
+    - /usr/lib/libcurl.4.dylib
+    - /usr/lib/libxar.1.dylib
 
 requirements:
   build:

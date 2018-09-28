@@ -9,4 +9,14 @@ unset SSL_CERT_FILE
 rustc --help
 rustdoc --help
 cargo --help
-cargo install xsv --force
+
+echo "#!/usr/bin/env bash"                         > ./cc
+if [[ $(uname) == Linux ]]; then
+  echo "x86_64-conda_cos6-linux-gnu-cc \"\$@\""   >> ./cc
+else
+  echo "x86_64-apple-darwin13.4.0-clang \"\$@\""  >> ./cc
+fi
+cat cc
+chmod +x cc
+
+PATH="$PWD:$PATH" cargo install xsv --force

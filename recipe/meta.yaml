@@ -34,8 +34,7 @@ build:
 requirements:
   build:
     - posix  # [win]
-  run:
-    - {{ compiler('c') }}  # [linux] -- rustc needs a toolchain to link executables on Linux
+    - {{ compiler('c') }}
 
 test:
   files:

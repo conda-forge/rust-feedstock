@@ -9,4 +9,4 @@ unset SSL_CERT_FILE
 rustc --help
 rustdoc --help
 cargo --help
-cargo install --force xsv
+cargo install xsv --force

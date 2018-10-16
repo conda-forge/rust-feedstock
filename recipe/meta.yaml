@@ -13,13 +13,15 @@ source:
   sha256: 7813396fb99021e9a8bccb2fc7e71b1b730d5f3aebbb09ffcc2ecb838a1073b4  # [win64]
 
 build:
-  number: 1000
+  number: 1001
   # the distributed binaries are already relocatable
   binary_relocation: False
 
 requirements:
   build:
     - posix  # [win]
+  run:
+    - {{ compiler('c') }}  # [linux] -- rustc needs a toolchain to link executables on Linux
 
 test:
   files:

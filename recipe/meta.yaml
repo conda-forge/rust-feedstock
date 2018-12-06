@@ -1,4 +1,4 @@
-{% set version = "1.30.1" %}
+{% set version = "1.31.0" %}
 
 package:
   name: rust
@@ -8,9 +8,9 @@ source:
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz       # [osx]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz    # [win64]
-  sha256: a01a493ed8946fc1c15f63e74fc53299b26ebf705938b4d04a388a746dfdbf9e  # [linux]
-  sha256: 3ba1704a7defe3d9a6f0c1f68792c084da83bcba85e936d597bac0c019914b94  # [osx]
-  sha256: b0110a5ad461532b2cce59bc04346af739b4660e7241f92dde6442a11a5391c2  # [win64]
+  sha256: c8a2016109ffdc12a488660edc5f30c1643729efc15abe311ebb187437e506bf  # [linux]
+  sha256: 5d4035e3cecb7df13e728bcff125b52b43b126e91f8311c66b143f353362606f  # [osx]
+  sha256: 9288248f1821ab53557cbc5728ade7d221b1670547b0c0ec35099e0b2993dcf4  # [win64]
 
 build:
   number: 1000

@@ -1,4 +1,4 @@
-{% set version = "1.31.1" %}
+{% set version = "1.32.0" %}
 
 package:
   name: rust
@@ -8,12 +8,12 @@ source:
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz       # [osx]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz    # [win64]
-  sha256: a64685535d0c457f49a8712a096a5c21564cd66fd2f7da739487f028192ebe3c  # [linux]
-  sha256: 8398b1b303bdf0e7605d08b87070a514a4f588797c6fb3593718cb9cec233ad6  # [osx]
-  sha256: 4d2aa25c9d79dca5aba67b7b1df1c1f0ad40fcfb25a4c1d364fd64dd17a63cf3  # [win64]
+  sha256: e024698320d76b74daf0e6e71be3681a1e7923122e3ebd03673fcac3ecc23810  # [linux]
+  sha256: f0dfba507192f9b5c330b5984ba71d57d434475f3d62bd44a39201e36fa76304  # [osx]
+  sha256: 51b0b64cc843d6e443bf19f89b61addb532ea61e02777c7e80a185a9a263776b  # [win64]
 
 build:
-  number: 1000
+  number: 0
   # the distributed binaries are already relocatable
   binary_relocation: False
 

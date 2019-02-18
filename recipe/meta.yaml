@@ -5,12 +5,22 @@ package:
   version: {{ version }}
 
 source:
-  url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux]
-  url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz       # [osx]
-  url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz    # [win64]
-  sha256: e024698320d76b74daf0e6e71be3681a1e7923122e3ebd03673fcac3ecc23810  # [linux]
-  sha256: f0dfba507192f9b5c330b5984ba71d57d434475f3d62bd44a39201e36fa76304  # [osx]
-  sha256: 51b0b64cc843d6e443bf19f89b61addb532ea61e02777c7e80a185a9a263776b  # [win64]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux]
+    sha256: e024698320d76b74daf0e6e71be3681a1e7923122e3ebd03673fcac3ecc23810                   # [linux]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz       # [osx]
+    sha256: f0dfba507192f9b5c330b5984ba71d57d434475f3d62bd44a39201e36fa76304                   # [osx]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-i686-pc-windows-msvc.tar.gz      # [win32]
+    sha256: c17d79fe81a750bba55b8525cb41df1257366d0967bdc2c81b26f2d3eda64bdc                   # [win32]
+    folder: msvc                                                                               # [win32]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-i686-pc-windows-gnu.tar.gz       # [win32]
+    sha256: 226b00e61095fe1b8a7f1f186087731a294235b4da53601b709517ca9dc624f0                   # [win32]
+    folder: gnu                                                                                # [win32]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz    # [win64]
+    sha256: 51b0b64cc843d6e443bf19f89b61addb532ea61e02777c7e80a185a9a263776b                   # [win64]
+    folder: msvc                                                                               # [win64]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-gnu.tar.gz     # [win64]
+    sha256: 358e1435347c67dbf33aa9cad6fe501a833d6633ed5d5aa1863d5dffa0349be9                   # [win64]
+    folder: gnu                                                                                # [win64]
 
 build:
   number: 0

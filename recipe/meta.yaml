@@ -16,6 +16,8 @@ build:
   number: 0
   # the distributed binaries are already relocatable
   binary_relocation: False
+  runpath_whitelist:
+    - $ORIGIN/../lib
   missing_dso_whitelist:
     - /usr/lib/libresolv.9.dylib
     - /usr/lib/libc++.1.dylib
@@ -23,6 +25,20 @@ build:
     - /usr/lib/libiconv.2.dylib
     - /usr/lib/libcurl.4.dylib
     - /usr/lib/libxar.1.dylib
+    # Since 1.32.0 macOS also needs:
+    - /System/Library/Frameworks/Python.framework/Versions/2.7/Python
+    - /System/Library/PrivateFrameworks/DebugSymbols.framework/Versions/A/DebugSymbols
+    - /usr/lib/libcompression.dylib
+    - /usr/lib/libedit.3.dylib
+    - /usr/lib/libform.5.4.dylib
+    - /usr/lib/libncurses.5.4.dylib
+    - /usr/lib/libpanel.5.4.dylib
+    - /usr/lib/libxml2.2.dylib
+    # Fixed via install_name_tool now (just declaring it here meant the thing using -
+    # lib/rustlib/x86_64-apple-darwin/lib/python2.7/site-packages/lldb/lldb-argdumper - was
+    # still unable to find it at runtime).
+    # - $RPATH/libLLVM.dylib
+
     - '**/ld-linux-x86-64.so.2'
     - '**/libc.so.6'
     - '**/libdl.so.2'
@@ -31,20 +47,25 @@ build:
     - '**/libpthread.so.0'
     - '**/librt.so.1'
     - '**/libgcc_s.so.1'
+    # Since 1.32.0 linux also needs:
+    - '**/libstdc++.so.6'
 
 requirements:
   build:
-    - posix  # [win]
+    - posix                      # [win]
+    # Just for install_name_tool, luckily macOS clang
+    # has no run_exports for us to have to ignore.
+    - {{ compiler('c') }}        # [osx]
 
 test:
   requires:
-    - gcc_impl_linux-64  # [linux]
-    - clang_impl_osx-64  # [osx]
+    - gcc_impl_linux-64          # [linux]
+    - clang_osx-64               # [osx]
   files:
     - forge_test.sh
   commands:
     - time bash ./forge_test.sh  # [not win]
-    - bash forge_test.sh  # [win]
+    - bash forge_test.sh         # [win]
 
 about:
   home: https://www.rust-lang.org
@@ -57,7 +78,8 @@ about:
 
 extra:
   recipe-maintainers:
-    - johanneskoester
     - abhi18av
-    - pkgw
     - dlaehnemann
+    - johanneskoester
+    - mingwandroid
+    - pkgw

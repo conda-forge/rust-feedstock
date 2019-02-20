@@ -77,6 +77,12 @@ test:
     - time bash ./forge_test.sh  # [not win]
     - bash forge_test.sh         # [win]
 
+outputs:                         # [win]
+  - name: rust                   # [win]
+    script: install-msvc.bat     # [win]
+  - name: rust-gnu               # [win]
+    script: install-gnu.bat      # [win]
+
 about:
   home: https://www.rust-lang.org
   license: MIT

@@ -2,6 +2,6 @@
 
 *.patch binary
 *.diff binary
+*.sh text eol=lf
+*.bat text eol=crlf
 meta.yaml text eol=lf
-build.sh text eol=lf
-bld.bat text eol=crlf

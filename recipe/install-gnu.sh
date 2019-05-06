@@ -1,8 +1,17 @@
 #!/bin/bash -e
 
+function cygpath()
+{
+  if type -P cygpath.exe > /dev/null 2>&1; then
+    echo $(cygpath.exe -u "$1")
+  else
+    echo "$1"
+  fi
+}
+
 pushd gnu
 
-PATH="${PWD}:$PATH" ./install.sh --prefix=${PREFIX}
+PATH="${PWD}:$PATH" ./install.sh --prefix=$(cygpath ${PREFIX})
 
 if [[ ${target_platform} == osx-64 ]]; then
   if [[ $(uname) == Darwin ]]; then

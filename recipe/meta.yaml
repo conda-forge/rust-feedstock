@@ -60,17 +60,16 @@ build:
     # Since 1.32.0 linux also needs:
     - '**/libstdc++.so.6'
 
-requirements:
-  build:
-    - posix  # [win]
-    # Just for install_name_tool, luckily macOS clang
-    # has no run_exports for us to have to ignore.
-    - {{ compiler('c') }}  # [osx]
-
 outputs:
   - name: rust
     script: install-msvc.sh  # [win]
     script: install-unix.sh  # [not win]
+    requirements:
+      build:
+        - posix  # [win]
+        # Just for install_name_tool, luckily macOS clang
+        # has no run_exports for us to have to ignore.
+        - {{ compiler('c') }}  # [osx]
     test:
       requires:
         - gcc_impl_linux-64  # [linux]
@@ -84,15 +83,15 @@ outputs:
 
   - name: rust-gnu  # [win]
     script: install-gnu.sh  # [win]
-    test:
-      requires:
-        - gcc_impl_linux-64  # [linux]
-        - clang_osx-64  # [osx]
+    requirements:
+      build:
         - posix  # [win]
-      files:
-        - forge_test.sh
-      commands:
-        - time bash ./forge_test.sh  # [not win]
+    test:  # [win]
+      requires:  # [win]
+        - posix  # [win]
+      files:  # [win]
+        - forge_test.sh  # [win]
+      commands:  # [win]
         - bash forge_test.sh  # [win]
 
 about:

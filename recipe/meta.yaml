@@ -1,29 +1,30 @@
-{% set version = "1.35.0" %}
+{% set version = "1.38.0" %}
 
 package:
   name: 'rust-suite'
   version: {{ version }}
 
 source:
-  - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux]
-    sha256: cf600e2273644d8629ed57559c70ca8db4023fd0156346facca9ab3ad3e8f86c  # [linux]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux64]
+    sha256: adda26b3f0609dbfbdc2019da4a20101879b9db2134fae322a4e863a069ec221  # [linux64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz  # [osx]
-    sha256: ac14b1c7dc330dcb53d8641d74ebf9b32aa8b03b9d650bcb9258030d8b10dbd6  # [osx]
+    sha256: bd301b78ddcd5d4553962b115e1dca5436dd3755ed323f86f4485769286a8a5a  # [osx]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-i686-pc-windows-msvc.tar.gz  # [win32]
-    sha256: bd2fab80e456aaccd9dfcff02c53bcbfd789a3fada8730d07d2b1793007d942f  # [win32]
+    sha256: 1662d25ab78f29114fc2799f5f17a111d4bc9d91b021c543e4362c6144ac5f06  # [win32]
     folder: msvc  # [win32]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-i686-pc-windows-gnu.tar.gz  # [win32]
-    sha256: fe9d75fa4965b5e93f1b69c28b8d214cd5111c38139d66defe16cb5ce50374b3  # [win32]
+    sha256: c6646e6d7c3cb4cc26dee9ade0341e5a407bb040650b4ad601d98707d9afbb6f  # [win32]
     folder: gnu  # [win32]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz  # [win64]
-    sha256: 4f8935cea6b68c447b5fcb5974e0df3fefc77d15ab4f7d535779f06c3e4adc84  # [win64]
+    sha256: 99e2e22084a7c6a114f5353800677e1f7eb4b8cecf1b8841e21ac9579fe8da8c  # [win64]
     folder: msvc  # [win64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-gnu.tar.gz  # [win64]
-    sha256: d136642c3a6f211a9d6c3aa50ca01aa1b533b417b531fabc1256fd5c9d697a89  # [win64]
+    sha256: 7b63fd61e7d3d70b996d5af0c32cb47634988faf0ab7047802321144c05c08e9  # [win64]
     folder: gnu  # [win64]
 
 build:
-  number: 0
+  # Skipping build 1 to align with conda-forge better (if merge a PR quickly).
+  number: 1
   # the distributed binaries are already relocatable
   binary_relocation: False
   runpath_whitelist:
@@ -66,33 +67,14 @@ outputs:
     script: install-unix.sh  # [not win]
     requirements:
       build:
-        - posix  # [win]
-        # Just for install_name_tool, luckily macOS clang
-        # has no run_exports for us to have to ignore.
-        - {{ compiler('c') }}  # [osx]
-    test:
-      requires:
-        - gcc_impl_linux-64  # [linux]
-        - clang_osx-64  # [osx]
-        - posix  # [win]
-      files:
-        - forge_test.sh
-      commands:
-        - time bash ./forge_test.sh  # [not win]
-        - bash forge_test.sh  # [win]
+        - {{ compiler('c') }}    # [osx]
+
 
   - name: rust-gnu  # [win]
     script: install-gnu.sh  # [win]
-    requirements:
-      build:
+    requirements:  # [win]
+      build:  # [win]
         - posix  # [win]
-    test:  # [win]
-      requires:  # [win]
-        - posix  # [win]
-      files:  # [win]
-        - forge_test.sh  # [win]
-      commands:  # [win]
-        - bash forge_test.sh  # [win]
 
 about:
   home: https://www.rust-lang.org

@@ -1,4 +1,4 @@
-{% set version = "1.38.0" %}
+{% set version = "1.39.0" %}
 
 package:
   name: rust
@@ -10,11 +10,11 @@ source:
   url: https://static.rust-lang.org/dist/rust-{{ version }}-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz       # [osx]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz    # [win64]
-  sha256: adda26b3f0609dbfbdc2019da4a20101879b9db2134fae322a4e863a069ec221  # [linux and 86_64]
-  sha256: 06afd6d525326cea95c3aa658aaa8542eab26f44235565bb16913ac9d12b7bda  # [aarch64]
-  sha256: f9ed1bb6525abdd4dd6ef10782ad45d2f71496e0c3c88e806b510c81a91c4ff7  # [ppc64le]
-  sha256: bd301b78ddcd5d4553962b115e1dca5436dd3755ed323f86f4485769286a8a5a  # [osx]
-  sha256: 99e2e22084a7c6a114f5353800677e1f7eb4b8cecf1b8841e21ac9579fe8da8c  # [win64]
+  sha256: b10a73e5ba90034fe51f0f02cb78f297ed3880deb7d3738aa09dc5a4d9704a25  # [linux and 86_64]
+  sha256: e27dc8112fe577012bd88f30e7c92dffd8c796478ce386c49465c03b6db8209f  # [aarch64]
+  sha256: 53b3fd942c52709f7e6fe11ea572d086e315a57a40b84b9b3290ac0ec8c7c84a  # [ppc64le]
+  sha256: 3736d49c5e9592844e1a5d5452883aeaf8f1e25d671c1bc8f01e81c1766603b5  # [osx]
+  sha256: 3c96b221af3343c04bf81e621a0b97a2452ae1803ecc2841a162690d8ebfe46f  # [win64]
 
 build:
   number: 0

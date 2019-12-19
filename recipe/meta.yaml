@@ -68,6 +68,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}    # [osx]
+        - posix  # [win]
 
 
   - name: rust-gnu  # [win]

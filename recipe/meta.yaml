@@ -1,4 +1,4 @@
-{% set version = "1.38.0" %}
+{% set version = "1.40.0" %}
 
 package:
   name: 'rust-suite'
@@ -6,22 +6,20 @@ package:
 
 source:
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux64]
-    sha256: adda26b3f0609dbfbdc2019da4a20101879b9db2134fae322a4e863a069ec221  # [linux64]
-  - url: https://static.rust-lang.org/dist/rust-{{ version }}-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
-    sha256: f9ed1bb6525abdd4dd6ef10782ad45d2f71496e0c3c88e806b510c81a91c4ff7  # [ppc64le]
+    sha256: fc91f8b4bd18314e83a617f2389189fc7959146b7177b773370d62592d4b07d0  # [linux64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz  # [osx]
-    sha256: bd301b78ddcd5d4553962b115e1dca5436dd3755ed323f86f4485769286a8a5a  # [osx]
+    sha256: 749ca5e0b94550369cc998416b8854c13157f5d11d35e9b3276064b6766bcb83  # [osx]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-i686-pc-windows-msvc.tar.gz  # [win32]
-    sha256: 1662d25ab78f29114fc2799f5f17a111d4bc9d91b021c543e4362c6144ac5f06  # [win32]
+    sha256: ae237dee13530535e03c426b49ccbc94a1604c6a07db6b0c1567d7fbb7e2b9f9  # [win32]
     folder: msvc  # [win32]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-i686-pc-windows-gnu.tar.gz  # [win32]
-    sha256: c6646e6d7c3cb4cc26dee9ade0341e5a407bb040650b4ad601d98707d9afbb6f  # [win32]
+    sha256: aecd5fa8b1a074272e869d9385543f0760dedd9675c9051dc09892b8a199a8dd  # [win32]
     folder: gnu  # [win32]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz  # [win64]
-    sha256: 99e2e22084a7c6a114f5353800677e1f7eb4b8cecf1b8841e21ac9579fe8da8c  # [win64]
+    sha256: 64d98af9b9114a3aaea096ba74c43cad75a2502fb682e941b4701f5d2a2b9272  # [win64]
     folder: msvc  # [win64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-gnu.tar.gz  # [win64]
-    sha256: 7b63fd61e7d3d70b996d5af0c32cb47634988faf0ab7047802321144c05c08e9  # [win64]
+    sha256: 773bd088efa11b5e68d67e894c905be6e81679493e08d062a23bed0375567171  # [win64]
     folder: gnu  # [win64]
 
 build:

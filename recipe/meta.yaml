@@ -7,6 +7,8 @@ package:
 source:
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux64]
     sha256: adda26b3f0609dbfbdc2019da4a20101879b9db2134fae322a4e863a069ec221  # [linux64]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
+    sha256: f9ed1bb6525abdd4dd6ef10782ad45d2f71496e0c3c88e806b510c81a91c4ff7  # [ppc64le]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz  # [osx]
     sha256: bd301b78ddcd5d4553962b115e1dca5436dd3755ed323f86f4485769286a8a5a  # [osx]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-i686-pc-windows-msvc.tar.gz  # [win32]

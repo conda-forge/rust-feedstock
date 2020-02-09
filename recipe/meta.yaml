@@ -10,14 +10,14 @@ source:
   url: https://static.rust-lang.org/dist/rust-{{ version }}-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz       # [osx]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz    # [win64]
-  sha256: 343ba8ef7397eab7b3bb2382e5e4cb08835a87bff5c8074382c0b6930a41948b  # [linux and 86_64]
+  sha256: 343ba8ef7397eab7b3bb2382e5e4cb08835a87bff5c8074382c0b6930a41948b  # [linux and x86_64]
   sha256: 79ddfb5e2563d0ee09a567fbbe121a2aed3c3bc61255b2787f2dd42183a10f27  # [aarch64]
   sha256: ba231b0d8273d6928f61e2be3456e816a1de8050135e20c0623dc7a6ea03ba68  # [ppc64le]
   sha256: b6504003ab70b11f278e0243a43ba9d6bf75e8ad6819b4058a2b6e3991cc8d7a  # [osx]
   sha256: 4c43a64e83c28bfb788782b01d95034ecc59bf9846006aa1deb6986c139b9f9d  # [win64]
 
 build:
-  number: 0
+  number: 1
   # the distributed binaries are already relocatable
   binary_relocation: False
 

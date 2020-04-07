@@ -1,4 +1,4 @@
-{% set version = "1.41.0" %}
+{% set version = "1.42.0" %}
 
 package:
   name: rust
@@ -8,18 +8,18 @@ source:
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux and x86_64]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
-  url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz       # [osx]
-  url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz    # [win64]
-  sha256: 343ba8ef7397eab7b3bb2382e5e4cb08835a87bff5c8074382c0b6930a41948b  # [linux and x86_64]
-  sha256: 79ddfb5e2563d0ee09a567fbbe121a2aed3c3bc61255b2787f2dd42183a10f27  # [aarch64]
-  sha256: ba231b0d8273d6928f61e2be3456e816a1de8050135e20c0623dc7a6ea03ba68  # [ppc64le]
-  sha256: b6504003ab70b11f278e0243a43ba9d6bf75e8ad6819b4058a2b6e3991cc8d7a  # [osx]
-  sha256: 4c43a64e83c28bfb788782b01d95034ecc59bf9846006aa1deb6986c139b9f9d  # [win64]
+  url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz  # [osx]
+  url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz  # [win64]
+  sha256: 7d1e07ad9c8a33d8d039def7c0a131c5917aa3ea0af3d0cc399c6faf7b789052  # [linux and x86_64]
+  sha256: fdd39f856a062af265012861949ff6654e2b7103be034d046bec84ebe46e8d2d  # [aarch64]
+  sha256: 805b08fa1e0aad4d706301ca1f13e2d80810d385cece2c15070360b3c4bd6e4a  # [ppc64le]
+  sha256: db1055c46e0d54b99da05e88c71fea21b3897e74a4f5ff9390e934f3f050c0a8  # [osx]
+  sha256: 4a3131ff6d2b04d120069e0ba494a6418db1c691fc8e4627cf1aaf2ffbaf5ad9  # [win64]
 
 build:
-  number: 1
+  number: 0
   # the distributed binaries are already relocatable
-  binary_relocation: False
+  binary_relocation: false
 
 requirements:
   build:

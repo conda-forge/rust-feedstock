@@ -180,6 +180,7 @@ Feedstock Maintainers
 =====================
 
 * [@abhi18av](https://github.com/abhi18av/)
+* [@andfoy](https://github.com/andfoy/)
 * [@dlaehnemann](https://github.com/dlaehnemann/)
 * [@johanneskoester](https://github.com/johanneskoester/)
 * [@pkgw](https://github.com/pkgw/)

@@ -21,7 +21,7 @@ source:
   sha256: a0873a17e8c675096d85a755da386fbd521873b3fb92040ef94e30b90008d504  # [win64]
 
 build:
-  number: 0
+  number: 1
   # the distributed binaries are already relocatable
   binary_relocation: false
 

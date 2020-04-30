@@ -5,6 +5,6 @@ c_compiler_version:
 channel_sources:
 - conda-forge,defaults
 channel_targets:
-- conda-forge main
+- conda-forge rust_dev
 docker_image:
 - condaforge/linux-anvil-comp7

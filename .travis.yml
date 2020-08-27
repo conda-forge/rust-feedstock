@@ -3,10 +3,7 @@
 
 language: generic
 
-env:
-  global:
-    # The BINSTAR_TOKEN secure variable. This is defined canonically in conda-forge.yml.
-    - secure: "ZDAltbTJ2R7qGYSx/Bl2oFa1ePEI7tyDCypO46/3vYB68Fak2xowSaSV6xXFf2ccEVYl3cg+pBljU/kxVc1zW6RrpyrjIX5NmpW35dmsv53zx9nU05QxHsA0r5NernzGzBY8kKW5xptvIgTOMglsluEDSP1ZujosheLSspqHNVEAjFlemNQnWaZj9oLgSlFB4WUIPizQtVct/2dGq9s/28wrpZ1nDicMM+4srNTjRS2s+YmZ67Axqa8tvevMlcdAHj1t09xd/esCSHEQH7H6pwKtcjcNAc/nXiFhXT6WvrXIwcU8s1lRHF1RYbuwb2/eYq6CDJ9p0MEuPwkvNBy3Z0Vnt5KK+JtDrtG0flTPDpJwjGhK1VVJ/NpmZOOc2FSvygqNOAVKxWXPP4nSwnAaz8JUlVMER4v78Ma9+HZCTQOHeQPKLFVhkT1uBRkoTZj1O1zi0T1LRbkO9w4M37uVKdFash76VJDffHep5kwT4jvuRHqh7mI2/5dPOSEyPTTqqtRk2wg39ClUPeOrMdvzBB9EMt34VKnrYpc0lbaco9jcwc+8OldRGD67TAY3NU4RwU0fTJYGoGZtf8lqYW5UerxK2aqUOgzIkZr9DlfDN3vTFiDozG8YNNupi3GNi2TKsaYtenYzHrlv5lCfxg416bCoiHvbtOZFT3f2iA5L2Zs="
+
 
 matrix:
   include:

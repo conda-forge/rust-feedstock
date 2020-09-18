@@ -1,7 +1,7 @@
-{% set version = "1.45.0" %}
+{% set version = "1.48.0" %}
 {% set year = "2020" %}
-{% set month = "04" %}
-{% set day = "28" %}
+{% set month = "09" %}
+{% set day = "18" %}
 
 
 package:
@@ -14,14 +14,14 @@ source:
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx]
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-pc-windows-msvc.tar.gz  # [win64]
-  sha256: 7eb368b884c73e00d6572e3bd4867e901adcf9455531cfa9665c9099cb34ad9d  # [linux and x86_64]
-  sha256: 8a862fb1d908edf945bb569fb89b27ba3fc85c5322bb339a9cf6aa95cb92b674  # [aarch64]
-  sha256: bf6942a2e43edece0f687663b21d39e9cea5c59dd610f6fd7b9d108fc7189330  # [ppc64le]
-  sha256: 7c6bd7d07d81e5c9a03386bfcd2d46827580dd5b74386a923f5041c43221dcb3  # [osx]
-  sha256: a0873a17e8c675096d85a755da386fbd521873b3fb92040ef94e30b90008d504  # [win64]
+  sha256: 72c7f3012f697a9fccc08a05eebadfaa0306ee011ed0818bfe3a29f7afa438e8  # [linux and x86_64]
+  sha256: 567ce4035b45b3256a018140726b11ef44dc95a1fbee1aab3f5c3f2477317541  # [aarch64]
+  sha256: 61d56d103327ebb975084d1014b06f0c5441d92ec2070a1c9096b1b6e8622d51  # [ppc64le]
+  sha256: 0ff0ed7388fc99a483f86fa3218948fa060e1c2babfec3d0f4097ff37086f315  # [osx]
+  sha256: ed7a48a463fda4408056d39a1118993060b6d60eb7b8c925b024ffba6aac8331  # [win64]
 
 build:
-  number: 1
+  number: 0
   # the distributed binaries are already relocatable
   binary_relocation: false
 

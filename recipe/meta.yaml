@@ -18,8 +18,6 @@ source:
 
 build:
   number: 0
-  # the distributed binaries are already relocatable
-  binary_relocation: false
 
 requirements:
   build:
@@ -28,6 +26,7 @@ outputs:
   - name: rust-std-{{ rust_arch }}
     build:
       noarch: generic
+      binary_relocation: false
     script: install-rust-std.sh  # [unix]
     script: install-rust-std.bat  # [win]
     test:
@@ -38,12 +37,16 @@ outputs:
   - name: rust
     script: install-rust.sh  # [unix]
     script: install-rust.bat  # [win]
+    build:
+      # the distributed binaries are already relocatable
+      binary_relocation: false
     requirements:
       host:
         - {{ pin_subpackage("rust-std-" ~ rust_arch, exact=True) }}
+        - {{ compiler('c') }}  # [linux] -- rustc needs a toolchain to link executables
       run:
         - {{ pin_subpackage("rust-std-" ~ rust_arch, exact=True) }}
-        - {{ compiler('c') }}  # [unix] -- rustc needs a toolchain to link executables
+        - gcc_impl_{{ target_platform }}  # [linux]
     test:
       files:
         - forge_test.sh

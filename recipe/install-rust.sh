@@ -18,12 +18,12 @@ case "$target_platform" in
     *) echo "unknown target_platform $target_platform" ; exit 1 ;;
 esac
 
-if [[ "$target_platform" != win* ]]; then
+if [[ "$target_platform" == linux* ]]; then
 
     mkdir -p $PREFIX/etc/conda/activate.d $PREFIX/etc/conda/deactivate.d
 
     cat <<EOF >$PREFIX/etc/conda/activate.d/rust.sh
-export CARGO_TARGET_${rust_env_arch}_LINKER=\$CC
+export CARGO_TARGET_${rust_env_arch}_LINKER=$CC
 EOF
 
     cat <<EOF >$PREFIX/etc/conda/deactivate.d/rust.sh

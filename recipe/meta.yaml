@@ -30,6 +30,10 @@ outputs:
       noarch: generic
     script: install-rust-std.sh  # [unix]
     script: install-rust-std.bat  # [win]
+    test:
+      commands:
+        - test -d $PREFIX/lib/rustlib   # [unix]
+        - if not exist %LIBRARY_PREFIX%/lib/rustlib  # [win]
 
   - name: rust
     script: install-rust.sh  # [unix]

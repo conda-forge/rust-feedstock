@@ -25,7 +25,7 @@ requirements:
   build:
     - posix  # [win]
 outputs:
-  - name: rust-std_{{ target_platform }}
+  - name: rust-std-{{ rust_arch }}
     build:
       noarch: generic
     script: install-rust-std.sh  # [unix]
@@ -40,9 +40,9 @@ outputs:
     script: install-rust.bat  # [win]
     requirements:
       host:
-        - {{ pin_subpackage("rust-std_" ~ target_platform, exact=True) }}
+        - {{ pin_subpackage("rust-std-" ~ rust_arch, exact=True) }}
       run:
-        - {{ pin_subpackage("rust-std_" ~ target_platform, exact=True) }}
+        - {{ pin_subpackage("rust-std-" ~ rust_arch, exact=True) }}
         - {{ compiler('c') }}  # [unix] -- rustc needs a toolchain to link executables
     test:
       files:

@@ -19,14 +19,14 @@ source:
 build:
   number: 0
 
-requirements:
-  build:
-    - posix  # [win]
 outputs:
   - name: rust-std-{{ rust_arch }}
     build:
       noarch: generic
       binary_relocation: false
+    requirements:
+      build:
+        - posix  # [win]
     script: install-rust-std.sh  # [unix]
     script: install-rust-std.bat  # [win]
     test:
@@ -41,6 +41,8 @@ outputs:
       # the distributed binaries are already relocatable
       binary_relocation: false
     requirements:
+      build:
+        - posix  # [win]
       host:
         - {{ pin_subpackage("rust-std-" ~ rust_arch, exact=True) }}
         - {{ compiler('c') }}  # [linux] -- rustc needs a toolchain to link executables

@@ -55,11 +55,15 @@ outputs:
     test:
       requires:
         - posix  # [win]
-      files:
-        - forge_test.sh
       commands:
-        - time bash ./forge_test.sh  # [not win]
-        - bash forge_test.sh  # [win]
+        - set "REQUESTS_CA_BUNDLE="  # [win]
+        - set "SSL_CERT_FILE="       # [win]
+        - unset REQUESTS_CA_BUNDLE  # [unix]
+        - unset SSL_CERT_FILE       # [unix]
+        - rustc --help
+        - rustdoc --help
+        - cargo --help
+        - cargo install --force xsv
 
 about:
   home: https://www.rust-lang.org

@@ -2,6 +2,9 @@
 
 set -ex
 
+# windows shell doesn't start here
+cd $SRC_DIR
+
 DESTDIR=$PWD/destdir/
 
 # we want to install only a portion of the full installation.

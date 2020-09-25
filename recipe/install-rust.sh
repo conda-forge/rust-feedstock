@@ -2,6 +2,9 @@
 
 set -ex
 
+# windows shell doesn't start here
+cd $SRC_DIR
+
 ./install.sh --prefix=$PREFIX
 
 # Fun times -- by default, Rust/Cargo tries to link executables on Linux by

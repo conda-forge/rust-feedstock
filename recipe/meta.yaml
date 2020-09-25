@@ -24,15 +24,18 @@ outputs:
     build:
       noarch: generic
       binary_relocation: false
+      merge_build_host: false
     requirements:
       build:
         - posix  # [win]
+      host:
+      run:
     script: install-rust-std.sh  # [unix]
     script: install-rust-std.bat  # [win]
     test:
       commands:
         - test -d $PREFIX/lib/rustlib   # [unix]
-        - if not exist %LIBRARY_PREFIX%/lib/rustlib  # [win]
+        - if not exist %LIBRARY_PREFIX%/lib/rustlib exit 1  # [win]
 
   - name: rust
     script: install-rust.sh  # [unix]
@@ -50,6 +53,8 @@ outputs:
         - {{ pin_subpackage("rust-std-" ~ rust_arch, exact=True) }}
         - gcc_impl_{{ target_platform }}  # [linux]
     test:
+      requires:
+        - posix
       files:
         - forge_test.sh
       commands:

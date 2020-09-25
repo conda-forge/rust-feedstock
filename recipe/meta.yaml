@@ -54,7 +54,7 @@ outputs:
         - gcc_impl_{{ target_platform }}  # [linux]
     test:
       requires:
-        - posix
+        - posix  # [win]
       files:
         - forge_test.sh
       commands:

@@ -1,38 +1,69 @@
 {% set version = "1.46.0" %}
 
 package:
-  name: rust
+  name: rust-split
   version: {{ version }}
 
 source:
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux and x86_64]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
-  url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz  # [osx]
+  url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz  # [win64]
   sha256: e3b98bc3440fe92817881933f9564389eccb396f5f431f33d48b979fa2fbdcf5  # [linux and x86_64]
   sha256: f0c6d630f3dedb3db69d69ed9f833aa6b472363096f5164f1068c7001ca42aeb  # [aarch64]
   sha256: 89e2f4761d257f017a4b6aa427f36ac0603195546fa2cfded8c899789832941c  # [ppc64le]
-  sha256: 82d61582a3772932432a99789c3b3bd4abe6baca339e355048ca9efb9ea5b4db  # [osx]
+  sha256: 82d61582a3772932432a99789c3b3bd4abe6baca339e355048ca9efb9ea5b4db  # [osx and x86_64]
   sha256: 3545eb66ed7c6222ca4eb9e990d4bef63edbac9b580387bf7035501ee35d453f  # [win64]
 
 build:
   number: 0
-  # the distributed binaries are already relocatable
-  binary_relocation: false
 
-requirements:
-  build:
-    - posix  # [win]
-  run:
-    - {{ compiler('c') }}  # [linux] -- rustc needs a toolchain to link executables on Linux
+outputs:
+  - name: rust-std-{{ rust_arch }}
+    build:
+      noarch: generic
+      binary_relocation: false
+      merge_build_host: false
+    requirements:
+      build:
+        - posix  # [win]
+      host:
+      run:
+    script: install-rust-std.sh  # [unix]
+    script: install-rust-std.bat  # [win]
+    test:
+      commands:
+        - test -d $PREFIX/lib/rustlib   # [unix]
+        - if not exist %LIBRARY_PREFIX%/lib/rustlib exit 1  # [win]
 
-test:
-  files:
-    - forge_test.sh
-  commands:
-    - time bash ./forge_test.sh  # [not win]
-    - bash forge_test.sh  # [win]
+  - name: rust
+    script: install-rust.sh  # [unix]
+    script: install-rust.bat  # [win]
+    build:
+      # the distributed binaries are already relocatable
+      binary_relocation: false
+    requirements:
+      build:
+        - posix  # [win]
+      host:
+        - {{ pin_subpackage("rust-std-" ~ rust_arch, exact=True) }}
+        - {{ compiler('c') }}  # [linux] -- rustc needs a toolchain to link executables
+      run:
+        - {{ pin_subpackage("rust-std-" ~ rust_arch, exact=True) }}
+        - gcc_impl_{{ target_platform }}  # [linux]
+    test:
+      requires:
+        - posix  # [win]
+      commands:
+        - set "REQUESTS_CA_BUNDLE="  # [win]
+        - set "SSL_CERT_FILE="       # [win]
+        - unset REQUESTS_CA_BUNDLE  # [unix]
+        - unset SSL_CERT_FILE       # [unix]
+        - rustc --help
+        - rustdoc --help
+        - cargo --help
+        - cargo install --force xsv
 
 about:
   home: https://www.rust-lang.org

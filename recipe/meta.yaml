@@ -17,7 +17,7 @@ source:
   sha256: 3545eb66ed7c6222ca4eb9e990d4bef63edbac9b580387bf7035501ee35d453f  # [win64]
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: rust-std-{{ rust_arch }}
@@ -83,3 +83,4 @@ extra:
     - abhi18av
     - pkgw
     - dlaehnemann
+    - isuruf

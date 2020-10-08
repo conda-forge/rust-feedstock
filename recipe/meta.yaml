@@ -3,7 +3,6 @@
 {% set month = "09" %}
 {% set day = "18" %}
 
-
 package:
   name: rust
   version: {{ version }}.dev{{ year }}{{ month }}{{ day }}
@@ -21,22 +20,53 @@ source:
   sha256: ed7a48a463fda4408056d39a1118993060b6d60eb7b8c925b024ffba6aac8331  # [win64]
 
 build:
-  number: 0
-  # the distributed binaries are already relocatable
-  binary_relocation: false
+  number: 1
 
-requirements:
-  build:
-    - posix  # [win]
-  run:
-    - {{ compiler('c') }}  # [linux] -- rustc needs a toolchain to link executables on Linux
+outputs:
+  - name: rust-std-{{ rust_arch }}
+    build:
+      noarch: generic
+      binary_relocation: false
+      merge_build_host: false
+    requirements:
+      build:
+        - posix  # [win]
+      host:
+      run:
+    script: install-rust-std.sh  # [unix]
+    script: install-rust-std.bat  # [win]
+    test:
+      commands:
+        - test -d $PREFIX/lib/rustlib   # [unix]
+        - if not exist %LIBRARY_PREFIX%/lib/rustlib exit 1  # [win]
 
-test:
-  files:
-    - forge_test.sh
-  commands:
-    - time bash ./forge_test.sh  # [not win]
-    - bash forge_test.sh  # [win]
+  - name: rust
+    script: install-rust.sh  # [unix]
+    script: install-rust.bat  # [win]
+    build:
+      # the distributed binaries are already relocatable
+      binary_relocation: false
+    requirements:
+      build:
+        - posix  # [win]
+      host:
+        - {{ pin_subpackage("rust-std-" ~ rust_arch, exact=True) }}
+        - {{ compiler('c') }}  # [linux] -- rustc needs a toolchain to link executables
+      run:
+        - {{ pin_subpackage("rust-std-" ~ rust_arch, exact=True) }}
+        - gcc_impl_{{ target_platform }}  # [linux]
+    test:
+      requires:
+        - posix  # [win]
+      commands:
+        - set "REQUESTS_CA_BUNDLE="  # [win]
+        - set "SSL_CERT_FILE="       # [win]
+        - unset REQUESTS_CA_BUNDLE  # [unix]
+        - unset SSL_CERT_FILE       # [unix]
+        - rustc --help
+        - rustdoc --help
+        - cargo --help
+        - cargo install --force xsv
 
 about:
   home: https://www.rust-lang.org
@@ -56,4 +86,4 @@ extra:
     - abhi18av
     - pkgw
     - dlaehnemann
-    - andfoy
+    - isuruf

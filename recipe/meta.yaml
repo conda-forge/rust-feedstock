@@ -4,7 +4,7 @@
 {% set day = "18" %}
 
 package:
-  name: rust
+  name: rust-split
   version: {{ version }}.dev{{ year }}{{ month }}{{ day }}
 
 source:

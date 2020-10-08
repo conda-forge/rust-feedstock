@@ -5,13 +5,15 @@ Home: https://www.rust-lang.org
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/rust-feedstock/blob/master/LICENSE.txt)
 
 Summary: Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.
 This package provides the compiler (rustc) and the documentation utilities rustdoc.
 
 
+Development: https://doc.rust-lang.org/std/
 
+Documentation: https://www.rust-lang.org/en-US/documentation.html
 
 Current build status
 ====================

@@ -8,3 +8,5 @@ channel_targets:
 - conda-forge rust_dev
 docker_image:
 - condaforge/linux-anvil-ppc64le
+target_platform:
+- linux-ppc64le

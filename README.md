@@ -5,13 +5,15 @@ Home: https://www.rust-lang.org
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/rust-feedstock/blob/master/LICENSE.txt)
 
 Summary: Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.
 This package provides the compiler (rustc) and the documentation utilities rustdoc.
 
 
+Development: https://doc.rust-lang.org/std/
 
+Documentation: https://www.rust-lang.org/en-US/documentation.html
 
 Current build status
 ====================
@@ -45,38 +47,38 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux</td>
+              <td>linux_64_target_platformlinux-64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master&jobName=linux&configuration=linux_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master&jobName=linux&configuration=linux_64_target_platformlinux-64" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64</td>
+              <td>linux_aarch64_target_platformlinux-aarch64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master&jobName=linux&configuration=linux_aarch64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master&jobName=linux&configuration=linux_aarch64_target_platformlinux-aarch64" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le</td>
+              <td>linux_ppc64le_target_platformlinux-ppc64le</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master&jobName=linux&configuration=linux_ppc64le_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master&jobName=linux&configuration=linux_ppc64le_target_platformlinux-ppc64le" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx</td>
+              <td>osx_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master&jobName=osx&configuration=osx_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master&jobName=osx&configuration=osx_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win</td>
+              <td>win_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master&jobName=win&configuration=win_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master&jobName=win&configuration=win_64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -93,6 +95,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-rust-green.svg)](https://anaconda.org/conda-forge/rust) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rust.svg)](https://anaconda.org/conda-forge/rust) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rust.svg)](https://anaconda.org/conda-forge/rust) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rust.svg)](https://anaconda.org/conda-forge/rust) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-rust--std--x86_64--unknown--linux--gnu-green.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-unknown-linux-gnu) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rust-std-x86_64-unknown-linux-gnu.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-unknown-linux-gnu) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rust-std-x86_64-unknown-linux-gnu.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-unknown-linux-gnu) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rust-std-x86_64-unknown-linux-gnu.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-unknown-linux-gnu) |
 
 Installing rust
 ===============
@@ -103,10 +106,10 @@ Installing `rust` from the `conda-forge` channel can be achieved by adding `cond
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `rust` can be installed with:
+Once the `conda-forge` channel has been enabled, `rust, rust-std-x86_64-unknown-linux-gnu` can be installed with:
 
 ```
-conda install rust
+conda install rust rust-std-x86_64-unknown-linux-gnu
 ```
 
 It is possible to list all of the versions of `rust` available on your platform with:
@@ -180,8 +183,8 @@ Feedstock Maintainers
 =====================
 
 * [@abhi18av](https://github.com/abhi18av/)
-* [@andfoy](https://github.com/andfoy/)
 * [@dlaehnemann](https://github.com/dlaehnemann/)
+* [@isuruf](https://github.com/isuruf/)
 * [@johanneskoester](https://github.com/johanneskoester/)
 * [@pkgw](https://github.com/pkgw/)
 

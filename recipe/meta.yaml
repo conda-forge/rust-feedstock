@@ -1,7 +1,7 @@
-{% set version = "1.48.0" %}
+{% set version = "1.49.0" %}
 {% set year = "2020" %}
-{% set month = "09" %}
-{% set day = "18" %}
+{% set month = "10" %}
+{% set day = "14" %}
 
 package:
   name: rust-split
@@ -11,16 +11,18 @@ source:
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-unknown-linux-gnu.tar.gz  # [linux and x86_64]
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
-  url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx]
+  url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
+  url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-aarch64-apple-darwin.tar.gz  # [osx and arm64]
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-pc-windows-msvc.tar.gz  # [win64]
-  sha256: 72c7f3012f697a9fccc08a05eebadfaa0306ee011ed0818bfe3a29f7afa438e8  # [linux and x86_64]
-  sha256: 567ce4035b45b3256a018140726b11ef44dc95a1fbee1aab3f5c3f2477317541  # [aarch64]
-  sha256: 61d56d103327ebb975084d1014b06f0c5441d92ec2070a1c9096b1b6e8622d51  # [ppc64le]
-  sha256: 0ff0ed7388fc99a483f86fa3218948fa060e1c2babfec3d0f4097ff37086f315  # [osx]
-  sha256: ed7a48a463fda4408056d39a1118993060b6d60eb7b8c925b024ffba6aac8331  # [win64]
+  sha256: cf9c88c23ede694d8f06201a1c52b7a6c15d698fccf33b1328eaa31d3f19955d  # [win64]
+  sha256: 07f3765185018e5a6dfceaffb367fb62987fb1a53e8656e7edb5e7529c7660cd  # [osx and x86_64]
+  sha256: f08b7cff380355c831d8205ea3a35ba8f42021447edb3986aa01528f2767c7bb  # [linux and x86_64]
+  sha256: 9ea07ddd877d9a04465b59e10b7ac8aadd55345dfdef9f0537c58cb6674e0d90  # [linux and aarch64]
+  sha256: b49730d24b07633d9914b1ac5b1e59c945b8393fc5e69a92aacd6f71d09d5aa3  # [linux and ppc64le]
+  sha256: 5939385197f37366aecfdd61cf60a32baa8f1e292443302fa1c82bb6e4956b41  # [osx and arm64]
 
 build:
-  number: 1
+  number: 0
 
 outputs:
   - name: rust-std-{{ rust_arch }}
@@ -46,6 +48,7 @@ outputs:
     build:
       # the distributed binaries are already relocatable
       binary_relocation: false
+      skip: True  # [osx and arm64]
     requirements:
       build:
         - posix  # [win]

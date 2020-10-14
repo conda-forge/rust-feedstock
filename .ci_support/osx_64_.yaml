@@ -6,5 +6,7 @@ channel_targets:
 - conda-forge rust_dev
 macos_machine:
 - x86_64-apple-darwin13.4.0
+rust_arch:
+- x86_64-apple-darwin
 target_platform:
 - osx-64

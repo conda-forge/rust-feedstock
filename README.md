@@ -1,5 +1,5 @@
-About rust
-==========
+About rust-split
+================
 
 Home: https://www.rust-lang.org
 
@@ -75,6 +75,13 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>osx_arm64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master&jobName=osx&configuration=osx_arm64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>win_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=master">
@@ -97,10 +104,10 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-rust-green.svg)](https://anaconda.org/conda-forge/rust) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rust.svg)](https://anaconda.org/conda-forge/rust) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rust.svg)](https://anaconda.org/conda-forge/rust) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rust.svg)](https://anaconda.org/conda-forge/rust) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-rust--std--x86_64--unknown--linux--gnu-green.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-unknown-linux-gnu) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rust-std-x86_64-unknown-linux-gnu.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-unknown-linux-gnu) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rust-std-x86_64-unknown-linux-gnu.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-unknown-linux-gnu) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rust-std-x86_64-unknown-linux-gnu.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-unknown-linux-gnu) |
 
-Installing rust
-===============
+Installing rust-split
+=====================
 
-Installing `rust` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `rust-split` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
@@ -157,17 +164,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating rust-feedstock
-=======================
+Updating rust-split-feedstock
+=============================
 
-If you would like to improve the rust recipe or build a new
+If you would like to improve the rust-split recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/rust-feedstock are
+Note that all branches in the conda-forge/rust-split-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.

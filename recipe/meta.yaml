@@ -1,7 +1,7 @@
 {% set version = "1.49.0" %}
 {% set year = "2020" %}
 {% set month = "10" %}
-{% set day = "14" %}
+{% set day = "15" %}
 
 package:
   name: rust-split
@@ -12,14 +12,14 @@ source:
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
-  url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-aarch64-apple-darwin.tar.gz  # [osx and arm64]
+  url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-apple-darwin.tar.gz  # [osx and arm64]
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-pc-windows-msvc.tar.gz  # [win64]
-  sha256: cf9c88c23ede694d8f06201a1c52b7a6c15d698fccf33b1328eaa31d3f19955d  # [win64]
-  sha256: 07f3765185018e5a6dfceaffb367fb62987fb1a53e8656e7edb5e7529c7660cd  # [osx and x86_64]
-  sha256: f08b7cff380355c831d8205ea3a35ba8f42021447edb3986aa01528f2767c7bb  # [linux and x86_64]
-  sha256: 9ea07ddd877d9a04465b59e10b7ac8aadd55345dfdef9f0537c58cb6674e0d90  # [linux and aarch64]
-  sha256: b49730d24b07633d9914b1ac5b1e59c945b8393fc5e69a92aacd6f71d09d5aa3  # [linux and ppc64le]
-  sha256: 5939385197f37366aecfdd61cf60a32baa8f1e292443302fa1c82bb6e4956b41  # [osx and arm64]
+  sha256: 3bc05213aa16109d5f26cb4106ab1cac620250e7c4df04fa3933c8e0b921c317  # [win64]
+  sha256: 18b5078dab989d78204e54a7326ac742c1625621b20b1fdae0eaa247acfb15c6  # [osx and x86_64]
+  sha256: 4e7eb6ec5764b6d2c9c1dbd44785617ecf360f01a88215c0b3c4509452a74d1b  # [linux and x86_64]
+  sha256: 3acc72c36d5567f8bc343a7626eacaf129ddad785b6af9e8b8e86270ad9824db  # [linux and aarch64]
+  sha256: 2c443c6706b68f51b1c6f92358853ba6b4a88fb6daa9b6c0af44f02bd7b16ba6  # [linux and ppc64le]
+  sha256: 033dfc5928a4b56c771a2cebb7bfd28fb3b56c79beec98e94d2a1c420c3c1efc  # [osx and arm64]
 
 build:
   number: 0
@@ -48,7 +48,6 @@ outputs:
     build:
       # the distributed binaries are already relocatable
       binary_relocation: false
-      skip: True  # [osx and arm64]
     requirements:
       build:
         - posix  # [win]

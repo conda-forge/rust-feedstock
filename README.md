@@ -75,6 +75,13 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>osx_arm64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master&jobName=osx&configuration=osx_arm64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>win_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=master">
@@ -95,7 +102,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-rust-green.svg)](https://anaconda.org/conda-forge/rust) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rust.svg)](https://anaconda.org/conda-forge/rust) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rust.svg)](https://anaconda.org/conda-forge/rust) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rust.svg)](https://anaconda.org/conda-forge/rust) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-rust--std--x86_64--unknown--linux--gnu-green.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-unknown-linux-gnu) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rust-std-x86_64-unknown-linux-gnu.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-unknown-linux-gnu) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rust-std-x86_64-unknown-linux-gnu.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-unknown-linux-gnu) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rust-std-x86_64-unknown-linux-gnu.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-unknown-linux-gnu) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-rust--std--x86_64--apple--darwin-green.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-apple-darwin) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rust-std-x86_64-apple-darwin.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-apple-darwin) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rust-std-x86_64-apple-darwin.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-apple-darwin) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rust-std-x86_64-apple-darwin.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-apple-darwin) |
 
 Installing rust-split
 =====================
@@ -106,10 +113,10 @@ Installing `rust-split` from the `conda-forge` channel can be achieved by adding
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `rust, rust-std-x86_64-unknown-linux-gnu` can be installed with:
+Once the `conda-forge` channel has been enabled, `rust, rust-std-x86_64-apple-darwin` can be installed with:
 
 ```
-conda install rust rust-std-x86_64-unknown-linux-gnu
+conda install rust rust-std-x86_64-apple-darwin
 ```
 
 It is possible to list all of the versions of `rust` available on your platform with:

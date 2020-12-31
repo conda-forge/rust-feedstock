@@ -1,12 +1,12 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '10.9'
+- '11.0'
 channel_sources:
-- conda-forge,defaults
+- conda-forge/label/rust_dev,conda-forge
 channel_targets:
 - conda-forge main
 macos_machine:
-- x86_64-apple-darwin13.4.0
+- arm64-apple-darwin20.0.0
 rust_arch:
-- x86_64-apple-darwin
+- aarch64-apple-darwin
 target_platform:
-- osx-64
+- osx-arm64

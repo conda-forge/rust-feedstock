@@ -38,6 +38,7 @@ outputs:
       commands:
         - test -d $PREFIX/lib/rustlib   # [unix]
         - if not exist %LIBRARY_PREFIX%/lib/rustlib exit 1  # [win]
+        - echo {{ rust_arch }}
 
   - name: rust
     script: install-rust.sh  # [unix]
@@ -66,6 +67,7 @@ outputs:
         - rustdoc --help
         - cargo --help
         - cargo install --force xsv
+        - echo {{ rust_arch }}
 
 about:
   home: https://www.rust-lang.org

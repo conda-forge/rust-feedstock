@@ -9,11 +9,13 @@ source:
   url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
+  url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-apple-darwin.tar.gz  # [osx and arm64]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz  # [win64]
   sha256: 8b14446df82f3707d69cf58fed92f18e0bff91621c62baf89288ef70e3e92981  # [linux and x86_64]
   sha256: b551bd482041307fa3373a687d6d6a2c4c0931c2e0a68b8b75dc80bc5cf5f002  # [aarch64]
   sha256: 365d7721dd2521e5dad12aa73651bad2be375e798e443636d2c523cad5b54359  # [ppc64le]
   sha256: fe3e248bc4b0ee0a2595693687ad845c8a8bda824a56c9321520bcca02433716  # [osx and x86_64]
+  sha256: ce7d689e6f73dd9c07b672ba23dabe5159fa8c194dce71b4f3f95baeaf564082  # [osx and arm64]
   sha256: 5340831dcf98344de4a6888b50237f82568a97a46d9814f1400720dde0c7b6e5  # [win64]
 
 build:

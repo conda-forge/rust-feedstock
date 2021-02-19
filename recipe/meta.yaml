@@ -21,6 +21,11 @@ source:
 build:
   number: 0
 
+requirements:
+  build:
+    - posix  # [win]
+  host:
+
 outputs:
   - name: rust-std-{{ rust_arch }}
     build:

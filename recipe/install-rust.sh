@@ -5,7 +5,10 @@ set -ex
 # windows shell doesn't start here
 cd $SRC_DIR
 
-./install.sh --prefix=$PREFIX
+DESTDIR=$PWD/destdir/
+
+# Copy everything that has been prepared by build.sh from DESTDIR to PREFIX.
+cp -aR "${DESTDIR}${PREFIX}"/* "${PREFIX}/"
 
 # Fun times -- by default, Rust/Cargo tries to link executables on Linux by
 # invoking `cc`. An executable of this name is not necessarily available. By

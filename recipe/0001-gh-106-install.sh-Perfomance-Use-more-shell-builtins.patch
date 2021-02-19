@@ -7,13 +7,13 @@ Replace echo/grep/cut/dirname/basename by variable substitutions and
 case pattern matching to reduce the amount of subprocesses called for
 every copied file.
 ---
- install-template.sh | 91 +++++++++++++++++++--------------------------
+ install.sh | 91 +++++++++++++++++++--------------------------
  1 file changed, 38 insertions(+), 53 deletions(-)
 
-diff --git a/install-template.sh b/install-template.sh
-index e68be89..3120e5d 100644
---- a/install-template.sh
-+++ b/install-template.sh
+diff --git a/install.sh b/install.sh
+index e68be89..3120e5d 100755
+--- a/install.sh
++++ b/install.sh
 @@ -174,11 +174,11 @@ valopt() {
          eval $v="$default"
          for arg in $CFG_ARGS

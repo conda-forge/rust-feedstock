@@ -13,7 +13,7 @@ channel_sources:
 channel_targets:
 - conda-forge main
 docker_image:
-- quay.io/condaforge/linux-anvil-aarch64
+- quay.io/condaforge/linux-anvil-comp7
 rust_arch:
 - aarch64-unknown-linux-gnu
 target_platform:

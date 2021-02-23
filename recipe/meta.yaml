@@ -53,6 +53,9 @@ outputs:
     build:
       # the distributed binaries are already relocatable
       binary_relocation: false
+    run_exports:
+      strong_constrains:
+        - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
     requirements:
       build:
         - posix  # [win]
@@ -62,7 +65,6 @@ outputs:
       run:
         - {{ pin_subpackage("rust-std-" ~ rust_arch, exact=True) }}
         - gcc_impl_{{ target_platform }}  # [linux]
-        - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
     test:
       requires:
         - posix  # [win]

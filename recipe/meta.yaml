@@ -1,7 +1,7 @@
-{% set version = "1.49.0" %}
-{% set year = "2020" %}
-{% set month = "10" %}
-{% set day = "15" %}
+{% set version = "1.53.0" %}
+{% set year = "2021" %}
+{% set month = "03" %}
+{% set day = "24" %}
 
 package:
   name: rust-split
@@ -14,12 +14,12 @@ source:
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-apple-darwin.tar.gz  # [osx and arm64]
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-pc-windows-msvc.tar.gz  # [win64]
-  sha256: 3bc05213aa16109d5f26cb4106ab1cac620250e7c4df04fa3933c8e0b921c317  # [win64]
-  sha256: 18b5078dab989d78204e54a7326ac742c1625621b20b1fdae0eaa247acfb15c6  # [osx and x86_64]
-  sha256: 4e7eb6ec5764b6d2c9c1dbd44785617ecf360f01a88215c0b3c4509452a74d1b  # [linux and x86_64]
-  sha256: 3acc72c36d5567f8bc343a7626eacaf129ddad785b6af9e8b8e86270ad9824db  # [linux and aarch64]
-  sha256: 2c443c6706b68f51b1c6f92358853ba6b4a88fb6daa9b6c0af44f02bd7b16ba6  # [linux and ppc64le]
-  sha256: 033dfc5928a4b56c771a2cebb7bfd28fb3b56c79beec98e94d2a1c420c3c1efc  # [osx and arm64]
+  sha256: 66df4113d438bcfacfae059eedd02546a61038de2c5baf8ea74e32e3f75e6e5c  # [win64]
+  sha256: 8a44b101f9467ef83dc412710501a3d6da2d939ba5a3772e8248515364218be6  # [osx and x86_64]
+  sha256: ac81df963e7dced9fdbb849f8312d56e2d11be35350ad83d01d5dd3a15f40191  # [linux and x86_64]
+  sha256: 2b3d12bfae92667eca2c3e230601c000766b3c772292b6d612f0ae3618de9f6f  # [linux and aarch64]
+  sha256: 84f6d5131167a643f1504126452da3f0d462850b647d33289907cc98cb242eef  # [linux and ppc64le]
+  sha256: 7e729e47dd66784eda98016ec2a33bcd217f2340dc1dc38ec79c4c8d4c40fb7b  # [osx and arm64]
 
 build:
   number: 0

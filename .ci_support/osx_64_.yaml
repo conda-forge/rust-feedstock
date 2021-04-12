@@ -5,7 +5,7 @@ MACOSX_SDK_VERSION:
 channel_sources:
 - conda-forge,defaults
 channel_targets:
-- conda-forge rust_dev
+- conda-forge main
 macos_machine:
 - x86_64-apple-darwin13.4.0
 rust:

@@ -1,4 +1,4 @@
-{% set version = "1.40.0" %}
+{% set version = "1.46.0" %}
 
 package:
   name: 'rust-suite'
@@ -6,29 +6,28 @@ package:
 
 source:
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux64]
-    sha256: fc91f8b4bd18314e83a617f2389189fc7959146b7177b773370d62592d4b07d0  # [linux64]
+    sha256: e3b98bc3440fe92817881933f9564389eccb396f5f431f33d48b979fa2fbdcf5  # [linux64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
-    sha256: b1a23e35c383f99e647df6a9239b1dc9313e293deb70a76ba58e8ebe55ef623b  # [ppc64le]
+    sha256: 89e2f4761d257f017a4b6aa427f36ac0603195546fa2cfded8c899789832941c  # [ppc64le]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-s390x-unknown-linux-gnu.tar.gz  # [s390x]
-    sha256: a8ca446b60624c1047014df915e65a03b00c0392e3c0d3661f14a342a523e4a1  # [s390x]
+    sha256: f7e5009f6336da94b43e23e4955d50db90ef3136ce47f21b8e25416cad8b3b2f  # [s390x]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz  # [osx]
-    sha256: 749ca5e0b94550369cc998416b8854c13157f5d11d35e9b3276064b6766bcb83  # [osx]
+    sha256: 82d61582a3772932432a99789c3b3bd4abe6baca339e355048ca9efb9ea5b4db  # [osx]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-i686-pc-windows-msvc.tar.gz  # [win32]
-    sha256: ae237dee13530535e03c426b49ccbc94a1604c6a07db6b0c1567d7fbb7e2b9f9  # [win32]
+    sha256: 7b8fef02ea2d95c18da7045bdd54f196d18d24155ee65f555c9005e14dda8c03  # [win32]
     folder: msvc  # [win32]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-i686-pc-windows-gnu.tar.gz  # [win32]
-    sha256: aecd5fa8b1a074272e869d9385543f0760dedd9675c9051dc09892b8a199a8dd  # [win32]
+    sha256: ade9a4f8014c048173136bf85f01484f75dda27941c65f86329211981d43aa2c  # [win32]
     folder: gnu  # [win32]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz  # [win64]
-    sha256: 64d98af9b9114a3aaea096ba74c43cad75a2502fb682e941b4701f5d2a2b9272  # [win64]
+    sha256: 3545eb66ed7c6222ca4eb9e990d4bef63edbac9b580387bf7035501ee35d453f  # [win64]
     folder: msvc  # [win64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-gnu.tar.gz  # [win64]
-    sha256: 773bd088efa11b5e68d67e894c905be6e81679493e08d062a23bed0375567171  # [win64]
+    sha256: 41802cbda80e417c8f9d6bc3feefb1eb0fe7f996798491b1abbf914e0bdedaed  # [win64]
     folder: gnu  # [win64]
 
 build:
-  # Skipping build 1 to align with conda-forge better (if merge a PR quickly).
-  number: 1
+  number: 0
   # the distributed binaries are already relocatable
   binary_relocation: False
   runpath_whitelist:
@@ -57,11 +56,13 @@ build:
     - '**/ld-linux-x86-64.so.2'
     - '**/libc.so.6'
     - '**/libdl.so.2'
+    - '**/ld64.so.2'
     - '**/libgcc_s.so.1'
     - '**/libm.so.6'
     - '**/libpthread.so.0'
     - '**/librt.so.1'
     - '**/libgcc_s.so.1'
+    - '**/libz.so.1'
     # Since 1.32.0 linux also needs:
     - '**/libstdc++.so.6'
 

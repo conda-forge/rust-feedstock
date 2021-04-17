@@ -9,7 +9,7 @@ function cygpath()
   fi
 }
 
-pushd gnu
+pushd $(cygpath $SRC_DIR)/gnu
 
 PATH="${PWD}:$PATH" ./install.sh --prefix=$(cygpath ${PREFIX})
 

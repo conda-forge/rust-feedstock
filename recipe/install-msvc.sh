@@ -9,7 +9,7 @@ function cygpath()
   fi
 }
 
-pushd msvc
+pushd $(cygpath $SRC_DIR)/msvc
 
 PATH="${PWD}:$PATH" ./install.sh --prefix=$(cygpath ${PREFIX})
 

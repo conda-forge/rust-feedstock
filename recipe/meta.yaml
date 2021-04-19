@@ -7,6 +7,8 @@ package:
 source:
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux64]
     sha256: e3b98bc3440fe92817881933f9564389eccb396f5f431f33d48b979fa2fbdcf5  # [linux64]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]
+    sha256: f0c6d630f3dedb3db69d69ed9f833aa6b472363096f5164f1068c7001ca42aeb  # [aarch64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
     sha256: 89e2f4761d257f017a4b6aa427f36ac0603195546fa2cfded8c899789832941c  # [ppc64le]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-s390x-unknown-linux-gnu.tar.gz  # [s390x]

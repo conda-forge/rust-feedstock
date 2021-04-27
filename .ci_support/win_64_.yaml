@@ -1,6 +1,8 @@
 channel_sources:
 - conda-forge,defaults
 channel_targets:
-- conda-forge rust_dev
+- conda-forge main
+rust_arch:
+- x86_64-pc-windows-msvc
 target_platform:
 - win-64

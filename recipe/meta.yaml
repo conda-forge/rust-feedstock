@@ -1,4 +1,4 @@
-{% set version = "1.51.0" %}
+{% set version = "1.52.0" %}
 
 package:
   name: rust-split
@@ -11,12 +11,12 @@ source:
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-apple-darwin.tar.gz  # [osx and arm64]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz  # [win64]
-  sha256: 9e125977aa13f012a68fdc6663629c685745091ae244f0587dd55ea4e3a3e42f  # [linux and x86_64]
-  sha256: fd31c78fffad52c03cac5a7c1ee5db3f34b2a77d7bc862707c0f71e209180a84  # [aarch64]
-  sha256: 7362f561104d7be4836507d3a53cd39444efcdf065813d559beb1f54ce9f7680  # [ppc64le]
-  sha256: 765212098a415996b767d1e372ce266caf94027402b269fec33291fffc085ca4  # [osx and x86_64]
-  sha256: 95d0410bbd20b05f8b7d5adf70e8737873995bc86611a90e643d7081ca35147f  # [osx and arm64]
-  sha256: aa0a7c78c68a2f23b72a95976f74aa5b883feb20812698b8ee0b07a86314ebc5  # [win64]
+  sha256: c082b5eea81206ff207407b41a10348282362dd972e93c86b054952b66ca0e2b  # [linux and x86_64]
+  sha256: d37152f9da1074cfa84407ff183ce0dfb298f2e474d5b0ae3a3065d44c442770  # [aarch64]
+  sha256: 5145c4592a6fbc74f3a8c74cfed961d0ea2028740c841a6f2e9f4e0b5cd96858  # [ppc64le]
+  sha256: 18906ea9ef6d7afc493f0c4403ece9fb466b0971db8d37d837864676ef9b077b  # [osx and x86_64]
+  sha256: 3aa15896dd85d1746a23af1b9764b55edb3659823ec20f306a5f30271c6bac5d  # [osx and arm64]
+  sha256: 53ad54808b1320aff5cc772f007a7f6570afceeb9c5b70b4b09fec9363610d59  # [win64]
   patches:
     - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.diff
 

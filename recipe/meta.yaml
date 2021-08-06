@@ -1,4 +1,4 @@
-{% set version = "1.46.0" %}
+{% set version = "1.54.0" %}
 
 package:
   name: 'rust-suite'
@@ -6,26 +6,26 @@ package:
 
 source:
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux64]
-    sha256: e3b98bc3440fe92817881933f9564389eccb396f5f431f33d48b979fa2fbdcf5  # [linux64]
+    sha256: 350354495b1d4b6dd2ec7cf96aa9bc61d031951cf667a31e8cf401dc508639e6  # [linux64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]
-    sha256: f0c6d630f3dedb3db69d69ed9f833aa6b472363096f5164f1068c7001ca42aeb  # [aarch64]
+    sha256: 33a50c5366a57aaab43c1c19e4a49ab7d8ffcd99a72925c315fb1f9389139e6f  # [aarch64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
-    sha256: 89e2f4761d257f017a4b6aa427f36ac0603195546fa2cfded8c899789832941c  # [ppc64le]
+    sha256: 67cadf7ac5bd2e3d5fb4baede69846059f17c4e099f771329b266d08b875ed71  # [ppc64le]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-s390x-unknown-linux-gnu.tar.gz  # [s390x]
-    sha256: f7e5009f6336da94b43e23e4955d50db90ef3136ce47f21b8e25416cad8b3b2f  # [s390x]
+    sha256: f95e8b6b84d6685c95f048d81db241af759cd6ffa717dbe95e2dbee7f3c3a827  # [s390x]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz  # [osx]
-    sha256: 82d61582a3772932432a99789c3b3bd4abe6baca339e355048ca9efb9ea5b4db  # [osx]
+    sha256: 5eb27a4f5f7a4699bc70cf1848e340ddd74e151488bfcb26853fd584958e3d33  # [osx]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-i686-pc-windows-msvc.tar.gz  # [win32]
-    sha256: 7b8fef02ea2d95c18da7045bdd54f196d18d24155ee65f555c9005e14dda8c03  # [win32]
+    sha256: c86166d7c27e8e81e7a93d6b83729e611cee068bf51145720f3c0f714bba9eae  # [win32]
     folder: msvc  # [win32]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-i686-pc-windows-gnu.tar.gz  # [win32]
-    sha256: ade9a4f8014c048173136bf85f01484f75dda27941c65f86329211981d43aa2c  # [win32]
+    sha256: c0d631dd73b1fd4d9ea792092688ed53b43e6ed30713fdd9106ec784e5db6254  # [win32]
     folder: gnu  # [win32]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz  # [win64]
-    sha256: 3545eb66ed7c6222ca4eb9e990d4bef63edbac9b580387bf7035501ee35d453f  # [win64]
+    sha256: 1c01182f8d9ef1295eacf58e5b7ba2e3183d768b91f7f650a7421808779068a0  # [win64]
     folder: msvc  # [win64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-gnu.tar.gz  # [win64]
-    sha256: 41802cbda80e417c8f9d6bc3feefb1eb0fe7f996798491b1abbf914e0bdedaed  # [win64]
+    sha256: f8b9b2befdf71626c44957c3467aa00e300696e579a8c6d368cb739adc8776e3  # [win64]
     folder: gnu  # [win64]
 
 build:
@@ -41,6 +41,7 @@ build:
     - /usr/lib/libiconv.2.dylib
     - /usr/lib/libcurl.4.dylib
     - /usr/lib/libxar.1.dylib
+    - $RPATH/libLLVM-12-rust-1.54.0-stable.so
     # Since 1.32.0 macOS also needs:
     - /System/Library/Frameworks/Python.framework/Versions/2.7/Python
     - /System/Library/PrivateFrameworks/DebugSymbols.framework/Versions/A/DebugSymbols

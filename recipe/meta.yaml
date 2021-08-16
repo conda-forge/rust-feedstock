@@ -77,7 +77,10 @@ outputs:
         - set "SSL_CERT_FILE="       # [win]
         - unset REQUESTS_CA_BUNDLE  # [unix]
         - unset SSL_CERT_FILE       # [unix]
-        - rustc --version | grep "{{ version.replace('.', '\\.') }}.*{{ year }}-{{ month }}-{{ day }}"
+        - rustc --version
+        - rustc --version 1>version.txt 2>&1
+        # the day can be off-by-one
+        - cat version.txt | grep "rustc {{ version.replace('.', '\\.') }}-nightly \(.* {{ year }}-{{ month }}-.*\)"
         - rustc --help
         - rustdoc --help
         - cargo --help

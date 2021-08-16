@@ -1,4 +1,4 @@
-{% set version = "1.54.0" %}
+{% set version = "1.56.0" %}
 {% set year = "2021" %}
 {% set month = "08" %}
 {% set day = "16" %}
@@ -77,6 +77,7 @@ outputs:
         - set "SSL_CERT_FILE="       # [win]
         - unset REQUESTS_CA_BUNDLE  # [unix]
         - unset SSL_CERT_FILE       # [unix]
+        - rustc --version | grep "{{ version.replace('.', '\\.') }}.*{{ year }}-{{ month }}-{{ day }}"
         - rustc --help
         - rustdoc --help
         - cargo --help

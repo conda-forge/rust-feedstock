@@ -194,5 +194,6 @@ Feedstock Maintainers
 * [@dlaehnemann](https://github.com/dlaehnemann/)
 * [@isuruf](https://github.com/isuruf/)
 * [@johanneskoester](https://github.com/johanneskoester/)
+* [@mbargull](https://github.com/mbargull/)
 * [@pkgw](https://github.com/pkgw/)
 

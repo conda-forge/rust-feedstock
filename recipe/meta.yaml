@@ -1,4 +1,4 @@
-{% set version = "1.55.0" %}
+{% set version = "1.56.0" %}
 
 package:
   name: rust-split
@@ -11,17 +11,17 @@ source:
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-apple-darwin.tar.gz  # [osx and arm64]
   url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz  # [win64]
-  sha256: 2080253a2ec36ac8ed6e060d30802d888533124b8d16545cfd4af898b365eaac  # [linux and x86_64]
-  sha256: eebdb2e659ed14884a49f0457d44e5e8c9f89fca3414533752c6dbb96232c156  # [aarch64]
-  sha256: 12bf6447d338cbe2b55539b84e6369b17e7eefe938d1ba7e3dd69781c9cc9812  # [ppc64le]
-  sha256: 2e345ac7724c192c9487a2c6bd4f6c52c884d791981510288830d27d9a0bf2f3  # [osx and x86_64]
-  sha256: 70c71d30d0de76912fcd88d503a6cb4323cfe6250c1a255be7e0d4e644b3d40a  # [osx and arm64]
-  sha256: c7f21e819d883306c3a06115b4d46a92c7310aed655a2f19b40c457a6f06ba62  # [win64]
+  sha256: 5189cd56447f9d56fcd7a1966efe5a8efd19843fdfd6bf9a23a9acbc57b5e3f9  # [linux and x86_64]
+  sha256: f3e9a9c8af7d17a2fbe0ce561a7dc42f65c5444025783f1f63cd47960a534a9e  # [aarch64]
+  sha256: 0afa4900381dde20c5c3f06b863bbd730007f1ab470ec0a974fc2b846b473661  # [ppc64le]
+  sha256: 577faef3f118a4a259e5e61a415b06434081baeceeff7bbf2357456cfc5b8735  # [osx and x86_64]
+  sha256: 31b7e9c8b4ac3133b1952d1278077fa45250e26758625f972f9b2f4e2426709d  # [osx and arm64]
+  sha256: 7ebee9ae583d0723d945fe89244fbc6f51f8723d318a2be9bcbe1e4ffc33606f  # [win64]
   patches:
     - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.diff
 
 build:
-  number: 3
+  number: 0
 
 requirements:
   build:
@@ -33,7 +33,7 @@ outputs:
     build:
       noarch: generic
       binary_relocation: false
-      missing_dso_whitelist:  # [linux]
+      missing_dso_whitelist:   # [linux]
         - /lib64/librt.so.1  # [linux]
         - /lib64/libdl.so.2  # [linux]
         - /lib64/libpthread.so.0  # [linux]
@@ -60,7 +60,7 @@ outputs:
     build:
       # the distributed binaries are already relocatable
       binary_relocation: false
-      missing_dso_whitelist:  # [linux]
+      missing_dso_whitelist:   # [linux]
         - /lib64/librt.so.1  # [linux]
         - /lib64/libdl.so.2  # [linux]
         - /lib64/libpthread.so.0  # [linux]
@@ -88,10 +88,6 @@ outputs:
       requires:
         - posix  # [win]
       commands:
-        - set "REQUESTS_CA_BUNDLE="  # [win]
-        - set "SSL_CERT_FILE="       # [win]
-        - unset REQUESTS_CA_BUNDLE  # [unix]
-        - unset SSL_CERT_FILE       # [unix]
         - rustc --help
         - rustdoc --help
         - cargo --help

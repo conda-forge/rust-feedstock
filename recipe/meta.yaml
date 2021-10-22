@@ -88,10 +88,6 @@ outputs:
       requires:
         - posix  # [win]
       commands:
-        - set "REQUESTS_CA_BUNDLE="  # [win]
-        - set "SSL_CERT_FILE="       # [win]
-        - unset REQUESTS_CA_BUNDLE  # [unix]
-        - unset SSL_CERT_FILE       # [unix]
         - rustc --help
         - rustdoc --help
         - cargo --help

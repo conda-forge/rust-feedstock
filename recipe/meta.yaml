@@ -108,6 +108,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - timkpaine
     - johanneskoester
     - abhi18av
     - pkgw

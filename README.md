@@ -5,7 +5,7 @@ Home: https://www.rust-lang.org
 
 Package license: MIT
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/rust-feedstock/blob/master/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/rust-feedstock/blob/main/LICENSE.txt)
 
 Summary: Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.
 This package provides the compiler (rustc) and the documentation utilities rustdoc.
@@ -23,7 +23,11 @@ Current build status
     <td>Travis</td>
     <td>
       <a href="https://app.travis-ci.com/conda-forge/rust-feedstock">
+<<<<<<< HEAD
         <img alt="linux" src="https://img.shields.io/travis/com/conda-forge/rust-feedstock/master.svg?label=Linux">
+=======
+        <img alt="linux" src="https://img.shields.io/travis/com/conda-forge/rust-feedstock/main.svg?label=Linux">
+>>>>>>> upstream/main
       </a>
     </td>
   </tr>
@@ -33,8 +37,8 @@ Current build status
     <td>
       <details>
         <summary>
-          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=master">
-            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master">
+          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=main">
+            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=main">
           </a>
         </summary>
         <table>
@@ -42,43 +46,43 @@ Current build status
           <tbody><tr>
               <td>linux_64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master&jobName=linux&configuration=linux_64_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=main&jobName=linux&configuration=linux_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_aarch64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master&jobName=linux&configuration=linux_aarch64_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=main&jobName=linux&configuration=linux_aarch64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_ppc64le</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master&jobName=linux&configuration=linux_ppc64le_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=main&jobName=linux&configuration=linux_ppc64le_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master&jobName=osx&configuration=osx_64_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=main&jobName=osx&configuration=osx_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_arm64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master&jobName=osx&configuration=osx_arm64_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=main&jobName=osx&configuration=osx_arm64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>win_64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=master&jobName=win&configuration=win_64_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=main&jobName=win&configuration=win_64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -107,7 +111,11 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
+<<<<<<< HEAD
 Once the `conda-forge` channel has been enabled, `rust, rust-std-x86_64-apple-darwin` can be installed with `conda`:
+=======
+Once the `conda-forge` channel has been enabled, `rust, rust-std-x86_64-unknown-linux-gnu` can be installed with `conda`:
+>>>>>>> upstream/main
 
 ```
 conda install rust rust-std-x86_64-apple-darwin
@@ -116,7 +124,11 @@ conda install rust rust-std-x86_64-apple-darwin
 or with `mamba`:
 
 ```
+<<<<<<< HEAD
 mamba install rust rust-std-x86_64-apple-darwin
+=======
+mamba install rust rust-std-x86_64-unknown-linux-gnu
+>>>>>>> upstream/main
 ```
 
 It is possible to list all of the versions of `rust` available on your platform with `conda`:
@@ -215,5 +227,6 @@ Feedstock Maintainers
 * [@dlaehnemann](https://github.com/dlaehnemann/)
 * [@isuruf](https://github.com/isuruf/)
 * [@johanneskoester](https://github.com/johanneskoester/)
+* [@mbargull](https://github.com/mbargull/)
 * [@pkgw](https://github.com/pkgw/)
 

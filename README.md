@@ -23,11 +23,7 @@ Current build status
     <td>Travis</td>
     <td>
       <a href="https://app.travis-ci.com/conda-forge/rust-feedstock">
-<<<<<<< HEAD
-        <img alt="linux" src="https://img.shields.io/travis/com/conda-forge/rust-feedstock/master.svg?label=Linux">
-=======
         <img alt="linux" src="https://img.shields.io/travis/com/conda-forge/rust-feedstock/main.svg?label=Linux">
->>>>>>> upstream/main
       </a>
     </td>
   </tr>
@@ -111,11 +107,7 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-<<<<<<< HEAD
 Once the `conda-forge` channel has been enabled, `rust, rust-std-x86_64-apple-darwin` can be installed with `conda`:
-=======
-Once the `conda-forge` channel has been enabled, `rust, rust-std-x86_64-unknown-linux-gnu` can be installed with `conda`:
->>>>>>> upstream/main
 
 ```
 conda install rust rust-std-x86_64-apple-darwin
@@ -124,11 +116,7 @@ conda install rust rust-std-x86_64-apple-darwin
 or with `mamba`:
 
 ```
-<<<<<<< HEAD
 mamba install rust rust-std-x86_64-apple-darwin
-=======
-mamba install rust rust-std-x86_64-unknown-linux-gnu
->>>>>>> upstream/main
 ```
 
 It is possible to list all of the versions of `rust` available on your platform with `conda`:

@@ -22,15 +22,8 @@ Current build status
 <table><tr>
     <td>Travis</td>
     <td>
-      <a href="https://travis-ci.com/conda-forge/rust-feedstock">
-        <img alt="macOS" src="https://img.shields.io/travis/com/conda-forge/rust-feedstock/master.svg?label=macOS">
-      </a>
-    </td>
-  </tr><tr>
-    <td>Drone</td>
-    <td>
-      <a href="https://cloud.drone.io/conda-forge/rust-feedstock">
-        <img alt="linux" src="https://img.shields.io/drone/build/conda-forge/rust-feedstock/master.svg?label=Linux">
+      <a href="https://app.travis-ci.com/conda-forge/rust-feedstock">
+        <img alt="linux" src="https://img.shields.io/travis/com/conda-forge/rust-feedstock/master.svg?label=Linux">
       </a>
     </td>
   </tr>
@@ -102,7 +95,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-rust-green.svg)](https://anaconda.org/conda-forge/rust) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rust.svg)](https://anaconda.org/conda-forge/rust) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rust.svg)](https://anaconda.org/conda-forge/rust) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rust.svg)](https://anaconda.org/conda-forge/rust) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-rust--std--x86_64--unknown--linux--gnu-green.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-unknown-linux-gnu) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rust-std-x86_64-unknown-linux-gnu.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-unknown-linux-gnu) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rust-std-x86_64-unknown-linux-gnu.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-unknown-linux-gnu) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rust-std-x86_64-unknown-linux-gnu.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-unknown-linux-gnu) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-rust--std--x86_64--apple--darwin-green.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-apple-darwin) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rust-std-x86_64-apple-darwin.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-apple-darwin) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rust-std-x86_64-apple-darwin.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-apple-darwin) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rust-std-x86_64-apple-darwin.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-apple-darwin) |
 
 Installing rust-split
 =====================
@@ -114,23 +107,49 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `rust, rust-std-x86_64-unknown-linux-gnu` can be installed with:
+Once the `conda-forge` channel has been enabled, `rust, rust-std-x86_64-apple-darwin` can be installed with `conda`:
 
 ```
-conda install rust rust-std-x86_64-unknown-linux-gnu
+conda install rust rust-std-x86_64-apple-darwin
 ```
 
-It is possible to list all of the versions of `rust` available on your platform with:
+or with `mamba`:
+
+```
+mamba install rust rust-std-x86_64-apple-darwin
+```
+
+It is possible to list all of the versions of `rust` available on your platform with `conda`:
 
 ```
 conda search rust --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search rust --channel conda-forge
+```
+
+Alternatively, `mamba repoquery` may provide more information:
+
+```
+# Search all versions available on your platform:
+mamba repoquery search rust --channel conda-forge
+
+# List packages depending on `rust`:
+mamba repoquery whoneeds rust --channel conda-forge
+
+# List dependencies of `rust`:
+mamba repoquery depends rust --channel conda-forge
 ```
 
 
 About conda-forge
 =================
 
-[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
+[![Powered by
+NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://numfocus.org)
 
 conda-forge is a community-led conda channel of installable packages.
 In order to provide high-quality builds, the process has been automated into the
@@ -140,10 +159,12 @@ for each of the installable packages. Such a repository is known as a *feedstock
 A feedstock is made up of a conda recipe (the instructions on what and how to build
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
-[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/)
-and [TravisCI](https://travis-ci.com/) it is possible to build and upload installable
-packages to the [conda-forge](https://anaconda.org/conda-forge)
-[Anaconda-Cloud](https://anaconda.org/) channel for Linux, Windows and OSX respectively.
+[Azure](https://azure.microsoft.com/en-us/services/devops/), [GitHub](https://github.com/),
+[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
+[Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
+it is possible to build and upload installable packages to the
+[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.

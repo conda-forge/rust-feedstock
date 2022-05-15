@@ -3,13 +3,11 @@ MACOSX_DEPLOYMENT_TARGET:
 MACOSX_SDK_VERSION:
 - '10.10'
 channel_sources:
-- conda-forge,defaults
+- conda-forge
 channel_targets:
 - conda-forge rust_dev
 macos_machine:
 - x86_64-apple-darwin13.4.0
-rust:
-- '1.46'
 rust_arch:
 - x86_64-apple-darwin
 target_platform:

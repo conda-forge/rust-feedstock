@@ -15,12 +15,12 @@ source:
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-apple-darwin.tar.gz  # [osx and arm64]
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-pc-windows-msvc.tar.gz  # [win64]
-  sha256: 29e337c998149cb7f506ef3ebbbdd36a89885589cd27c54f2f31a4a844c857fc  # [win64]
+  sha256: e27c6cb1af3871521a17f4023c5a2966b11689f1be56dce21a400a7c18d48573  # [win64]
   sha256: 06caee68243a8c56a6b4f3dc072a8795549fd09a8dda4899c68dda1609e0539c  # [osx and x86_64]
-  sha256: db3e2bff208bd596a59ccc5dc86d0aff2051fd671b804c06f5973994374a021f  # [linux and x86_64]
-  sha256: 9f2f30f915ddac30054e587df3bb39b997c3857f2dd4547c60b5271a713bf257  # [linux and aarch64]
-  sha256: fb01bc7fb19d34b2a0ba1a26f8df80e2dc0f07e8d2d77d409f543ca207f39497  # [linux and ppc64le]
-  sha256: 6c662e8e441051ae5ddd186756457448ddf49a263382d677234bb8c273826da3  # [osx and arm64]
+  sha256: 1eaf4c3e7c68b051c8c7d3784b06b433201eb9c1b3b74e7498200a2c4239b898  # [linux and x86_64]
+  sha256: a8406cb2251ff05f577a0dcd2799f2228813afd26e131ae4a373d799b8b224eb  # [linux and aarch64]
+  sha256: fd4f9810e4782871c97b1cd945e6ad16f9e29069d3756615e98e7fa0754f672c  # [linux and ppc64le]
+  sha256: 4e05aa4fa3ead8af7cbf4073d12c478ac95022a61bd918f32a6cda697db2143d  # [osx and arm64]
   patches:
     - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.diff
 

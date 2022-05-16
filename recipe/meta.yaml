@@ -108,6 +108,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - xhochy
     - johanneskoester
     - abhi18av
     - pkgw

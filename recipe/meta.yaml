@@ -96,7 +96,7 @@ outputs:
         - rustdoc --help
         - cargo --help
         - cargo install --force xsv
-        - rustc --version | grep "rust {{ '.'.join(version.split('.')[:3]) }}"
+        - rustc --version | grep "rust {{ '.'.join(version.split('.')[:3]) }}"  # [unix]
         - echo {{ rust_arch }}
 
 about:

@@ -1,7 +1,7 @@
-{% set version = "1.62.0" %}
+{% set version = "1.63.0" %}
 {% set year = "2022" %}
-{% set month = "04" %}
-{% set day = "14" %}
+{% set month = "05" %}
+{% set day = "20" %}
 
 package:
   name: rust-split
@@ -15,12 +15,12 @@ source:
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-apple-darwin.tar.gz  # [osx and arm64]
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-pc-windows-msvc.tar.gz  # [win64]
-  sha256: e27c6cb1af3871521a17f4023c5a2966b11689f1be56dce21a400a7c18d48573  # [win64]
-  sha256: 06caee68243a8c56a6b4f3dc072a8795549fd09a8dda4899c68dda1609e0539c  # [osx and x86_64]
-  sha256: 1eaf4c3e7c68b051c8c7d3784b06b433201eb9c1b3b74e7498200a2c4239b898  # [linux and x86_64]
-  sha256: a8406cb2251ff05f577a0dcd2799f2228813afd26e131ae4a373d799b8b224eb  # [linux and aarch64]
-  sha256: fd4f9810e4782871c97b1cd945e6ad16f9e29069d3756615e98e7fa0754f672c  # [linux and ppc64le]
-  sha256: 4e05aa4fa3ead8af7cbf4073d12c478ac95022a61bd918f32a6cda697db2143d  # [osx and arm64]
+  sha256: 624acade18427209bcfe13a2dcfeb26e3fef67047a2e0c11c65136b8cba099b4  # [win64]
+  sha256: 48429441015030e2be9e216019b07bace22e7af333e34f9d8b5515a1f8970a1d  # [osx and x86_64]
+  sha256: 7ad9240c74e8e1a89e13aaba2a0966119f30f32b56e40ff88de5bafd7caacc07  # [linux and x86_64]
+  sha256: c26073aac1375949d6413daeb0cb624c63c7e684ccb819a3b7364483fd6066d1  # [linux and aarch64]
+  sha256: 84afd1a6754d52cc45a81f6abad492f785537436699ce764472b9eb8f0ba7927  # [linux and ppc64le]
+  sha256: bd2937b7213d9bde9e865aed0c2e15ff0af6c3a875bb69b480b952aeeaf1ad2d  # [osx and arm64]
   patches:
     - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.diff
 
@@ -29,7 +29,7 @@ build:
 
 requirements:
   build:
-    - posix  # [win]
+    - posix  # [build_platform == "win-64"]
   host:
 
 outputs:
@@ -47,7 +47,7 @@ outputs:
       merge_build_host: false
     requirements:
       build:
-        - posix  # [win]
+        - posix  # [build_platform == "win-64"]
       host:
       run:
     script: install-rust-std.sh  # [unix]
@@ -79,7 +79,7 @@ outputs:
         - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
     requirements:
       build:
-        - posix  # [win]
+        - posix  # [build_platform == "win-64"]
       host:
         - {{ pin_subpackage("rust-std-" ~ rust_arch, exact=True) }}
         - {{ compiler('c') }}  # [linux] -- rustc needs a toolchain to link executables
@@ -90,7 +90,7 @@ outputs:
         - gcc_impl_{{ target_platform }}  # [linux]
     test:
       requires:
-        - posix  # [win]
+        - posix  # [build_platform == "win-64"]
       commands:
         - rustc --help
         - rustdoc --help

@@ -217,4 +217,6 @@ Feedstock Maintainers
 * [@johanneskoester](https://github.com/johanneskoester/)
 * [@mbargull](https://github.com/mbargull/)
 * [@pkgw](https://github.com/pkgw/)
+* [@timkpaine](https://github.com/timkpaine/)
+* [@xhochy](https://github.com/xhochy/)
 

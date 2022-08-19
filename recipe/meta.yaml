@@ -17,7 +17,7 @@ source:
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-pc-windows-msvc.tar.gz  # [win64]
   sha256: 39fe21f502994d9e723a10057d9e44d87c4810e5eed029da97489da75c9bc6ba  # [win64]
   sha256: 029b5d5e45ce17a9e2be53de8f1519611de4cfa26afbef5aa810090860308c0c  # [osx and x86_64]
-  sha256: da0ebeb0923ad6967b906bb8cfff50c5154ca23c6e92b83f6a3d3c32f86e22bd  # [linux and x86_64]
+  sha256: 8a6480a7e36a4692a381d9662053a534d3d2331833517b1151b6fe26434ecfd2  # [linux and x86_64]
   sha256: f06a6e642352d398ce89258affc087407b97482035d7795a234e6bd8c3b739af  # [linux and aarch64]
   sha256: 514dedd2f0be754ac774984c672afd096c7d747dd93fed43c915b04ee80bbbb1  # [linux and ppc64le]
   sha256: 10a325eb4575c6f00fd2765d17da5479ee5d04d48c4aadd8b9f1dccd3020ebe7  # [osx and arm64]

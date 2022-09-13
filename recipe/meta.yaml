@@ -1,7 +1,7 @@
 {% set version = "1.65.0" %}
 {% set year = "2022" %}
-{% set month = "08" %}
-{% set day = "22" %}
+{% set month = "09" %}
+{% set day = "13" %}
 
 package:
   name: rust-split
@@ -15,12 +15,12 @@ source:
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-apple-darwin.tar.gz  # [osx and arm64]
   url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-pc-windows-msvc.tar.gz  # [win64]
-  sha256: 031f95716841d72b7070c06a50ff2c5447699a3430a0e6b6a53222dc97d3fd6e  # [win64]
-  sha256: efcb2b7f520eb58f17361a4ff9ea53712138312a88c26b0a9ad613fe0b8d179f  # [osx and x86_64]
-  sha256: ac201e6eac653e9563d07c5ed164c0b8e203fc194b94bd52ca305a31061b814f  # [linux and x86_64]
-  sha256: bfa5884a6704c9481d49e90118490750f2fe9a7612c4f7062ab73c28b9e12b82  # [linux and aarch64]
-  sha256: 1645bf58dd4a09595f8e8313252c3fece295cef444ac60ccdec532128270f0d6  # [linux and ppc64le]
-  sha256: d6ec1dfdc5d81efb3f243807c69439abb0918573ecde168562d9621c18a33781  # [osx and arm64]
+  sha256: 4a7881852cd06a845e1ef452d6cd7dfbfa8fba97eea09d492c9fcc9cdb254ca3  # [win64]
+  sha256: 24595dafda1cb260bdd6cfead67d4438fbae0d3cb717d969475ef8be447d0483  # [osx and x86_64]
+  sha256: fa6c1750453e4c5b2e86c48649e7a32b07cd32133afae7358f2c162fd3cda76b  # [linux and x86_64]
+  sha256: bd784b045ec6f60b7b7ef24a26421d82ad7a4dca112a602d3cc078f523f3de05  # [linux and aarch64]
+  sha256: 8e979a2e086a713aaeb599884229d7a840c37c3a5e7f3d860f65ee6635c4769d  # [linux and ppc64le]
+  sha256: a723e32e9fe1a92fba2250c1ee275c9abaa4ac3c6bfa16989e5aa525f5e8fc70  # [osx and arm64]
   patches:
     - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.diff
 

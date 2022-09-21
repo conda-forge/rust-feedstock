@@ -1,4 +1,4 @@
-{% set version = "1.65.0" %}
+{% set version = "1.66.0" %}
 {% set year = "2022" %}
 {% set month = "09" %}
 {% set day = "21" %}

@@ -9,4 +9,3 @@ PATH="${PWD}:$PATH" ./install.sh --prefix="${PREFIX}"
 
 # these files appear to be missing from the rustlib dir
 ln -s ${PREFIX}/lib/librustc_driver-*.${DSO_EXT} ${PREFIX}/lib/rustlib/${rust_arch}/lib/
-ln -s ${PREFIX}/lib/libgit2.1.5.${DSO_EXT} ${PREFIX}/lib/rustlib/${rust_arch}/lib/

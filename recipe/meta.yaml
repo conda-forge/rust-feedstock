@@ -87,7 +87,7 @@ about:
   summary: |
     Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.
     This package provides the compiler (rustc) and the documentation utilities rustdoc.
-  dev_url: https://doc.rust-lang.org/std/
+  dev_url: https://github.com/rust-lang/rust
   doc_url: https://www.rust-lang.org/en-US/documentation.html
 
 extra:

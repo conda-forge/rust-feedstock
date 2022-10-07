@@ -84,6 +84,7 @@ outputs:
 about:
   home: https://www.rust-lang.org
   license: MIT
+  license_family: MIT
   summary: |
     Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.
     This package provides the compiler (rustc) and the documentation utilities rustdoc.

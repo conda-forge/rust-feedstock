@@ -67,7 +67,7 @@ build:
 
 outputs:
   - name: rust
-    script: install-msvc.sh  # [win]
+    script: install-msvc.bat  # [win]
     script: install-unix.sh  # [not win]
     requirements:
       build:
@@ -76,7 +76,7 @@ outputs:
 
 
   - name: rust-gnu  # [win]
-    script: install-gnu.sh  # [win]
+    script: install-gnu.bat  # [win]
     requirements:  # [win]
       build:  # [win]
         - posix  # [win]

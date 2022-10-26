@@ -107,3 +107,5 @@ extra:
     - johanneskoester
     - pkgw
     - katietz
+  skip-lints:
+    - missing_tests

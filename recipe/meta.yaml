@@ -92,6 +92,9 @@ outputs:
 about:
   home: https://www.rust-lang.org
   license: MIT AND Apache-2.0
+  license_file:
+    - LICENSE-MIT
+    - LICENSE-APACHE
   license_family: OTHER
   summary: |
     Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.

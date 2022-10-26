@@ -74,7 +74,7 @@ outputs:
         - {{ compiler('c') }}    # [osx]
         - posix  # [win]
     test:
-      command:
+      commands:
         - rustc --version
         - cargo --help
 
@@ -85,7 +85,7 @@ outputs:
       build:  # [win]
         - posix  # [win]
     test:  # [win]
-      command:  # [win]
+      commands:  # [win]
         - rustc --version  # [win]
         - cargo --help  # [win]
 

@@ -93,12 +93,14 @@ about:
   home: https://www.rust-lang.org
   license: MIT AND Apache-2.0
   license_family: OTHER
+  license_url: https://github.com/rust-lang/rust/blob/{{ version }}/COPYRIGHT
   summary: |
     Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.
   description: |
     This package provides the compiler (rustc) and the documentation utilities rustdoc.
   dev_url: https://github.com/rust-lang/rust
-  doc_url: https://www.rust-lang.org/en-US/documentation.html
+  doc_url: https://www.rust-lang.org/learn
+  doc_source_url: https://github.com/rust-lang/rust/tree/{{ version }}/src/doc
 
 extra:
   # The license files cannot be found properly on Windows

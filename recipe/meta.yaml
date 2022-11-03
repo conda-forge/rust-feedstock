@@ -84,7 +84,6 @@ outputs:
     requirements:  # [win]
       build:  # [win]
         - posix  # [win]
-        - m2-git # [win]
     test:  # [win]
       commands:  # [win]
         - rustc --version  # [win]

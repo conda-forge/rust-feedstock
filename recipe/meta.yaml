@@ -85,6 +85,7 @@ outputs:
       build:  # [win]
         # posix appears to not work on Prefect,
         # and m2-git delivers the necessary tools
+        - m2-base # [win]
         - m2-git # [win]
     test:  # [win]
       commands:  # [win]

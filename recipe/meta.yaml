@@ -72,9 +72,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}    # [osx]
-        # posix appears to not work on Prefect,
-        # and m2-git delivers the necessary tools
-        - m2-git # [win]
+        - posix  # [win]
     test:
       commands:
         - rustc --version

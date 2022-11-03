@@ -72,7 +72,9 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}    # [osx]
-        - posix  # [win]
+        # posix appears to not work on Prefect,
+        # and m2-git delivers the necessary tools
+        - m2-git # [win]
     test:
       commands:
         - rustc --version
@@ -83,7 +85,9 @@ outputs:
     script: install-gnu.bat  # [win]
     requirements:  # [win]
       build:  # [win]
-        - posix  # [win]
+        # posix appears to not work on Prefect,
+        # and m2-git delivers the necessary tools
+        - m2-git # [win]
     test:  # [win]
       commands:  # [win]
         - rustc --version  # [win]

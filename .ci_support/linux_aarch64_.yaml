@@ -14,9 +14,6 @@ channel_targets:
 - conda-forge main
 docker_image:
 - quay.io/condaforge/linux-anvil-aarch64
-pin_run_as_build:
-  zlib:
-    max_pin: x.x
 rust_arch:
 - aarch64-unknown-linux-gnu
 target_platform:

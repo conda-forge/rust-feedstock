@@ -83,10 +83,7 @@ outputs:
     script: install-gnu.bat  # [win]
     requirements:  # [win]
       build:  # [win]
-        # posix appears to not work on Prefect,
-        # and m2-git delivers the necessary tools
-        - m2-base # [win]
-        - m2-git # [win]
+        - posix # [win]
     test:  # [win]
       commands:  # [win]
         - rustc --version  # [win]

@@ -1,0 +1,12 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+macos_machine:
+- x86_64-apple-darwin13.4.0
+rust_arch:
+- x86_64-apple-ios
+target_platform:
+- osx-64

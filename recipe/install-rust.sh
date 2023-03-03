@@ -21,6 +21,8 @@ case "$target_platform" in
     win-64) rust_env_arch=X86_64_PC_WINDOWS_MSVC ;;
     osx-64) rust_env_arch=X86_64_APPLE_DARWIN ;;
     osx-arm64) rust_env_arch=AARCH64_APPLE_DARWIN ;;
+    ios-64) rust_env_arch=X86_64_APPLE_IOS ;;
+    ios-aarch64) rust_env_arch=AARCH64_APPLE_IOS ;;
     *) echo "unknown target_platform $target_platform" ; exit 1 ;;
 esac
 

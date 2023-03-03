@@ -14,6 +14,12 @@ jobs:
       osx_arm64_:
         CONFIG: osx_arm64_
         UPLOAD_PACKAGES: 'True'
+      ios_64_:
+        CONFIG: ios_64_
+        UPLOAD_PACKAGES: 'True'
+      ios_aarch64_:
+        CONFIG: ios_aarch64_
+        UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
 
   steps:

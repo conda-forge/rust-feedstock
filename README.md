@@ -1,11 +1,11 @@
-About rust-split
-================
+About rust-split-feedstock
+==========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/rust-feedstock/blob/main/LICENSE.txt)
 
 Home: https://www.rust-lang.org
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/rust-feedstock/blob/main/LICENSE.txt)
 
 Summary: Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.
 This package provides the compiler (rustc) and the documentation utilities rustdoc.

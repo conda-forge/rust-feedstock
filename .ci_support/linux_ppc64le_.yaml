@@ -9,7 +9,7 @@ channel_sources:
 channel_targets:
 - conda-forge main
 docker_image:
-- quay.io/condaforge/linux-anvil-ppc64le
+- quay.io/condaforge/linux-anvil-cos7-x86_64
 rust_arch:
 - powerpc64le-unknown-linux-gnu
 target_platform:

@@ -101,7 +101,9 @@ outputs:
     script: install-rust-src.sh
     build:
       noarch: generic
-      skip: {{ rust_arch != "x86_64-unknown-linux-gnu" }}
+      {% if rust_arch != "x86_64-unknown-linux-gnu" %}
+      skip: true
+      {% endif %}
     requirements:
       run_constrained:
         # Having different versions of rust-src and rust is confusing.

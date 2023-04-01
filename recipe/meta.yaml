@@ -24,7 +24,7 @@ source:
     folder: rust-src
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:

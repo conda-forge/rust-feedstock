@@ -21,7 +21,7 @@ source:
     patches:
       - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.diff
   - url: https://static.rust-lang.org/dist/rust-src-{{ version }}.tar.gz
-    sha256: bffddc7e5af07c09917b5c819f12c5848179a9613750023fdc69ad3a88929cec
+    sha256: adeca9b9890da3fe5fd0d5628fcb55df8ec143ceddaebaa003035c114f7e175e
     folder: rust-src
 
 build:

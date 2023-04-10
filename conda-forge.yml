@@ -7,3 +7,4 @@ github:
   tooling_branch_name: main
 conda_build:
   pkg_format: '2'
+idle_timeout_minutes: 30

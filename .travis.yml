@@ -22,6 +22,8 @@ script:
   - export GIT_BRANCH="$TRAVIS_BRANCH"
   - export FEEDSTOCK_NAME=$(basename ${TRAVIS_REPO_SLUG})
   - if [[ "${TRAVIS_PULL_REQUEST:-}" == "false" ]]; then export IS_PR_BUILD="False"; else export IS_PR_BUILD="True"; fi
-
-
-  - if [[ ${PLATFORM} =~ .*linux.* ]]; then CONDA_FORGE_DOCKER_RUN_ARGS="--network=host --security-opt=seccomp=unconfined" travis_wait 30 ./.scripts/run_docker_build.sh; fi
+  # Hack for Rust: aarch64/ppc64le builds can time out due to output not showing
+  # up for a while. The recommended/default workaround (`travis_wait`) does not
+  # work for hard-to-understand reasons; see rust-feedstock#134.
+  - ( while true ; do echo special Travis keepalive ; sleep 60 ; done ) &
+  - if [[ ${PLATFORM} =~ .*linux.* ]]; then CONDA_FORGE_DOCKER_RUN_ARGS="--network=host --security-opt=seccomp=unconfined" ./.scripts/run_docker_build.sh; fi

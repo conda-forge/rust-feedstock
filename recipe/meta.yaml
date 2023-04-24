@@ -128,7 +128,7 @@ outputs:
     script: install-rust-std-extra.sh
     build:
       noarch: generic
-      skip: true  # [win]
+      skip: {{ rust_arch != "x86_64-unknown-linux-gnu" }}
     requirements:
       run_constrained:
         # Having different versions of rust-std and rust is confusing.

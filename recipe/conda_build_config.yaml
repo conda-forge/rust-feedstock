@@ -7,6 +7,6 @@ rust_arch:
   - aarch64-apple-darwin        # [osx and arm64]
 
 rust_std_extra:
-  - aarch64-apple-ios           # [osx]
-  - x86_64-apple-ios            # [osx]
-  - aarch64-apple-ios-sim       # [osx]
+  - aarch64-apple-ios
+  - x86_64-apple-ios
+  - aarch64-apple-ios-sim

@@ -125,20 +125,20 @@ outputs:
         - test "$(ls "${PREFIX}"/lib/rustlib/)" = "$(printf "manifest-rust-src\nsrc")"
 
   - name: rust-std-{{ rust_std_extra }}
+    script: install-rust-std-extra.sh
     build:
       noarch: generic
-      binary_relocation: false
+      skip: true  # [win]
     requirements:
-      build:
-        - posix  # [win]
-      host:
-      run:
-    script: install-rust-std-extra.sh  # [unix]
-    script: install-rust-std-extra.bat  # [win]
+      run_constrained:
+        # Having different versions of rust-std and rust is confusing.
+        - {{ pin_subpackage("rust", exact=True) }}
     test:
       commands:
-        - test -d $PREFIX/lib/rustlib   # [unix]
-        - if not exist %LIBRARY_PREFIX%/lib/rustlib exit 1  # [win]
+        - test -d $PREFIX/lib/rustlib/{{ rust_std_extra }}
+        - test -f $PREFIX/lib/rustlib/manifest-rust-std-{{ rust_std_extra }}
+        # Make sure that the outputs do not clobber with other rust components
+        - test -z "$(ls "${PREFIX}"/lib/rustlib/ | grep -v {{ rust_std_extra }})"
         - echo {{ rust_std_extra }}
 
 about:

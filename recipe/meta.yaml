@@ -132,7 +132,7 @@ outputs:
     requirements:
       run_constrained:
         # Having different versions of rust-std and rust is confusing.
-        - {{ pin_subpackage("rust", exact=True) }}
+        - {{ pin_subpackage("rust") }}
     test:
       commands:
         - test -d $PREFIX/lib/rustlib/{{ rust_std_extra }}

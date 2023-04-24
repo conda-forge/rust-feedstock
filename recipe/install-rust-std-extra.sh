@@ -4,7 +4,7 @@ set -ex
 
 cd rust-std
 
-echo $TOP_PKG_NAME > ./components
+echo $PKG_NAME > ./components
 
 ./install.sh --prefix="$PREFIX" --destdir="$DESTDIR"
 

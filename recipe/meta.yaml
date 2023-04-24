@@ -23,9 +23,18 @@ source:
   - url: https://static.rust-lang.org/dist/rust-src-{{ version }}.tar.gz
     sha256: 3cb12c47250fb9bd1d87e9f60a6247403eb3fc17c6fc226a95c2d298824ee5fd
     folder: rust-src
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-aarch64-apple-ios.tar.gz
+    sha256: ef1a7dc02df8cbb0b22e897253cd22b7de33e7958031604bc9d0a8fb9fd6c9a8
+    folder: rust-std
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-x86_64-apple-ios.tar.gz
+    sha256: 882a02c1fedff14cb4f7f09bd588386ab3f63e6b33fbf5ad5587af33886a9b51
+    folder: rust-std
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-aarch64-apple-ios-sim.tar.gz
+    sha256: 2291ac2949ca832ea6db3795f17e981d7c563fa5b102eaea39811482320374b2
+    folder: rust-std
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -114,6 +123,23 @@ outputs:
         - test -f "${PREFIX}"/lib/rustlib/src/rust/Cargo.lock
         # Make sure that the outputs do not clobber with other rust components
         - test "$(ls "${PREFIX}"/lib/rustlib/)" = "$(printf "manifest-rust-src\nsrc")"
+
+  - name: rust-std-{{ rust_std_extra }}
+    build:
+      noarch: generic
+      binary_relocation: false
+    requirements:
+      build:
+        - posix  # [win]
+      host:
+      run:
+    script: install-rust-std-extra.sh  # [unix]
+    script: install-rust-std-extra.bat  # [win]
+    test:
+      commands:
+        - test -d $PREFIX/lib/rustlib   # [unix]
+        - if not exist %LIBRARY_PREFIX%/lib/rustlib exit 1  # [win]
+        - echo {{ rust_std_extra }}
 
 about:
   home: https://www.rust-lang.org

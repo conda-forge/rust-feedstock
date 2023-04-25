@@ -1,7 +1,7 @@
 c_compiler:
 - gcc
 c_compiler_version:
-- '11'
+- '12'
 cdt_name:
 - cos6
 channel_sources:
@@ -12,6 +12,10 @@ docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 rust_arch:
 - x86_64-unknown-linux-gnu
+rust_std_extra:
+- aarch64-apple-ios
+- aarch64-apple-ios-sim
+- x86_64-apple-ios
 target_platform:
 - linux-64
 zlib:

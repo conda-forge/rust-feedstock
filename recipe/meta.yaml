@@ -1,8 +1,7 @@
-{% set version = "1.69.0" %}
-{% set year = "2022" %}
-{% set month = "11" %}
-{% set day = "04" %}
-{% set version = "1.69.0" %}
+{% set year = "2023" %}
+{% set month = "04" %}
+{% set day = "25" %}
+{% set version = "1.71.0" %}
 
 package:
   name: rust-split
@@ -25,8 +24,8 @@ source:
     sha256: 2b4130fb50de33ea9cae5c8603e3177bdf7860341c6e3f0d079913bfbb58334d  # [osx and arm64]
     patches:
       - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.diff
-  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rusnightly.tar.gz
-    sha256: 3cb12c47250fb9bd1d87e9f60a6247403eb3fc17c6fc226a95c2d298824ee5fd
+  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-src-nightly.tar.gz
+    sha256: 038f68bf048baf12d727953785ff316aac8d328edd3e80f454a823603afe679f
     folder: rust-src
 
 build:

@@ -1,7 +1,7 @@
-{% set version = "1.67.0" %}
-{% set year = "2022" %}
-{% set month = "11" %}
-{% set day = "04" %}
+{% set year = "2023" %}
+{% set month = "04" %}
+{% set day = "25" %}
+{% set version = "1.71.0" %}
 
 package:
   name: rust-split
@@ -9,20 +9,24 @@ package:
 
 
 source:
-  url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-unknown-linux-gnu.tar.gz  # [linux and x86_64]
-  url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]
-  url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
-  url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
-  url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-apple-darwin.tar.gz  # [osx and arm64]
-  url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-pc-windows-msvc.tar.gz  # [win64]
-  sha256: 1fd71cb410d1fc6b27d6181696e4d40b0ae332773d95dcee5b016174118a01fa  # [win64]
-  sha256: af91b63f9648d706ef6450cf7d3b112f975f8d0035c00145f32c52c91e0736dd  # [osx and x86_64]
-  sha256: 998c13f04cf161eb2734903e18ea4c11ed39ceff60030fbe605feef17a2fd9ac  # [linux and x86_64]
-  sha256: 226c663e3c67b47b294f5195c6b84f7e7b8765f1082f5215139db4ca51deeaa0  # [linux and aarch64]
-  sha256: fc590a86082b10c3f6d7b560d35fc700d5840fe482d7e0904814b59f7a8f6c99  # [linux and ppc64le]
-  sha256: c857a74d42855c105c82bc39fdef471d5b86b13f36d8c8665f3df20627c90205  # [osx and arm64]
-  patches:
-    - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.diff
+  - 
+    url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-unknown-linux-gnu.tar.gz  # [linux and x86_64]
+    url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]
+    url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
+    url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
+    url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-apple-darwin.tar.gz  # [osx and arm64]
+    url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-pc-windows-msvc.tar.gz  # [win64]
+    sha256: f7a522cb2b6afa168c912b56eadc1c2cd8d4c4c0a1577284bdcb69931953091a  # [win64]
+    sha256: ced86c38feee489b9b0fd9a7904e3016daad1ec3b3ee7d80fee294c96da6a5d3  # [osx and x86_64]
+    sha256: ec6e2a81ef47c4db470c52f29ad43dcca5a66ecc9b0cc4fd6bb7a9faa40f948c  # [linux and x86_64]
+    sha256: d4161adc53d749e12fa3ea58c372c04b79d7e075b14beab1d8eac95d7c9825b4  # [linux and aarch64]
+    sha256: 0a804934de9eb11a8da847bf371489cdce9e72861ab8d47a41a00522e27b4dcc  # [linux and ppc64le]
+    sha256: 2b4130fb50de33ea9cae5c8603e3177bdf7860341c6e3f0d079913bfbb58334d  # [osx and arm64]
+    patches:
+      - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.diff
+  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-src-nightly.tar.gz
+    sha256: 038f68bf048baf12d727953785ff316aac8d328edd3e80f454a823603afe679f
+    folder: rust-src
 
 build:
   number: 0
@@ -100,6 +104,23 @@ outputs:
         - rustc --version | grep "rustc {{ '.'.join(version.split('.')[:3]) }}"  # [unix]
         - echo {{ rust_arch }}
 
+  - name: rust-src
+    script: install-rust-src.sh
+    build:
+      noarch: generic
+      skip: {{ rust_arch != "x86_64-unknown-linux-gnu" }}
+    requirements:
+      run_constrained:
+        # Having different versions of rust-src and rust is confusing.
+        # `rust-src` is specific to the toolchain in `rustup`,
+        # and we would like to keep that behavior.
+        - {{ pin_subpackage("rust", exact=True) }}
+    test:
+      commands:
+        - test -f "${PREFIX}"/lib/rustlib/src/rust/Cargo.lock
+        # Make sure that the outputs do not clobber with other rust components
+        - test "$(ls "${PREFIX}"/lib/rustlib/)" = "$(printf "manifest-rust-src\nsrc")"
+
 about:
   home: https://www.rust-lang.org
   license: MIT
@@ -114,6 +135,8 @@ about:
 
 extra:
   recipe-maintainers:
+    - timkpaine
+    - xhochy
     - johanneskoester
     - abhi18av
     - pkgw

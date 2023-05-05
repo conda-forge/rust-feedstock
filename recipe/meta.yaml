@@ -59,6 +59,9 @@ outputs:
         - posix  # [win]
       host:
       run:
+      run_constrained:
+        # Having different versions of rust-std and rust is confusing.
+        - {{ pin_subpackage("rust", min_pin="x.x.x", max_pin="x.x.x") }}
     script: install-rust-std.sh  # [unix]
     script: install-rust-std.bat  # [win]
     test:

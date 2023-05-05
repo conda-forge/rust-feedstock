@@ -34,7 +34,7 @@ source:
     folder: rust-std
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:

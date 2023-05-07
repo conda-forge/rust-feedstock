@@ -107,7 +107,7 @@ outputs:
         - rustc --help
         - rustdoc --help
         - cargo --help
-        - cargo --config 'registries.crates-io.protocol = "sparse"' install --force xsv
+        - cargo --config registries.crates-io.protocol=\"sparse\" install --force xsv
         - echo {{ rust_arch }}
 
   - name: rust-src

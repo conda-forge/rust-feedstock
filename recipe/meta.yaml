@@ -34,7 +34,7 @@ source:
     folder: rust-std
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -59,6 +59,9 @@ outputs:
         - posix  # [win]
       host:
       run:
+      run_constrained:
+        # Having different versions of rust-std and rust is confusing.
+        - {{ pin_subpackage("rust", min_pin="x.x.x", max_pin="x.x.x") }}
     script: install-rust-std.sh  # [unix]
     script: install-rust-std.bat  # [win]
     test:
@@ -104,7 +107,7 @@ outputs:
         - rustc --help
         - rustdoc --help
         - cargo --help
-        - cargo install --force xsv
+        - cargo --config registries.crates-io.protocol=\"sparse\" install --force xsv
         - echo {{ rust_arch }}
 
   - name: rust-src
@@ -117,7 +120,7 @@ outputs:
         # Having different versions of rust-src and rust is confusing.
         # `rust-src` is specific to the toolchain in `rustup`,
         # and we would like to keep that behavior.
-        - {{ pin_subpackage("rust", exact=True) }}
+        - {{ pin_subpackage("rust", min_pin="x.x.x", max_pin="x.x.x") }}
     test:
       commands:
         - test -f "${PREFIX}"/lib/rustlib/src/rust/Cargo.lock
@@ -132,7 +135,7 @@ outputs:
     requirements:
       run_constrained:
         # Having different versions of rust-std and rust is confusing.
-        - {{ pin_subpackage("rust") }}
+        - {{ pin_subpackage("rust", min_pin="x.x.x", max_pin="x.x.x") }}
     test:
       commands:
         - test -d $PREFIX/lib/rustlib/{{ rust_std_extra }}

@@ -107,7 +107,7 @@ outputs:
         - rustc --help
         - rustdoc --help
         - cargo --help
-        - cargo install --force xsv
+        - cargo --config net.git-fetch-with-cli=true install --force xsv
         - echo {{ rust_arch }}
 
   - name: rust-src

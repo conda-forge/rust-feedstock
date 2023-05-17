@@ -1,6 +1,6 @@
 {% set year = "2023" %}
-{% set month = "04" %}
-{% set day = "25" %}
+{% set month = "05" %}
+{% set day = "17" %}
 {% set version = "1.71.0" %}
 
 package:
@@ -16,16 +16,16 @@ source:
     url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
     url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-apple-darwin.tar.gz  # [osx and arm64]
     url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-pc-windows-msvc.tar.gz  # [win64]
-    sha256: f7a522cb2b6afa168c912b56eadc1c2cd8d4c4c0a1577284bdcb69931953091a  # [win64]
-    sha256: ced86c38feee489b9b0fd9a7904e3016daad1ec3b3ee7d80fee294c96da6a5d3  # [osx and x86_64]
-    sha256: ec6e2a81ef47c4db470c52f29ad43dcca5a66ecc9b0cc4fd6bb7a9faa40f948c  # [linux and x86_64]
-    sha256: d4161adc53d749e12fa3ea58c372c04b79d7e075b14beab1d8eac95d7c9825b4  # [linux and aarch64]
-    sha256: 0a804934de9eb11a8da847bf371489cdce9e72861ab8d47a41a00522e27b4dcc  # [linux and ppc64le]
-    sha256: 2b4130fb50de33ea9cae5c8603e3177bdf7860341c6e3f0d079913bfbb58334d  # [osx and arm64]
+    sha256: b4c20aae5604114dcaf0d4a539cd53418f4a455a6d672da1177643df6747ce75  # [win64]
+    sha256: 7b7d48b5e76f9d630904ef515b2bb045badb35ebaa2a89cb4d9ce72bbf55381d  # [osx and x86_64]
+    sha256: d61df658cbdcd9c4daee096ec2090d802b2d8b248c02a8989780e5caf4b414e4  # [linux and x86_64]
+    sha256: 49ada1d6c610fb9064a088f19a3ca7ac7f370a1aa00ad07a2b9ad05cb86ad9f4  # [linux and aarch64]
+    sha256: a3f2df216525e91a3576bb71a3e5cf4068c023e8dfe3d70a7bf4f52e955cfc11  # [linux and ppc64le]
+    sha256: ac27eb055a000ea8eb145f610f1841b18bd95c96522f83bf4a0eb49fdd48a023  # [osx and arm64]
     patches:
       - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.diff
   - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-src-nightly.tar.gz
-    sha256: 038f68bf048baf12d727953785ff316aac8d328edd3e80f454a823603afe679f
+    sha256: 67be6c94f62a6c58ca8801aa0378c5644a7edb7967e64fa60ee15bdc03f2cfa9
     folder: rust-src
 
 build:

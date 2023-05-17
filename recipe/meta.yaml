@@ -32,6 +32,21 @@ source:
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-aarch64-apple-ios-sim.tar.gz
     sha256: 2291ac2949ca832ea6db3795f17e981d7c563fa5b102eaea39811482320374b2
     folder: rust-std
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-aarch64-linux-android.tar.gz
+    sha256: 0faba7a6b0789f19d16ae235d46fac30e89131df29ed382ed70218ccd57b4ddf
+    folder: rust-std
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-arm-linux-androideabi.tar.gz
+    sha256: 66e2609bff426ce6dfc1c05639aa2aeebee1a0d0d5082dcacee73dab0d422f3c
+    folder: rust-std
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-armv7-linux-androideabi.tar.gz
+    sha256: e2dbafb21fc6af9e9b2daa2139f3c4665cc38ad8ff56031f534b1334ceed7b08
+    folder: rust-std
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-i686-linux-android.tar.gz
+    sha256: 3660b69a847330ef336773ae36acf327865c0eca7093e159e84d34741856fed7
+    folder: rust-std
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-x86_64-linux-android.tar.gz
+    sha256: 8cb25ade421817865833a61114648e7765b69635c4d8b09d471a3e7e058aa272
+    folder: rust-std
 
 build:
   number: 2

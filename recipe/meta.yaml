@@ -49,7 +49,7 @@ source:
     folder: rust-std  # [linux and x86_64]
 
 build:
-  number: 3
+  number: 4
 
 requirements:
   build:
@@ -126,11 +126,13 @@ outputs:
         - echo {{ rust_arch }}
 
   - name: rust-src
-    script: install-rust-src.sh
+    script: install-rust-src.sh  # [unix]
+    script: install-rust-src.bat  # [win]
     build:
-      noarch: generic
-      skip: {{ rust_arch != "x86_64-unknown-linux-gnu" }}
+      skip: false
     requirements:
+      build:
+        - posix  # [win]
       run_constrained:
         # Having different versions of rust-src and rust is confusing.
         # `rust-src` is specific to the toolchain in `rustup`,
@@ -138,9 +140,14 @@ outputs:
         - {{ pin_subpackage("rust", min_pin="x.x.x", max_pin="x.x.x") }}
     test:
       commands:
-        - test -f "${PREFIX}"/lib/rustlib/src/rust/Cargo.lock
+        - test -f "${PREFIX}"/lib/rustlib/src/rust/Cargo.lock  # [unix]
+        - if not exist "%LIBRARY_PREFIX%/lib/rustlib/src/rust/Cargo.lock" exit 1  # [win]
         # Make sure that the outputs do not clobber with other rust components
-        - test "$(ls "${PREFIX}"/lib/rustlib/)" = "$(printf "manifest-rust-src\nsrc")"
+        - test "$(ls "${PREFIX}"/lib/rustlib/)" = "$(printf "manifest-rust-src\nsrc")"  # [unix]
+        - if not exist "%LIBRARY_PREFIX%/lib/rustlib/manifest-rust-src" exit 1  # [win]
+        - if not exist "%LIBRARY_PREFIX%/lib/rustlib/src" exit 1  # [win]
+
+        
 
   - name: rust-std-{{ rust_std_extra }}
     script: install-rust-std-extra.sh

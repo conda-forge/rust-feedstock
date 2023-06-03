@@ -1,5 +1,5 @@
 {% set version = "1.70.0" %}
-{% set build_num = 4 %}
+{% set build_num = 0 %}
 
 package:
   name: rust-split

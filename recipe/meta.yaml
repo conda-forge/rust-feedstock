@@ -6,20 +6,25 @@ package:
   version: {{ version }}
 
 source:
+  # Note! This source file specification is structured specifically to interact
+  # well with the autotick bot. Importantly, the `patches:` block actually
+  # applies to *all* of these inputs, not just the last one in the list, because
+  # of the way that the YAML selector processing works.
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux and x86_64]
-    url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]
-    url: https://static.rust-lang.org/dist/rust-{{ version }}-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
-    url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
-    url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-apple-darwin.tar.gz  # [osx and arm64]
-    url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz  # [win64]
     sha256: 8499c0b034dd881cd9a880c44021632422a28dc23d7a81ca0a97b04652245982  # [linux and x86_64]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]
     sha256: 3aa012fc4d9d5f17ca30af41f87e1c2aacdac46b51adc5213e7614797c6fd24c  # [aarch64]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
     sha256: ba8cb5e3078b1bc7c6b27ab53cfa3af14001728db9a047d0bdf29b8f05a4db34  # [ppc64le]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
     sha256: e5819fdbfc7f1a4d5d82cb4c3b7662250748450b45a585433bfb75648bc45547  # [osx and x86_64]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-apple-darwin.tar.gz  # [osx and arm64]
     sha256: 75cbc356a06c9b2daf6b9249febda0f0c46df2a427f7cc8467c7edbd44636e53  # [osx and arm64]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz  # [win64]
     sha256: 02a9c4d98ea58e7554c144f1bc946138cdc5614af71d3fc21f0a717a0367599b  # [win64]
     patches:
       - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.diff
+  # End of block of primary source files.
   - url: https://static.rust-lang.org/dist/rust-src-{{ version }}.tar.gz
     sha256: 9653c6f242c85385ad63c49b5eb695af79ab83a89babe21c6dc6b66957ed8da4
     folder: rust-src

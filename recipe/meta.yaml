@@ -1,5 +1,4 @@
 {% set version = "1.70.0" %}
-{% set build_num = 0 %}
 
 package:
   name: rust-split
@@ -54,7 +53,7 @@ source:
     folder: rust-std  # [linux and x86_64]
 
 build:
-  number: {{ build_num }}
+  number: 0
 
 requirements:
   build:
@@ -137,8 +136,8 @@ outputs:
       skip: {{ rust_arch != "x86_64-unknown-linux-gnu" and rust_arch != "x86_64-pc-windows-msvc" }}
       noarch: generic
       # Need conda-build >=3.25 to have different hashes. Remove when conda-build 3.25 is out.
-      string: unix_{{ build_num }}  # [unix]
-      string: win_{{ build_num }}  # [win]
+      string: unix_{{ PKG_BUILDNUM }}  # [unix]
+      string: win_{{ PKG_BUILDNUM }}  # [win]
     requirements:
       build:
         - posix  # [win]

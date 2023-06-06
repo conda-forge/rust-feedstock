@@ -12,6 +12,15 @@ docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 rust_arch:
 - x86_64-unknown-linux-gnu
+rust_std_extra:
+- aarch64-apple-ios
+- aarch64-apple-ios-sim
+- aarch64-linux-android
+- arm-linux-androideabi
+- armv7-linux-androideabi
+- i686-linux-android
+- x86_64-apple-ios
+- x86_64-linux-android
 target_platform:
 - linux-64
 zlib:

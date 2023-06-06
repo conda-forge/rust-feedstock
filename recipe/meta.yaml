@@ -9,24 +9,52 @@ package:
 
 
 source:
-  - 
-    url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-unknown-linux-gnu.tar.gz  # [linux and x86_64]
-    url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]
-    url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
-    url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
-    url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-apple-darwin.tar.gz  # [osx and arm64]
-    url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-pc-windows-msvc.tar.gz  # [win64]
-    sha256: b4c20aae5604114dcaf0d4a539cd53418f4a455a6d672da1177643df6747ce75  # [win64]
-    sha256: 7b7d48b5e76f9d630904ef515b2bb045badb35ebaa2a89cb4d9ce72bbf55381d  # [osx and x86_64]
-    sha256: d61df658cbdcd9c4daee096ec2090d802b2d8b248c02a8989780e5caf4b414e4  # [linux and x86_64]
-    sha256: 49ada1d6c610fb9064a088f19a3ca7ac7f370a1aa00ad07a2b9ad05cb86ad9f4  # [linux and aarch64]
-    sha256: a3f2df216525e91a3576bb71a3e5cf4068c023e8dfe3d70a7bf4f52e955cfc11  # [linux and ppc64le]
-    sha256: ac27eb055a000ea8eb145f610f1841b18bd95c96522f83bf4a0eb49fdd48a023  # [osx and arm64]
+  # Note! This source file specification is structured specifically to interact
+  # well with the autotick bot. Importantly, the `patches:` block actually
+  # applies to *all* of these inputs, not just the last one in the list, because
+  # of the way that the YAML selector processing works.
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux and x86_64]
+    sha256: 8499c0b034dd881cd9a880c44021632422a28dc23d7a81ca0a97b04652245982  # [linux and x86_64]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]
+    sha256: 3aa012fc4d9d5f17ca30af41f87e1c2aacdac46b51adc5213e7614797c6fd24c  # [aarch64]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
+    sha256: ba8cb5e3078b1bc7c6b27ab53cfa3af14001728db9a047d0bdf29b8f05a4db34  # [ppc64le]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
+    sha256: e5819fdbfc7f1a4d5d82cb4c3b7662250748450b45a585433bfb75648bc45547  # [osx and x86_64]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-apple-darwin.tar.gz  # [osx and arm64]
+    sha256: 75cbc356a06c9b2daf6b9249febda0f0c46df2a427f7cc8467c7edbd44636e53  # [osx and arm64]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz  # [win64]
+    sha256: 02a9c4d98ea58e7554c144f1bc946138cdc5614af71d3fc21f0a717a0367599b  # [win64]
     patches:
       - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.diff
-  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-src-nightly.tar.gz
-    sha256: 67be6c94f62a6c58ca8801aa0378c5644a7edb7967e64fa60ee15bdc03f2cfa9
+  # End of block of primary source files.
+  - url: https://static.rust-lang.org/dist/rust-src-{{ version }}.tar.gz
+    sha256: 9653c6f242c85385ad63c49b5eb695af79ab83a89babe21c6dc6b66957ed8da4
     folder: rust-src
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-aarch64-apple-ios.tar.gz  # [linux and x86_64]
+    sha256: e90967bdd3294abe09058e4380e8a6be8921a00045f8cb495e6826f417e94391  # [linux and x86_64]
+    folder: rust-std  # [linux and x86_64]
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-x86_64-apple-ios.tar.gz  # [linux and x86_64]
+    sha256: 4225d118018d7a36dcbd39bb913d3421d25a03443c92b94dbed1f62d8f3697cf  # [linux and x86_64]
+    folder: rust-std  # [linux and x86_64]
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-aarch64-apple-ios-sim.tar.gz  # [linux and x86_64]
+    sha256: 4a8923a1357380b4b327f71f2ede0fed96926c78431175ed206f3cad588b9a30  # [linux and x86_64]
+    folder: rust-std  # [linux and x86_64]
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-aarch64-linux-android.tar.gz  # [linux and x86_64]
+    sha256: da51305740bcc127973eb0f99de2c359b4a5c1d83eee54621a27e10e89562d0f  # [linux and x86_64]
+    folder: rust-std  # [linux and x86_64]
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-arm-linux-androideabi.tar.gz  # [linux and x86_64]
+    sha256: 98314996a3396024f6359fea03eb00293cdbbe5014ebe85479edbcbb9bb758f8  # [linux and x86_64]
+    folder: rust-std  # [linux and x86_64]
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-armv7-linux-androideabi.tar.gz  # [linux and x86_64]
+    sha256: bcc76e07fbcf106aac0d46fe1dda998da4d2cc947920f8bfe1524bdebcf36313  # [linux and x86_64]
+    folder: rust-std  # [linux and x86_64]
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-i686-linux-android.tar.gz  # [linux and x86_64]
+    sha256: f7a6c27128ef16f6fc5ff9d8cd5b8c93425e28f4abdbe750f2123a3212cdc04c  # [linux and x86_64]
+    folder: rust-std  # [linux and x86_64]
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-x86_64-linux-android.tar.gz  # [linux and x86_64]
+    sha256: 070983431fd324d085d72497560a54473f0d86537214810661c2487d59c9056e  # [linux and x86_64]
+    folder: rust-std  # [linux and x86_64]
 
 build:
   number: 0
@@ -54,6 +82,9 @@ outputs:
         - posix  # [build_platform == "win-64"]
       host:
       run:
+      run_constrained:
+        # Having different versions of rust-std and rust is confusing.
+        - {{ pin_subpackage("rust", min_pin="x.x.x", max_pin="x.x.x") }}
     script: install-rust-std.sh  # [unix]
     script: install-rust-std.bat  # [win]
     test:
@@ -99,27 +130,57 @@ outputs:
         - rustc --help
         - rustdoc --help
         - cargo --help
-        - cargo install --force xsv
         - rustc --version
         - rustc --version | grep "rustc {{ '.'.join(version.split('.')[:3]) }}"  # [unix]
+        - cargo --config registries.crates-io.protocol=\"sparse\" install --force xsv
         - echo {{ rust_arch }}
 
   - name: rust-src
-    script: install-rust-src.sh
+    script: install-rust-src.sh  # [unix]
+    script: install-rust-src.bat  # [win]
+    build:
+      skip: {{ rust_arch != "x86_64-unknown-linux-gnu" and rust_arch != "x86_64-pc-windows-msvc" }}
+      noarch: generic
+      # Need conda-build >=3.25 to have different hashes. Remove when conda-build 3.25 is out.
+      string: unix_{{ PKG_BUILDNUM }}  # [unix]
+      string: win_{{ PKG_BUILDNUM }}  # [win]
+    requirements:
+      build:
+        - posix  # [win]
+      run:
+        - __win   # [win]
+        - __unix  # [unix]
+      run_constrained:
+        # Having different versions of rust-src and rust is confusing.
+        # `rust-src` is specific to the toolchain in `rustup`,
+        # and we would like to keep that behavior.
+        - {{ pin_subpackage("rust", min_pin="x.x.x", max_pin="x.x.x") }}
+    test:
+      commands:
+        - test -f "${PREFIX}"/lib/rustlib/src/rust/Cargo.lock  # [unix]
+        - if not exist "%LIBRARY_PREFIX%/lib/rustlib/src/rust/Cargo.lock" exit 1  # [win]
+        # Make sure that the outputs do not clobber with other rust components
+        - test "$(ls "${PREFIX}"/lib/rustlib/)" = "$(printf "manifest-rust-src\nsrc")"  # [unix]
+        - if not exist "%LIBRARY_PREFIX%/lib/rustlib/manifest-rust-src" exit 1  # [win]
+        - if not exist "%LIBRARY_PREFIX%/lib/rustlib/src" exit 1  # [win]
+
+
+  - name: rust-std-{{ rust_std_extra }}
+    script: install-rust-std-extra.sh
     build:
       noarch: generic
       skip: {{ rust_arch != "x86_64-unknown-linux-gnu" }}
     requirements:
       run_constrained:
-        # Having different versions of rust-src and rust is confusing.
-        # `rust-src` is specific to the toolchain in `rustup`,
-        # and we would like to keep that behavior.
-        - {{ pin_subpackage("rust", exact=True) }}
+        # Having different versions of rust-std and rust is confusing.
+        - {{ pin_subpackage("rust", min_pin="x.x.x", max_pin="x.x.x") }}
     test:
       commands:
-        - test -f "${PREFIX}"/lib/rustlib/src/rust/Cargo.lock
+        - test -d $PREFIX/lib/rustlib/{{ rust_std_extra }}
+        - test -f $PREFIX/lib/rustlib/manifest-rust-std-{{ rust_std_extra }}
         # Make sure that the outputs do not clobber with other rust components
-        - test "$(ls "${PREFIX}"/lib/rustlib/)" = "$(printf "manifest-rust-src\nsrc")"
+        - test -z "$(ls "${PREFIX}"/lib/rustlib/ | grep -v {{ rust_std_extra }})"
+        - echo {{ rust_std_extra }}
 
 about:
   home: https://www.rust-lang.org

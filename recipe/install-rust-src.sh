@@ -4,9 +4,11 @@ set -ex
 
 cd rust-src
 
+DESTDIR=/
+
 ./install.sh --prefix="$PREFIX" --destdir="$DESTDIR"
 
-rm "${PREFIX}"/lib/rustlib/components
-rm "${PREFIX}"/lib/rustlib/install.log
-rm "${PREFIX}"/lib/rustlib/rust-installer-version
-rm "${PREFIX}"/lib/rustlib/uninstall.sh
+rm "${DESTDIR}"/"${PREFIX}"/lib/rustlib/components
+rm "${DESTDIR}"/"${PREFIX}"/lib/rustlib/install.log
+rm "${DESTDIR}"/"${PREFIX}"/lib/rustlib/rust-installer-version
+rm "${DESTDIR}"/"${PREFIX}"/lib/rustlib/uninstall.sh

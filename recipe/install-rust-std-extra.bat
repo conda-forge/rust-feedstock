@@ -1,15 +1,8 @@
-@echo off
-setlocal
-
-cd rust-std
-
-echo %PKG_NAME% > ./components
-
-bash -lce "install.sh --prefix="%PREFIX%" --destdir="%DESTDIR%""
-
-del "%PREFIX%/lib/rustlib/components"
-del "%PREFIX%/lib/rustlib/install.log"
-del "%PREFIX%/lib/rustlib/rust-installer-version"
-del "%PREFIX%/lib/rustlib/uninstall.sh"
-
-endlocal
+set MSYSTEM=MINGW%ARCH%
+set MSYS2_PATH_TYPE=inherit
+set CHERE_INVOKING=1
+FOR /F "delims=" %%i in ('cygpath.exe -u "%PREFIX%"') DO set "PREFIX=%%i/Library"
+FOR /F "delims=" %%i in ('cygpath.exe -u "%SRC_DIR%"') DO set "SRC_DIR=%%i"
+copy "%RECIPE_DIR%\install-rust-std-extra.sh" .
+bash -lce "%SRC_DIR%/install-rust-std-extra.sh"
+if errorlevel 1 exit 1

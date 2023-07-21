@@ -183,7 +183,7 @@ outputs:
     test:
       commands:
         - test -d $PREFIX/lib/rustlib/{{ rust_std_extra }}  # [unix]
-        - if not exists "%LIBRARY_PREFIX%/lib/rustlib/{{ rust_std_extra }}" exit 1  # [win]
+        - if not exist "%LIBRARY_PREFIX%/lib/rustlib/{{ rust_std_extra }}" exit 1  # [win]
         - test -f $PREFIX/lib/rustlib/manifest-rust-std-{{ rust_std_extra }}  # [unix]
         - if not exist "%LIBRARY_PREFIX%/lib/rustlib/manifest-rust-std-{{ rust_std_extra }}" exit 1  # [win]
         # Make sure that the outputs do not clobber with other rust components

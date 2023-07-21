@@ -2,7 +2,7 @@
 
 set -ex
 
-cd rust-std
+cd $SRC_DIR/rust-std
 
 echo $PKG_NAME > ./components
 

@@ -1,4 +1,4 @@
-{% set version = "1.64.0" %}
+{% set version = "1.71.1" %}
 
 package:
   name: 'rust-suite'
@@ -6,22 +6,22 @@ package:
 
 source:
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux64]
-    sha256: a893977f238291370ab96726a74b6b9ae854dc75fbf5730954d901a93843bf9b  # [linux64]
+    sha256: 34778d1cda674990dfc0537bc600066046ae9cb5d65a07809f7e7da31d4689c4  # [linux64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]
-    sha256: 7d8860572431bd4ee1b9cd0cd77cf7ff29fdd5b91ed7c92a820f872de6ced558  # [aarch64]
+    sha256: c7cf230c740a62ea1ca6a4304d955c286aea44e3c6fc960b986a8c2eeea4ec3f  # [aarch64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
-    sha256: 9d4591033eac22093d107991a68fffccea087b26bb54115d46cc544fbf5ef66c  # [ppc64le]
+    sha256: bac57066882366e4628d1ed2bbe4ab19c0b373aaf45582c2da9f639f2f6ea537  # [ppc64le]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-s390x-unknown-linux-gnu.tar.gz  # [s390x]
-    sha256: 202c445d2a7742c761ad31e62a8ffdfbff4ecc691a79d04182b7e1e5b18383ad  # [s390x]
+    sha256: 4205dc823ef57c4d9bdf80fb4ecb1e23a71af6dca05432b9fb5a6e9e08fe8f19  # [s390x]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
-    sha256: b6003d49fb857ff8dc105a3ccba98b851cd3e7d874005acb92284fd1113adc0d  # [osx and x86_64]
+    sha256: 916056603da88336aba68bbeab49711cc8fdb9cfb46a49b04850c0c09761f58c  # [osx and x86_64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-apple-darwin.tar.gz  # [osx and arm64]
-    sha256: e1a37dc5991304716e260144311fd291d8fb514042e45c244c582b3454477038  # [osx and arm64]
+    sha256: f4061b65b31ac75b9b5384c1f518e555f3da23f93bcf64dce252461ee65e9351  # [osx and arm64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz  # [win64]
-    sha256: 82ab0bf226cc64379612e050365f4944d6201cd5d9e527d7956c3fbdb715d0bb  # [win64]
+    sha256: 0234bf6ef1ef3efe1809ba548d0ac9c6eeb8a91fb25145caf5547d8614da0049  # [win64]
     folder: msvc  # [win64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-gnu.tar.gz  # [win64]
-    sha256: 40432058311e765a28605f9507fdc6df2d60fad70aa5def231709eb64adeea4d  # [win64]
+    sha256: 15289233721ad7c3d697890d9c6079ca3b8a0f6740c080fbec3e8ae3a5ea5c8c  # [win64]
     folder: gnu  # [win64]
 
 build:

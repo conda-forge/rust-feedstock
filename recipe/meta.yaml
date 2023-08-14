@@ -12,7 +12,7 @@ source:
   # well with the autotick bot. Importantly, the `patches:` block actually
   # applies to *all* of these inputs, not just the last one in the list, because
   # of the way that the YAML selector processing works.
-    - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-unknown-linux-gnu.tar.gz  # [linux and x86_64]
+  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-unknown-linux-gnu.tar.gz  # [linux and x86_64]
     sha256: 4d22ea890988cc449e9b66a2f19f66cfbce3583a1af4c7c3176c014fc0ee21ee  # [linux and x86_64]
   - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]
     sha256: 76a58cc70004c7becea2c3cd7042636cb7c929dfb0258b094ba79511dc1ba081  # [aarch64]
@@ -51,7 +51,7 @@ source:
   - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-i686-linux-android.tar.gz  # [linux and x86_64]
     sha256: db007f26e7fc5ca682829b0e1f79c08bd501b23739e17902f10fcfb1261f8b81  # [linux and x86_64]
     folder: rust-std  # [linux and x86_64]
-  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nigthly-x86_64-linux-android.tar.gz  # [linux and x86_64]
+  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-x86_64-linux-android.tar.gz  # [linux and x86_64]
     sha256: 0b1f36c5326c130076df89ec898d035ae96c8a4ab94451477b9deb90069e564e  # [linux and x86_64]
     folder: rust-std  # [linux and x86_64]
 

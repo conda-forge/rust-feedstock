@@ -1,4 +1,4 @@
-{% set version = "1.71.1" %}
+{% set version = "1.72.0" %}
 
 package:
   name: rust-split
@@ -10,49 +10,49 @@ source:
   # applies to *all* of these inputs, not just the last one in the list, because
   # of the way that the YAML selector processing works.
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-unknown-linux-gnu.tar.gz  # [linux and x86_64]
-    sha256: 34778d1cda674990dfc0537bc600066046ae9cb5d65a07809f7e7da31d4689c4  # [linux and x86_64]
+    sha256: f2bbe23e685852104fd48d0e34ac981b0917e76c62cfcd6d0ac5283e4710c7b9  # [linux and x86_64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-unknown-linux-gnu.tar.xz  # [aarch64]
-    sha256: 911f2370b67b066cefd2ee772c5219015817e2c2dc327351f8b00c5ca7a1098f  # [aarch64]
+    sha256: 4632212f61c6adcb8ba64aa3020bf94199537161e6a594fe6466669a85dd5567  # [aarch64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
-    sha256: bac57066882366e4628d1ed2bbe4ab19c0b373aaf45582c2da9f639f2f6ea537  # [ppc64le]
+    sha256: f5a9ba541e8904519eadbd08a5d9ab37cb7b85391ebf9bc44ddd1aad704ca1a8  # [ppc64le]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz  # [osx and x86_64]
-    sha256: 916056603da88336aba68bbeab49711cc8fdb9cfb46a49b04850c0c09761f58c  # [osx and x86_64]
+    sha256: e8190e6a34b6ca0c0d6353c991ab4615d13959ebec7d29ce7fe5dfd63b3e4644  # [osx and x86_64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-apple-darwin.tar.gz  # [osx and arm64]
-    sha256: f4061b65b31ac75b9b5384c1f518e555f3da23f93bcf64dce252461ee65e9351  # [osx and arm64]
+    sha256: 463893386b7749557ec4c6de8ba69f88c7757765d137b80ea92043d2c8a4b535  # [osx and arm64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz  # [win64]
-    sha256: 0234bf6ef1ef3efe1809ba548d0ac9c6eeb8a91fb25145caf5547d8614da0049  # [win64]
+    sha256: 6672eff89792954a6c1013e0b7b8ac8123b3a64f6b466910ea818ec763809fd7  # [win64]
     patches:
       - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.diff
   # End of block of primary source files.
   - url: https://static.rust-lang.org/dist/rust-src-{{ version }}.tar.gz
-    sha256: 5e420964c3d53fbb05f51706f550a9b2a7696b8cdae84b67d45159e68b0a9804
+    sha256: 438aab3a31be7ba2cd176bd3edfa93f82c1a11fc23b8ccdd60b36bdf2a3cae30
     folder: rust-src
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-aarch64-apple-ios.tar.gz  # [(linux or win) and x86_64]
-    sha256: 0d2a9a25c7439f56848a35124b5c9b09db44fd09a8e6bd48220e196d1c1f80ff  # [(linux or win) and x86_64]
+    sha256: ab647718f90357ad27669e1057f56fec6b9230b8b7c9ccb893f3aaf7a6d2d82c  # [(linux or win) and x86_64]
     folder: rust-std  # [(linux or win) and x86_64]
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-x86_64-apple-ios.tar.gz  # [(linux or win) and x86_64]
-    sha256: 79a35786dd5a2344bce9e2a44735b22d39ef912e84e689369505e2e589bb911b  # [(linux or win) and x86_64]
+    sha256: 23fd3e8c5d9af21159f1b85047611848d5c344d44a63d2b259fa78500498c7cb  # [(linux or win) and x86_64]
     folder: rust-std  # [(linux or win) and x86_64]
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-aarch64-apple-ios-sim.tar.gz  # [(linux or win) and x86_64]
-    sha256: f04ce41028bfd93b429648a38d42c1418c462fba27368b9b82474bc4d0a723c9  # [(linux or win) and x86_64]
+    sha256: 0fdb8754fe14e650da9faa2608de90ba79c60971913f98c179296f32cd46a7e9  # [(linux or win) and x86_64]
     folder: rust-std  # [(linux or win) and x86_64]
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-aarch64-linux-android.tar.gz  # [(linux or win) and x86_64]
-    sha256: 668191ec8d75184c654f5e20ec247217cab0d0b71e769808a109e460e2b4a311  # [(linux or win) and x86_64]
+    sha256: 1aadc5a146170cabaaa814cf1115611610c8361c5e71f9cd6f35447dea8cd188  # [(linux or win) and x86_64]
     folder: rust-std  # [(linux or win) and x86_64]
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-arm-linux-androideabi.tar.gz  # [(linux or win) and x86_64]
-    sha256: b5bdb190400b1f0f7a4c5716b5c27ee5519cc2997829fb1bdffd53e755824429  # [(linux or win) and x86_64]
+    sha256: b35e8fac9503d5060a92b9ff640b37a210cf31c4d3807e6eb7b9ddc7be2c50c3  # [(linux or win) and x86_64]
     folder: rust-std  # [(linux or win) and x86_64]
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-armv7-linux-androideabi.tar.gz  # [(linux or win) and x86_64]
-    sha256: bf8f789e67bfeb495c46d6fa46438f3497e86a32f67e467f717f3807d148527f  # [(linux or win) and x86_64]
+    sha256: fcc7129b5cdd4562b1909a4f2ea0d81dc10e130c2e05d2b86d1d579d590d2dd5  # [(linux or win) and x86_64]
     folder: rust-std  # [(linux or win) and x86_64]
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-i686-linux-android.tar.gz  # [(linux or win) and x86_64]
-    sha256: 4e4fd08395b0360f296720990e5cd7e7e6d2d8cfabc1aaab465e06c871de5d46  # [(linux or win) and x86_64]
+    sha256: 1fc7bacf7db39b670d503631ab19c5ea84892fe95f90d4a4f9be173c067620f0  # [(linux or win) and x86_64]
     folder: rust-std  # [(linux or win) and x86_64]
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-x86_64-linux-android.tar.gz  # [(linux or win) and x86_64]
-    sha256: 51be9617dd280020fe1732a1e02e0dae4b2c299f44621eda0692ae2fd7c6b964  # [(linux or win) and x86_64]
+    sha256: 030d439bb1c6b74ca1e87077ab0adff738d19ba5adad2361278e32f1b69fd40c  # [(linux or win) and x86_64]
     folder: rust-std  # [(linux or win) and x86_64]
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-wasm32-unknown-unknown.tar.gz  # [(linux or win) and x86_64]
-    sha256: 2d1ee290dc13a5b33ed754b246eba57f4b284ad16966063094ce26e9d435b965  # [(linux or win) and x86_64]
+    sha256: 5ba9b055ab928f952001628d60df020e81c975119717f4823344e50c04280a6f  # [(linux or win) and x86_64]
     folder: rust-std  # [(linux or win) and x86_64]
 
 build:

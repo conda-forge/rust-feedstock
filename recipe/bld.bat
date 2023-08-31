@@ -10,7 +10,7 @@ if errorlevel 1 exit 1
 
 @rem We need to delete the two directory as otherwise conda-build treats them as a sysroot
 @rem See https://github.com/conda/conda-build/blob/d3b717760f550abd58832c629d7f72aed46ae5ca/conda_build/post.py#L1376-L1381
-rmdir /s %LIBRARY_PREFIX%\share\doc\rust\html\src\sysroot
+rmdir /q /s %LIBRARY_PREFIX%\share\doc\rust\html\src\sysroot
 if errorlevel 1 exit 1
-rmdir /s %LIBRARY_PREFIX%\share\doc\rust\html\sysroot
+rmdir /q /s %LIBRARY_PREFIX%\share\doc\rust\html\sysroot
 if errorlevel 1 exit 1

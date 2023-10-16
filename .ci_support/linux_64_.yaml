@@ -22,6 +22,7 @@ rust_std_extra:
 - wasm32-unknown-unknown
 - x86_64-apple-ios
 - x86_64-linux-android
+- x86_64-pc-windows-msvc
 target_platform:
 - linux-64
 zlib:

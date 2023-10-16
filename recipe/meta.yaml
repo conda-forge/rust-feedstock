@@ -33,6 +33,9 @@ source:
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-x86_64-apple-ios.tar.gz  # [(linux or win) and x86_64]
     sha256: 95f8300e5421141f9f9a8f45b866106724e00d9f307d7b880a046cddce5f73d4  # [(linux or win) and x86_64]
     folder: rust-std  # [(linux or win) and x86_64]
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-x86_64-pc-windows-msvc.tar.gz  # [(linux or win) and x86_64]
+    sha256: ea7da24247ce6d39bb3fd3fa7f4b50b297d06d53ebfee8c97c5393399963a907  # [(linux or win) and x86_64]
+    folder: rust-std  # [(linux or win) and x86_64]
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-aarch64-apple-ios-sim.tar.gz  # [(linux or win) and x86_64]
     sha256: ea324a61b86a1bfc0cc9e777d2f7c466e4862f164d54f897ebe519d0f8418670  # [(linux or win) and x86_64]
     folder: rust-std  # [(linux or win) and x86_64]
@@ -56,7 +59,7 @@ source:
     folder: rust-std  # [(linux or win) and x86_64]
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:

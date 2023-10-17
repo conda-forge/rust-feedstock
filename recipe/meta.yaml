@@ -87,6 +87,10 @@ outputs:
         - posix  # [build_platform == "win-64"]
       host:
       run:
+        # The directory structure of windows and unix is different.
+        # We should not install the bundled rust-std-x86_64-pc-windows-msvc from this output on unix for example.
+        - __unix  # [unix]
+        - __win  # [win]
       run_constrained:
         # Having different versions of rust-std and rust is confusing.
         - {{ pin_subpackage("rust", min_pin="x.x.x", max_pin="x.x.x") }}

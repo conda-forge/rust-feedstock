@@ -104,14 +104,14 @@ Current release info
 Installing rust-split
 =====================
 
-Installing `rust-split` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `rust-split` from the `conda-forge/label/rust_dev` channel can be achieved by adding `conda-forge/label/rust_dev` to your channels with:
 
 ```
-conda config --add channels conda-forge
+conda config --add channels conda-forge/label/rust_dev
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `rust, rust-src, rust-std-aarch64-apple-ios, rust-std-aarch64-apple-ios-sim, rust-std-aarch64-linux-android, rust-std-arm-linux-androideabi, rust-std-armv7-linux-androideabi, rust-std-i686-linux-android, rust-std-wasm32-unknown-unknown, rust-std-x86_64-apple-ios, rust-std-x86_64-linux-android, rust-std-x86_64-pc-windows-msvc, rust-std-x86_64-unknown-linux-gnu` can be installed with `conda`:
+Once the `conda-forge/label/rust_dev` channel has been enabled, `rust, rust-src, rust-std-aarch64-apple-ios, rust-std-aarch64-apple-ios-sim, rust-std-aarch64-linux-android, rust-std-arm-linux-androideabi, rust-std-armv7-linux-androideabi, rust-std-i686-linux-android, rust-std-wasm32-unknown-unknown, rust-std-x86_64-apple-ios, rust-std-x86_64-linux-android, rust-std-x86_64-pc-windows-msvc, rust-std-x86_64-unknown-linux-gnu` can be installed with `conda`:
 
 ```
 conda install rust rust-src rust-std-aarch64-apple-ios rust-std-aarch64-apple-ios-sim rust-std-aarch64-linux-android rust-std-arm-linux-androideabi rust-std-armv7-linux-androideabi rust-std-i686-linux-android rust-std-wasm32-unknown-unknown rust-std-x86_64-apple-ios rust-std-x86_64-linux-android rust-std-x86_64-pc-windows-msvc rust-std-x86_64-unknown-linux-gnu
@@ -126,26 +126,26 @@ mamba install rust rust-src rust-std-aarch64-apple-ios rust-std-aarch64-apple-io
 It is possible to list all of the versions of `rust` available on your platform with `conda`:
 
 ```
-conda search rust --channel conda-forge
+conda search rust --channel conda-forge/label/rust_dev
 ```
 
 or with `mamba`:
 
 ```
-mamba search rust --channel conda-forge
+mamba search rust --channel conda-forge/label/rust_dev
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search rust --channel conda-forge
+mamba repoquery search rust --channel conda-forge/label/rust_dev
 
 # List packages depending on `rust`:
-mamba repoquery whoneeds rust --channel conda-forge
+mamba repoquery whoneeds rust --channel conda-forge/label/rust_dev
 
 # List dependencies of `rust`:
-mamba repoquery depends rust --channel conda-forge
+mamba repoquery depends rust --channel conda-forge/label/rust_dev
 ```
 
 

@@ -59,7 +59,7 @@ source:
     folder: rust-std  # [(linux or win) and x86_64]
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -139,6 +139,7 @@ outputs:
         - cargo --config registries.crates-io.protocol=\"sparse\" install --force xsv
         - echo {{ rust_arch }}
         - if exist %LIBRARY_PREFIX%\share\doc\rust\html\sysroot exit 1  # [win]
+        - cargo install --force xsv
 
   - name: rust-src
     script: install-rust-src.sh  # [unix]

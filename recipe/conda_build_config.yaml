@@ -1,7 +1,19 @@
 rust_arch:
-  - x86_64-unknown-linux-gnu       # [linux64]
-  - s390x-unknown-linux-gnu        # [s390x]
-  - aarch64-unknown-linux-gnu      # [aarch64]
-  - powerpc64le-unknown-linux-gnu  # [ppc64le]
-  - x86_64-apple-darwin            # [osx and x86_64]
-  - aarch64-apple-darwin           # [osx and arm64]
+  - x86_64-unknown-linux-gnu    # [linux64]
+  - aarch64-unknown-linux-gnu   # [aarch64]
+  - powerpc64le-unknown-linux-gnu       # [ppc64le]
+  - x86_64-pc-windows-msvc      # [win64]
+  - x86_64-apple-darwin         # [osx and x86_64]
+  - aarch64-apple-darwin        # [osx and arm64]
+
+rust_std_extra:
+  - aarch64-apple-ios
+  - x86_64-apple-ios
+  - aarch64-apple-ios-sim
+  - aarch64-linux-android
+  - arm-linux-androideabi
+  - armv7-linux-androideabi
+  - i686-linux-android
+  - wasm32-unknown-unknown
+  - x86_64-linux-android
+  - x86_64-pc-windows-msvc   # [linux and x86_64]

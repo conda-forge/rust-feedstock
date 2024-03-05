@@ -212,7 +212,11 @@ about:
   doc_url: https://www.rust-lang.org/en-US/documentation.html
 
 extra:
+  anaconda-services:
+    ref: https://anaconda.zendesk.com/agent/tickets/46418
+    reason: Client request
   recipe-maintainers:
+    - ianaobi
     - timkpaine
     - xhochy
     - johanneskoester

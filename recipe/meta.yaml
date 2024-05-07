@@ -115,8 +115,8 @@ outputs:
         # Added as run deps: libgcc-ng (via compiler strong run_exports), zlib
         # - /lib64/libgcc_s.so.1  # [linux]
         # - /lib64/libz.so.1  # [linux]
-      run_exports:
-        strong_constrains:
+      run_exports:                                                  # [osx and x86_64]
+        strong_constrains:                                          # [osx and x86_64]
           - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
     requirements:
       build:

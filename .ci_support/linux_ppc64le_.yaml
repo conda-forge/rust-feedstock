@@ -2,10 +2,6 @@ c_compiler:
 - gcc
 c_compiler_version:
 - '12'
-c_stdlib:
-- sysroot
-c_stdlib_version:
-- '2.17'
 cdt_name:
 - cos7
 channel_sources:
@@ -18,8 +14,5 @@ rust_arch:
 - powerpc64le-unknown-linux-gnu
 target_platform:
 - linux-ppc64le
-zip_keys:
-- - c_stdlib_version
-  - cdt_name
 zlib:
 - '1.2'

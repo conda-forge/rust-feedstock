@@ -1,5 +1,5 @@
-MACOSX_DEPLOYMENT_TARGET:  # [osx and x86_64]
-  - 10.12                  # [osx and x86_64]
+c_stdlib_version:  # [linux64]
+  - '2.17'         # [linux64]
 rust_arch:
   - x86_64-unknown-linux-gnu    # [linux64]
   - aarch64-unknown-linux-gnu   # [aarch64]

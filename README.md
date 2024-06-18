@@ -111,7 +111,11 @@ conda config --add channels conda-forge/label/rust_dev
 conda config --set channel_priority strict
 ```
 
+<<<<<<< HEAD
 Once the `conda-forge/label/rust_dev` channel has been enabled, `rust, rust-src, rust-std-aarch64-apple-ios, rust-std-aarch64-apple-ios-sim, rust-std-aarch64-linux-android, rust-std-arm-linux-androideabi, rust-std-armv7-linux-androideabi, rust-std-i686-linux-android, rust-std-wasm32-unknown-unknown, rust-std-x86_64-apple-ios, rust-std-x86_64-linux-android, rust-std-x86_64-pc-windows-msvc, rust-std-x86_64-unknown-linux-gnu` can be installed with `conda`:
+=======
+Once the `conda-forge` channel has been enabled, `rust, rust-src, rust-std-aarch64-apple-ios, rust-std-aarch64-apple-ios-sim, rust-std-aarch64-linux-android, rust-std-arm-linux-androideabi, rust-std-armv7-linux-androideabi, rust-std-i686-linux-android, rust-std-wasm32-unknown-unknown, rust-std-x86_64-apple-ios, rust-std-x86_64-linux-android, rust-std-x86_64-pc-windows-msvc, rust-std-x86_64-unknown-linux-gnu` can be installed with `conda`:
+>>>>>>> upstream/main
 
 ```
 conda install rust rust-src rust-std-aarch64-apple-ios rust-std-aarch64-apple-ios-sim rust-std-aarch64-linux-android rust-std-arm-linux-androideabi rust-std-armv7-linux-androideabi rust-std-i686-linux-android rust-std-wasm32-unknown-unknown rust-std-x86_64-apple-ios rust-std-x86_64-linux-android rust-std-x86_64-pc-windows-msvc rust-std-x86_64-unknown-linux-gnu

@@ -1,6 +1,7 @@
 channel_targets:
   - conda-forge rust_dev
-
+c_stdlib_version:  # [linux64]
+  - '2.17'         # [linux64]
 rust_arch:
   - x86_64-unknown-linux-gnu    # [linux64]
   - aarch64-unknown-linux-gnu   # [aarch64]

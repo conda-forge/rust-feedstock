@@ -10,3 +10,4 @@ test: native_and_emulated
 remote_ci_setup:
   conda=24.3.0
   conda-build=24.7.1
+  conda-forge-ci-setup=4

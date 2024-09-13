@@ -59,7 +59,7 @@ source:
     folder: rust-std  # [(linux or win) and x86_64]
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:

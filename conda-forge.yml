@@ -12,3 +12,4 @@ remote_ci_setup:
   conda-build=24.7.1
   conda-forge-ci-setup=4
   python=3.10
+  conda-libmamba-solver=24.1.0

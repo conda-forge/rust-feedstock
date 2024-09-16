@@ -9,7 +9,6 @@ conda_build:
 test: native_and_emulated
 # See https://github.com/conda-forge/rust-feedstock/pull/210#issuecomment-2352764197
 remote_ci_setup:
-  conda-build
   conda-forge-ci-setup=4
-  "conda-build>=24.1"
+  conda-build>=24.1
   conda-libmamba-solver=24.1.0

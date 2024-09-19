@@ -1,8 +1,0 @@
-channel_sources:
-- conda-forge
-channel_targets:
-- conda-forge main
-rust_arch:
-- x86_64-pc-windows-msvc
-target_platform:
-- win-64

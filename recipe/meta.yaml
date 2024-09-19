@@ -60,6 +60,7 @@ source:
 
 build:
   number: 1
+  skip: true # [not osx]
 
 requirements:
   build:

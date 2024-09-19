@@ -26,9 +26,9 @@ export CONDA_SOLVER="libmamba"
 export CONDA_LIBMAMBA_SOLVER_NO_CHANNELS_FROM_INSTALLED=1
 
 mamba install --update-specs --quiet --yes --channel conda-forge --strict-channel-priority \
-    pip mamba conda-build conda=24.3.0 conda-build=24.7.1 conda-forge-ci-setup=4 python=3.10 conda-libmamba-solver=24.1.0
+    pip mamba conda-build conda-forge-ci-setup=4 "conda-build>=24.1" conda-libmamba-solver=24.1.0
 mamba update --update-specs --yes --quiet --channel conda-forge --strict-channel-priority \
-    pip mamba conda-build conda=24.3.0 conda-build=24.7.1 conda-forge-ci-setup=4 python=3.10 conda-libmamba-solver=24.1.0
+    pip mamba conda-build conda-forge-ci-setup=4 "conda-build>=24.1" conda-libmamba-solver=24.1.0
 
 
 

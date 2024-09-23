@@ -23,6 +23,7 @@ rust_std_extra:
 - arm-linux-androideabi
 - armv7-linux-androideabi
 - i686-linux-android
+- wasm32-unknown-emscripten
 - wasm32-unknown-unknown
 - x86_64-apple-ios
 - x86_64-linux-android

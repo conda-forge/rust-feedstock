@@ -57,6 +57,9 @@ source:
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-wasm32-unknown-unknown.tar.gz  # [(linux or win) and x86_64]
     sha256: c5363bde6d2b680e43f7fd444ea60f88cf522070de86f0a940d6570671cef94c  # [(linux or win) and x86_64]
     folder: rust-std  # [(linux or win) and x86_64]
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-wasm32-unknown-emscripten.tar.gz  # [(linux or win) and x86_64]
+    sha256: 45bff7589cad6ca317d33b6aae86918018069661985f6779667aba84482df80d  # [(linux or win) and x86_64]
+    folder: rust-std  # [(linux or win) and x86_64]
 
 build:
   number: 0

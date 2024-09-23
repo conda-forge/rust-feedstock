@@ -24,6 +24,7 @@ rust_std_extra:
 - armv7-linux-androideabi
 - i686-linux-android
 - wasm32-unknown-unknown
+- wasm32-unknown-emscripten
 - x86_64-apple-ios
 - x86_64-linux-android
 - x86_64-pc-windows-msvc

@@ -168,8 +168,8 @@ outputs:
         - {{ pin_subpackage("rust", min_pin="x.x.x", max_pin="x.x.x") }}
     test:
       commands:
-        - test -f "${PREFIX}"/lib/rustlib/src/rust/Cargo.lock  # [unix]
-        - if not exist "%LIBRARY_PREFIX%/lib/rustlib/src/rust/Cargo.lock" exit 1  # [win]
+        - test -f "${PREFIX}"/lib/rustlib/src/rust/library/Cargo.lock  # [unix]
+        - if not exist "%LIBRARY_PREFIX%/lib/rustlib/src/rust/library/Cargo.lock" exit 1  # [win]
         # Make sure that the outputs do not clobber with other rust components
         - test "$(ls "${PREFIX}"/lib/rustlib/)" = "$(printf "manifest-rust-src\nsrc")"  # [unix]
         - if not exist "%LIBRARY_PREFIX%/lib/rustlib/manifest-rust-src" exit 1  # [win]

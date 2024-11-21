@@ -1,7 +1,7 @@
 {% set year = "2024" %}
 {% set month = "11" %}
 {% set day = "21" %}
-{% set version = "1.83.0" %}
+{% set version = "1.84.0" %}
 
 package:
   name: rust-split

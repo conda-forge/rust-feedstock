@@ -3,8 +3,7 @@
 package:
   name: rust-split
   version: {{ version }}
-  build: 1
-
+  
 source:
   # Note! This source file specification is structured specifically to interact
   # well with the autotick bot. Importantly, the `patches:` block actually
@@ -68,7 +67,7 @@ source:
     folder: rust-std # [win and arm64]
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:

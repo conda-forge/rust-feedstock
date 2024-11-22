@@ -3,6 +3,7 @@
 package:
   name: rust-split
   version: {{ version }}
+  build: 1
 
 source:
   # Note! This source file specification is structured specifically to interact

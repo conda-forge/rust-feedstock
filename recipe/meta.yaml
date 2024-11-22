@@ -21,6 +21,8 @@ source:
     sha256: 49b6d36b308addcfd21ae56c94957688338ba7b8985bff57fc626c8e1b32f62c  # [osx and arm64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-pc-windows-msvc.tar.gz  # [win64]
     sha256: b5fac89899343fbc1b8438ff87b77cddaed90a75873db7b01f2c197a26ec9d52  # [win64]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-pc-windows-msvc.tar.gz  # [win and arm64]
+    sha256: 2f2c4b504fb341fe09407befcb614f041eb45d3795b011322b8bb42674b3c4ea  # [win and arm64]
     patches:
       - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.diff
   # End of block of primary source files.
@@ -60,6 +62,9 @@ source:
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-wasm32-unknown-emscripten.tar.gz  # [(linux or win) and x86_64]
     sha256: b61443ca7dd871d92c942aafae677e0ce689b3ac835ab0c7bb101e021132fbb5  # [(linux or win) and x86_64]
     folder: rust-std  # [(linux or win) and x86_64]
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-aarch64-pc-windows-msvc.tar.xz  # [win and arm64]
+    sha256: d96cf028593374741696bf7319198ecb4ee0de2b4f1a72f9ce0c515be3c670bd  # [win and arm64]
+    folder: rust-std # [win and arm64]
 
 build:
   number: 0

@@ -64,7 +64,7 @@ source:
     folder: rust-std  # [(linux or win) and x86_64]
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-aarch64-pc-windows-msvc.tar.xz  # [win and arm64]
     sha256: d96cf028593374741696bf7319198ecb4ee0de2b4f1a72f9ce0c515be3c670bd  # [win and arm64]
-    folder: rust-std # [win and arm64]
+    folder: rust-std  # [win and arm64]
 
 build:
   number: 1

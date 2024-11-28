@@ -24,6 +24,8 @@ source:
     sha256: dc9000bf3bf48e513a96d84cc1702b1957a4f8a315b00eed570c2c5e2c1b95ec  # [osx and arm64]
   - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-pc-windows-msvc.tar.gz  # [win64]
     sha256: a92a6068c80fe03748e98eee7c765dc3bacb08028763ab1b6fbbdbc977ee2dfa  # [win64]
+  - url: https://static.rust-lang.org/dist{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-pc-windows-msvc.tar.gz  # [win and arm64]
+    sha256: 2f2c4b504fb341fe09407befcb614f041eb45d3795b011322b8bb42674b3c4ea  # [win and arm64]
     patches:
       - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.diff
   # End of block of primary source files.
@@ -60,9 +62,12 @@ source:
   - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-x86_64-pc-windows-msvc.tar.gz  # [(linux or win) and x86_64]
     sha256: 22c7b0fad4d2ed899442e4a87e2167a86670316c5eb443a4155d5601e931958a  # [(linux or win) and x86_64]
     folder: rust-std  # [(linux or win) and x86_64]
+  - url: https://static.rust-lang.org/dist{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-aarch64-pc-windows-msvc.tar.xz  # [(linux or win) and x86_64]
+    sha256: d96cf028593374741696bf7319198ecb4ee0de2b4f1a72f9ce0c515be3c670bd  # [(linux or win) and x86_64]
+    folder: rust-std  # [(linux or win) and x86_64]
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:

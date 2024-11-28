@@ -7,6 +7,7 @@ rust_arch:
   - aarch64-unknown-linux-gnu   # [aarch64]
   - powerpc64le-unknown-linux-gnu       # [ppc64le]
   - x86_64-pc-windows-msvc      # [win64]
+  - aarch64-pc-windows-msvc     # [win and arm64]
   - x86_64-apple-darwin         # [osx and x86_64]
   - aarch64-apple-darwin        # [osx and arm64]
 
@@ -19,5 +20,6 @@ rust_std_extra:
   - armv7-linux-androideabi
   - i686-linux-android
   - wasm32-unknown-unknown
+  - wasm32-unknown-emscripten
   - x86_64-linux-android
   - x86_64-pc-windows-msvc   # [linux and x86_64]

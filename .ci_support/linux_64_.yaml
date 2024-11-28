@@ -13,7 +13,7 @@ channel_sources:
 channel_targets:
 - conda-forge rust_dev
 docker_image:
-- quay.io/condaforge/linux-anvil-cos7-x86_64
+- quay.io/condaforge/linux-anvil-x86_64:alma9
 rust_arch:
 - x86_64-unknown-linux-gnu
 rust_std_extra:
@@ -23,6 +23,7 @@ rust_std_extra:
 - arm-linux-androideabi
 - armv7-linux-androideabi
 - i686-linux-android
+- wasm32-unknown-emscripten
 - wasm32-unknown-unknown
 - x86_64-apple-ios
 - x86_64-linux-android

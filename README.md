@@ -74,6 +74,13 @@ Current build status
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
                 </a>
               </td>
+            </tr><tr>
+              <td>win_arm64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4321&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/rust-feedstock?branchName=main&jobName=win&configuration=win%20win_arm64_" alt="variant">
+                </a>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -95,6 +102,7 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-rust--std--arm--linux--androideabi-green.svg)](https://anaconda.org/conda-forge/rust-std-arm-linux-androideabi) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rust-std-arm-linux-androideabi.svg)](https://anaconda.org/conda-forge/rust-std-arm-linux-androideabi) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rust-std-arm-linux-androideabi.svg)](https://anaconda.org/conda-forge/rust-std-arm-linux-androideabi) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rust-std-arm-linux-androideabi.svg)](https://anaconda.org/conda-forge/rust-std-arm-linux-androideabi) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-rust--std--armv7--linux--androideabi-green.svg)](https://anaconda.org/conda-forge/rust-std-armv7-linux-androideabi) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rust-std-armv7-linux-androideabi.svg)](https://anaconda.org/conda-forge/rust-std-armv7-linux-androideabi) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rust-std-armv7-linux-androideabi.svg)](https://anaconda.org/conda-forge/rust-std-armv7-linux-androideabi) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rust-std-armv7-linux-androideabi.svg)](https://anaconda.org/conda-forge/rust-std-armv7-linux-androideabi) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-rust--std--i686--linux--android-green.svg)](https://anaconda.org/conda-forge/rust-std-i686-linux-android) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rust-std-i686-linux-android.svg)](https://anaconda.org/conda-forge/rust-std-i686-linux-android) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rust-std-i686-linux-android.svg)](https://anaconda.org/conda-forge/rust-std-i686-linux-android) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rust-std-i686-linux-android.svg)](https://anaconda.org/conda-forge/rust-std-i686-linux-android) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-rust--std--wasm32--unknown--emscripten-green.svg)](https://anaconda.org/conda-forge/rust-std-wasm32-unknown-emscripten) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rust-std-wasm32-unknown-emscripten.svg)](https://anaconda.org/conda-forge/rust-std-wasm32-unknown-emscripten) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rust-std-wasm32-unknown-emscripten.svg)](https://anaconda.org/conda-forge/rust-std-wasm32-unknown-emscripten) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rust-std-wasm32-unknown-emscripten.svg)](https://anaconda.org/conda-forge/rust-std-wasm32-unknown-emscripten) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-rust--std--wasm32--unknown--unknown-green.svg)](https://anaconda.org/conda-forge/rust-std-wasm32-unknown-unknown) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rust-std-wasm32-unknown-unknown.svg)](https://anaconda.org/conda-forge/rust-std-wasm32-unknown-unknown) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rust-std-wasm32-unknown-unknown.svg)](https://anaconda.org/conda-forge/rust-std-wasm32-unknown-unknown) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rust-std-wasm32-unknown-unknown.svg)](https://anaconda.org/conda-forge/rust-std-wasm32-unknown-unknown) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-rust--std--x86_64--apple--ios-green.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-apple-ios) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rust-std-x86_64-apple-ios.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-apple-ios) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rust-std-x86_64-apple-ios.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-apple-ios) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rust-std-x86_64-apple-ios.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-apple-ios) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-rust--std--x86_64--linux--android-green.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-linux-android) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rust-std-x86_64-linux-android.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-linux-android) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rust-std-x86_64-linux-android.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-linux-android) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rust-std-x86_64-linux-android.svg)](https://anaconda.org/conda-forge/rust-std-x86_64-linux-android) |
@@ -111,16 +119,16 @@ conda config --add channels conda-forge/label/rust_dev
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge/label/rust_dev` channel has been enabled, `rust, rust-src, rust-std-aarch64-apple-ios, rust-std-aarch64-apple-ios-sim, rust-std-aarch64-linux-android, rust-std-arm-linux-androideabi, rust-std-armv7-linux-androideabi, rust-std-i686-linux-android, rust-std-wasm32-unknown-unknown, rust-std-x86_64-apple-ios, rust-std-x86_64-linux-android, rust-std-x86_64-pc-windows-msvc, rust-std-x86_64-unknown-linux-gnu` can be installed with `conda`:
+Once the `conda-forge/label/rust_dev` channel has been enabled, `rust, rust-src, rust-std-aarch64-apple-ios, rust-std-aarch64-apple-ios-sim, rust-std-aarch64-linux-android, rust-std-arm-linux-androideabi, rust-std-armv7-linux-androideabi, rust-std-i686-linux-android, rust-std-wasm32-unknown-emscripten, rust-std-wasm32-unknown-unknown, rust-std-x86_64-apple-ios, rust-std-x86_64-linux-android, rust-std-x86_64-pc-windows-msvc, rust-std-x86_64-unknown-linux-gnu` can be installed with `conda`:
 
 ```
-conda install rust rust-src rust-std-aarch64-apple-ios rust-std-aarch64-apple-ios-sim rust-std-aarch64-linux-android rust-std-arm-linux-androideabi rust-std-armv7-linux-androideabi rust-std-i686-linux-android rust-std-wasm32-unknown-unknown rust-std-x86_64-apple-ios rust-std-x86_64-linux-android rust-std-x86_64-pc-windows-msvc rust-std-x86_64-unknown-linux-gnu
+conda install rust rust-src rust-std-aarch64-apple-ios rust-std-aarch64-apple-ios-sim rust-std-aarch64-linux-android rust-std-arm-linux-androideabi rust-std-armv7-linux-androideabi rust-std-i686-linux-android rust-std-wasm32-unknown-emscripten rust-std-wasm32-unknown-unknown rust-std-x86_64-apple-ios rust-std-x86_64-linux-android rust-std-x86_64-pc-windows-msvc rust-std-x86_64-unknown-linux-gnu
 ```
 
 or with `mamba`:
 
 ```
-mamba install rust rust-src rust-std-aarch64-apple-ios rust-std-aarch64-apple-ios-sim rust-std-aarch64-linux-android rust-std-arm-linux-androideabi rust-std-armv7-linux-androideabi rust-std-i686-linux-android rust-std-wasm32-unknown-unknown rust-std-x86_64-apple-ios rust-std-x86_64-linux-android rust-std-x86_64-pc-windows-msvc rust-std-x86_64-unknown-linux-gnu
+mamba install rust rust-src rust-std-aarch64-apple-ios rust-std-aarch64-apple-ios-sim rust-std-aarch64-linux-android rust-std-arm-linux-androideabi rust-std-armv7-linux-androideabi rust-std-i686-linux-android rust-std-wasm32-unknown-emscripten rust-std-wasm32-unknown-unknown rust-std-x86_64-apple-ios rust-std-x86_64-linux-android rust-std-x86_64-pc-windows-msvc rust-std-x86_64-unknown-linux-gnu
 ```
 
 It is possible to list all of the versions of `rust` available on your platform with `conda`:

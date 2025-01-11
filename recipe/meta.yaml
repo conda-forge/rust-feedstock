@@ -185,7 +185,7 @@ outputs:
     script: install-rust-std-extra.sh  # [unix]
     script: install-rust-std-extra.bat  # [win]
     build:
-      skip: {{ rust_arch != "x86_64-unknown-linux-gnu" and rust_arch != "x86_64-pc-windows-msvc" and rust_arch != "aarch64-pc-windows-msvc"  }}
+      skip: {{ rust_arch != "x86_64-unknown-linux-gnu" and rust_arch != "x86_64-pc-windows-msvc" and rust_arch != "aarch64-pc-windows-msvc" }}
       noarch: generic
       # Need conda-build >=3.25 to have different hashes. Remove when conda-build 3.25 is out.
       string: unix_{{ PKG_BUILDNUM }}  # [unix]

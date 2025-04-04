@@ -8,7 +8,3 @@ conda_build:
   pkg_format: '2'
 conda_install_tool: pixi
 test: native_and_emulated
-remote_ci_setup:
-  - conda-forge-ci-setup=4
-  - conda-build>=24.1
-  - conda-libmamba-solver=24.1.0

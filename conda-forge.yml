@@ -6,5 +6,4 @@ github:
   tooling_branch_name: main
 conda_build:
   pkg_format: '2'
-conda_install_tool: pixi
 test: native_and_emulated

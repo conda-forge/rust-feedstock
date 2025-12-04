@@ -1,0 +1,116 @@
+From 29b0d89cec9ac7357908459021fbddf9c826bc80 Mon Sep 17 00:00:00 2001
+From: "Uwe L. Korn" <uwe.korn@quantco.com>
+Date: Tue, 15 Aug 2023 07:20:29 +0200
+Subject: [PATCH] gh-106: install.sh: Perfomance Use more shell builtins
+
+---
+ install.sh | 60 +++++++++++++++++++++++++++++++++---------------------
+ 1 file changed, 37 insertions(+), 23 deletions(-)
+
+diff --git a/install.sh b/install.sh
+index 1d9b9880..3f526d7d 100755
+--- a/install.sh
++++ b/install.sh
+@@ -136,11 +136,16 @@ append_to_file() {
+ 
+ make_dir_recursive() {
+     local _dir="$1"
+-    local _line="$ umask 022 && mkdir -p \"$_dir\""
+-    umask 022 && mkdir -p "$_dir"
+-    local _retval=$?
+-    log_line "$_line"
+-    return $_retval
++    # Skip if the last invocation of make_dir_recursive had the same argument
++    if ! [ "$_dir" = "${_make_dir_recursive_cached_key:-}" ]
++    then
++        _make_dir_recursive_cached_key="$_dir"
++        local _line="$ umask 022 && mkdir -p \"$_dir\""
++        umask 022 && mkdir -p "$_dir"
++        local _retval=$?
++        log_line "$_line"
++        return $_retval
++    fi
+ }
+ 
+ putvar() {
+@@ -165,11 +170,11 @@ valopt() {
+         eval $v="$default"
+         for arg in $CFG_ARGS
+         do
+-            if echo "$arg" | grep -q -- "--$op="
+-            then
+-                local val=$(echo "$arg" | cut -f2 -d=)
+-                eval $v=$val
+-            fi
++            case "${arg}" in
++                "--${op}="* )
++                    local val="${arg#--${op}=}"
++                    eval $v=$val
++            esac
+         done
+         putvar $v
+     else
+@@ -271,10 +276,10 @@ validate_opt () {
+         done
+         for option in $VAL_OPTIONS
+         do
+-            if echo "$arg" | grep -q -- "--$option="
+-            then
+-                is_arg_valid=1
+-            fi
++            case "${arg}" in
++                "--${option}="* )
++                    is_arg_valid=1
++            esac
+         done
+         if [ "$arg" = "--help" ]
+         then
+@@ -293,9 +298,10 @@ validate_opt () {
+ 
+ absolutify() {
+     local file_path="$1"
+-    local file_path_dirname="$(dirname "$file_path")"
+-    local file_path_basename="$(basename "$file_path")"
+-    local file_abs_path="$(abs_path "$file_path_dirname")"
++    local file_path_dirname="${file_path%/*}"
++    local file_path_basename="${file_path##*/}"
++    abs_path_cached "$file_path_dirname"
++    local file_abs_path="$abs_path_cached_retval"
+     local file_path="$file_abs_path/$file_path_basename"
+     # This is the return value
+     RETVAL="$file_path"
+@@ -303,11 +309,21 @@ absolutify() {
+ 
+ # Prints the absolute path of a directory to stdout
+ abs_path() {
++    abs_path_cached "$@"
++    printf %s "$abs_path_cached_retval"
++}
++
++abs_path_cached() {
+     local path="$1"
+-    # Unset CDPATH because it causes havok: it makes the destination unpredictable
+-    # and triggers 'cd' to print the path to stdout. Route `cd`'s output to /dev/null
+-    # for good measure.
+-    (unset CDPATH && cd "$path" > /dev/null && pwd)
++    # Update return value only if the argument differs from the last invocation
++    if ! [ "$path" = "${_abs_path_cached_key:-}" ]
++    then
++        _abs_path_cached_key="$path"
++        # Unset CDPATH because it causes havok: it makes the destination unpredictable
++        # and triggers 'cd' to print the path to stdout. Route `cd`'s output to /dev/null
++        # for good measure.
++        abs_path_cached_retval="$(unset CDPATH && cd "$path" > /dev/null && pwd)"
++    fi
+ }
+ 
+ uninstall_legacy() {
+@@ -755,8 +771,6 @@ verbose_msg
+ 
+ need_cmd mkdir
+ need_cmd printf
+-need_cmd cut
+-need_cmd grep
+ need_cmd uname
+ need_cmd tr
+ need_cmd sed

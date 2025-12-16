@@ -1,7 +1,7 @@
 {% set year = "2025" %}
 {% set month = "12" %}
 {% set day = "16" %}
-{% set version = "1.93.0" %}
+{% set version = "1.94.0" %}
 
 package:
   name: rust-split
@@ -27,7 +27,7 @@ source:
   - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-pc-windows-msvc.tar.gz  # [win and arm64]
     sha256: 5c294b71603988a889b5b3a4a2d2e5a22d774881adba6f0c3cbd10df909336bb  # [win and arm64]
     patches:
-      - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.diff
+      - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.patch
   # End of block of primary source files.
   - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-src-nightly.tar.gz
     sha256: c0a8f469c680005255f5d1373be4d92030933f1b567552a8a7182a883e054101

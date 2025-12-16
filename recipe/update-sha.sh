@@ -14,7 +14,7 @@ echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-nig
 echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-pc-windows-msvc.tar.gz  # [win and arm64]"
 echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-nightly-aarch64-pc-windows-msvc.tar.gz.sha256 | cut -d " " -f1)  # [win and arm64]"
 echo "    patches:"
-echo "      - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.diff"
+echo "      - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.patch"
 echo "  # End of block of primary source files."
 echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-src-nightly.tar.gz"
 echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-src-nightly.tar.gz.sha256 | cut -d " " -f1)"

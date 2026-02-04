@@ -11,9 +11,11 @@ DESTDIR=$PWD/destdir/
 # To do that, let's use destdir (populated via build.sh) and then use the
 # manifest-rust-docs file to install the files corresponding to rust-docs
 
-while read line; do
-  file=$(echo $line | cut -b 6-)
-  destination=$(echo $file | cut -b ${#DESTDIR}-)
-  mkdir -p $(dirname $destination)
-  cp $file ${destination}
-done < $DESTDIR$PREFIX/lib/rustlib/manifest-rust-docs
+for manifest in manifest-rust-docs manifest-rust-docs-json-preview; do
+  while read line; do
+    file=$(echo $line | cut -b 6-)
+    destination=$(echo $file | cut -b ${#DESTDIR}-)
+    mkdir -p $(dirname $destination)
+    cp $file ${destination}
+  done < $DESTDIR$PREFIX/lib/rustlib/$manifest
+done

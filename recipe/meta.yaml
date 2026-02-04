@@ -150,8 +150,10 @@ outputs:
         - cargo --config registries.crates-io.protocol=\"sparse\" install --force xsv
         - echo {{ rust_arch }}
         # Documentation should not be in the rust package - it is provided by rust-docs
-        - test ! -d "${PREFIX}"/share/doc/rust  # [unix]
-        - if exist %LIBRARY_PREFIX%\share\doc\rust\html\sysroot exit 1  # [win]
+        - test ! -d "${PREFIX}"/share/doc/rust/html  # [unix]
+        - test ! -d "${PREFIX}"/share/doc/rust/json  # [unix]
+        - if exist %LIBRARY_PREFIX%\share\doc\rust\html exit 1  # [win]
+        - if exist %LIBRARY_PREFIX%\share\doc\rust\json exit 1  # [win]
 
   - name: rust-src
     script: install-rust-src.sh  # [unix]
@@ -232,9 +234,13 @@ outputs:
     test:
       commands:
         - test -d "${PREFIX}"/share/doc/rust/html  # [unix]
+        - test -d "${PREFIX}"/share/doc/rust/json  # [unix]
         - if not exist "%LIBRARY_PREFIX%/share/doc/rust/html" exit 1  # [win]
+        - if not exist "%LIBRARY_PREFIX%/share/doc/rust/json" exit 1  # [win]
         - test -f "${PREFIX}"/lib/rustlib/manifest-rust-docs  # [unix]
+        - test -f "${PREFIX}"/lib/rustlib/manifest-rust-docs-json-preview  # [unix]
         - if not exist "%LIBRARY_PREFIX%/lib/rustlib/manifest-rust-docs" exit 1  # [win]
+        - if not exist "%LIBRARY_PREFIX%/lib/rustlib/manifest-rust-docs-json-preview" exit 1  # [win]
 
 about:
   home: https://www.rust-lang.org

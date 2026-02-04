@@ -11,8 +11,10 @@ DESTDIR=$PWD/destdir/
 cp -aR "${DESTDIR}${PREFIX}"/* "${PREFIX}/"
 
 # Remove documentation - it is provided by the rust-docs package
-rm -rf "${PREFIX}"/share/doc/rust
+rm -rf "${PREFIX}"/share/doc/rust/html
+rm -rf "${PREFIX}"/share/doc/rust/json
 rm -f "${PREFIX}"/lib/rustlib/manifest-rust-docs
+rm -f "${PREFIX}"/lib/rustlib/manifest-rust-docs-json-preview
 
 # Fun times -- by default, Rust/Cargo tries to link executables on Linux by
 # invoking `cc`. An executable of this name is not necessarily available. By

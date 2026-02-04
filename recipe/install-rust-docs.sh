@@ -28,4 +28,7 @@ for manifest in manifest-rust-docs manifest-rust-docs-json-preview; do
         ;;
     esac
   done < $DESTDIR$PREFIX/lib/rustlib/$manifest
+  # Copy the manifest file itself
+  mkdir -p $PREFIX/lib/rustlib
+  cp $DESTDIR$PREFIX/lib/rustlib/$manifest $PREFIX/lib/rustlib/$manifest
 done

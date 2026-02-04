@@ -215,6 +215,30 @@ outputs:
         - dir /b "%LIBRARY_PREFIX%" | findstr /v "{{ rust_std_extra }}" >nul || exit 1  # [win]
         - echo {{ rust_std_extra }}
 
+  - name: rust-docs
+    script: install-rust-docs.sh  # [unix]
+    script: install-rust-docs.bat  # [win]
+    build:
+      skip: {{ rust_arch != "x86_64-unknown-linux-gnu" and rust_arch != "x86_64-pc-windows-msvc" }}
+      noarch: generic
+      string: unix_{{ PKG_BUILDNUM }}  # [unix]
+      string: win_{{ PKG_BUILDNUM }}  # [win]
+    requirements:
+      build:
+        - posix  # [win]
+      run:
+        - __win   # [win]
+        - __unix  # [unix]
+      run_constrained:
+        # Having different versions of rust-docs and rust is confusing.
+        - {{ pin_subpackage("rust", min_pin="x.x.x", max_pin="x.x.x") }}
+    test:
+      commands:
+        - test -d "${PREFIX}"/share/doc/rust/html  # [unix]
+        - if not exist "%LIBRARY_PREFIX%/share/doc/rust/html" exit 1  # [win]
+        - test -f "${PREFIX}"/lib/rustlib/manifest-rust-docs  # [unix]
+        - if not exist "%LIBRARY_PREFIX%/lib/rustlib/manifest-rust-docs" exit 1  # [win]
+
 about:
   home: https://www.rust-lang.org
   license: MIT

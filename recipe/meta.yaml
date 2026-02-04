@@ -154,6 +154,8 @@ outputs:
         - rustc --version | grep "rustc {{ '.'.join(version.split('.')[:3]) }}"  # [unix]
         - cargo --config registries.crates-io.protocol=\"sparse\" install --force xsv
         - echo {{ rust_arch }}
+        # Documentation should not be in the rust package - it is provided by rust-docs
+        - test ! -d "${PREFIX}"/share/doc/rust  # [unix]
         - if exist %LIBRARY_PREFIX%\share\doc\rust\html\sysroot exit 1  # [win]
 
   - name: rust-src

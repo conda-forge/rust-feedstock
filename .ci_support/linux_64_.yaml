@@ -12,6 +12,21 @@ channel_targets:
 - conda-forge rust_dev
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
+rust_arch:
+- x86_64-unknown-linux-gnu
+rust_std_extra:
+- aarch64-apple-ios
+- aarch64-apple-ios-sim
+- aarch64-linux-android
+- aarch64-pc-windows-msvc
+- arm-linux-androideabi
+- armv7-linux-androideabi
+- i686-linux-android
+- wasm32-unknown-emscripten
+- wasm32-unknown-unknown
+- x86_64-apple-ios
+- x86_64-linux-android
+- x86_64-pc-windows-msvc
 target_platform:
 - linux-64
 zlib:

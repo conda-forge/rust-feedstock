@@ -10,6 +10,12 @@ DESTDIR=$PWD/destdir/
 # Copy everything that has been prepared by build.sh from DESTDIR to PREFIX.
 cp -aR "${DESTDIR}${PREFIX}"/* "${PREFIX}/"
 
+# Remove documentation - it is provided by the rust-docs package
+rm -rf "${PREFIX}"/share/doc/rust/html
+rm -rf "${PREFIX}"/share/doc/rust/json
+rm -f "${PREFIX}"/lib/rustlib/manifest-rust-docs
+rm -f "${PREFIX}"/lib/rustlib/manifest-rust-docs-json-preview
+
 # Fun times -- by default, Rust/Cargo tries to link executables on Linux by
 # invoking `cc`. An executable of this name is not necessarily available. By
 # setting a magic environment variable, we can override this default.

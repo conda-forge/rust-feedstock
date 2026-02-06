@@ -1,14 +1,14 @@
-From 74ec46375ef943ad09ef8b461d3da5868cb37d26 Mon Sep 17 00:00:00 2001
+From 13b1f280e38271b6879aa32b2dbacc8303661114 Mon Sep 17 00:00:00 2001
 From: "Uwe L. Korn" <uwe.korn@quantco.com>
 Date: Tue, 15 Aug 2023 07:20:29 +0200
 Subject: [PATCH] gh-106: install.sh: Perfomance Use more shell builtins
 
 ---
- install.sh | 117 +++++++++++++++++++++++++++--------------------------
- 1 file changed, 59 insertions(+), 58 deletions(-)
+ install.sh | 78 ++++++++++++++++++++++++++++++------------------------
+ 1 file changed, 43 insertions(+), 35 deletions(-)
 
 diff --git a/install.sh b/install.sh
-index d86cbf2..9a2913d 100755
+index 1d9b9880..14e90e54 100755
 --- a/install.sh
 +++ b/install.sh
 @@ -136,11 +136,16 @@ append_to_file() {
@@ -105,85 +105,49 @@ index d86cbf2..9a2913d 100755
  }
  
  uninstall_legacy() {
-@@ -551,35 +567,23 @@ install_components() {
-         # Decide the destination of the file
-         local _file_install_path="$_dest_prefix/$_file"
- 
--        if echo "$_file" | grep "^etc/" > /dev/null
--        then
--        local _f="$(echo "$_file" | sed 's/^etc\///')"
--        _file_install_path="$CFG_SYSCONFDIR/$_f"
--        fi
--
--        if echo "$_file" | grep "^bin/" > /dev/null
--        then
--        local _f="$(echo "$_file" | sed 's/^bin\///')"
--        _file_install_path="$CFG_BINDIR/$_f"
--        fi
--
--        if echo "$_file" | grep "^lib/" > /dev/null
--        then
--        local _f="$(echo "$_file" | sed 's/^lib\///')"
--        _file_install_path="$CFG_LIBDIR/$_f"
--        fi
--
--        if echo "$_file" | grep "^share" > /dev/null
--        then
--        local _f="$(echo "$_file" | sed 's/^share\///')"
--        _file_install_path="$CFG_DATADIR/$_f"
--        fi
--
--        if echo "$_file" | grep "^share/man/" > /dev/null
--        then
--        local _f="$(echo "$_file" | sed 's/^share\/man\///')"
--        _file_install_path="$CFG_MANDIR/$_f"
--        fi
-+        case "${_file}" in
-+            etc/* )
+@@ -554,21 +570,17 @@ install_components() {
+         local _is_bin=false
+         case "$_file" in
+             etc/*)
+-                local _f="$(echo "$_file" | sed 's/^etc\///')"
+-                _file_install_path="$CFG_SYSCONFDIR/$_f"
 +                _file_install_path="$CFG_SYSCONFDIR/${_file#etc/}"
-+            ;;
-+            bin/* )
+                 ;;
+             bin/*)
+-                local _f="$(echo "$_file" | sed 's/^bin\///')"
+                 _is_bin=true
+-                _file_install_path="$CFG_BINDIR/$_f"
 +                _file_install_path="$CFG_BINDIR/${_file#bin/}"
-+            ;;
-+            lib/* )
+                 ;;
+             lib/*)
+-                local _f="$(echo "$_file" | sed 's/^lib\///')"
+-                _file_install_path="$CFG_LIBDIR/$_f"
 +                _file_install_path="$CFG_LIBDIR/${_file#lib/}"
-+            ;;
-+            share/man/* )
+                 ;;
+             share/man/*)
+-                local _f="$(echo "$_file" | sed 's/^share\/man\///')"
+-                _file_install_path="$CFG_MANDIR/$_f"
 +                _file_install_path="$CFG_MANDIR/${_file#share/man/}"
-+            ;;
-+            share/* )
-+                _file_install_path="$CFG_DATADIR/${_file#share/}"
-+            ;;
-+        esac
- 
-             # HACK: Try to support overriding --docdir.  Paths with the form
-             # "share/doc/$product/" can be redirected to a single --docdir
-@@ -593,11 +597,10 @@ install_components() {
-             # this problem to be a big deal in practice.
-             if [ "$CFG_DOCDIR" != "<default>" ]
-             then
--            if echo "$_file" | grep "^share/doc/" > /dev/null
--            then
--            local _f="$(echo "$_file" | sed 's/^share\/doc\/[^/]*\///')"
--            _file_install_path="$CFG_DOCDIR/$_f"
--            fi
-+                case "${_file}" in
-+                    share/doc/* )
+                 ;;
+             share/doc/*)
+                 # HACK: Try to support overriding --docdir.  Paths with the form
+@@ -583,13 +595,11 @@ install_components() {
+                 # this problem to be a big deal in practice.
+                 if [ "$CFG_DOCDIR" != "<default>" ]
+                 then
+-                    local _f="$(echo "$_file" | sed 's/^share\/doc\/[^/]*\///')"
+-                    _file_install_path="$CFG_DOCDIR/$_f"
 +                    _file_install_path="$CFG_DOCDIR/${_file#share/doc/*/}"
-+                esac
-             fi
+                 fi
+                 ;;
+             share/*)
+-                local _f="$(echo "$_file" | sed 's/^share\///')"
+-                _file_install_path="$CFG_DATADIR/$_f"
++                _file_install_path="$CFG_DATADIR/${_file#share/}"
+                 ;;
+         esac
  
-         # Make sure there's a directory for it
-@@ -617,7 +620,7 @@ install_components() {
- 
-             maybe_backup_path "$_file_install_path"
- 
--            if echo "$_file" | grep "^bin/" > /dev/null || test -x "$_src_dir/$_component/$_file"
-+            if test -z "${_file##bin/*}" || test -x "$_src_dir/$_component/$_file"
-             then
-             run cp "$_src_dir/$_component/$_file" "$_file_install_path"
-             run chmod 755 "$_file_install_path"
-@@ -764,8 +767,6 @@ verbose_msg
+@@ -755,8 +765,6 @@ verbose_msg
  
  need_cmd mkdir
  need_cmd printf
@@ -192,6 +156,3 @@ index d86cbf2..9a2913d 100755
  need_cmd uname
  need_cmd tr
  need_cmd sed
--- 
-2.39.2 (Apple Git-143)
-

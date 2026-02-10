@@ -18,6 +18,7 @@ rm -f "${PREFIX}"/lib/rustlib/manifest-rust-docs-json-preview
 
 # Remove rust-analyzer - it is not needed for standard Rust compilation
 rm -f "${PREFIX}"/bin/rust-analyzer
+rm -f "${PREFIX}"/bin/rust-analyzer.pdb
 rm -f "${PREFIX}"/lib/rustlib/manifest-rust-analyzer
 
 # Fun times -- by default, Rust/Cargo tries to link executables on Linux by

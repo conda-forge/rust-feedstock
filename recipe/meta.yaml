@@ -157,6 +157,7 @@ outputs:
         # rust-analyzer should not be in the rust package
         - test ! -f "${PREFIX}"/bin/rust-analyzer  # [unix]
         - if exist %LIBRARY_PREFIX%\bin\rust-analyzer.exe exit 1  # [win]
+        - if exist %LIBRARY_PREFIX%\bin\rust-analyzer.pdb exit 1  # [win]
 
   - name: rust-src
     script: install-rust-src.sh  # [unix]

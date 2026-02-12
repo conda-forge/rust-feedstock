@@ -26,6 +26,7 @@ rust_std_extra:
 - thumbv8m.main-none-eabihf
 - wasm32-unknown-emscripten
 - wasm32-unknown-unknown
+- wasm32-wasip1-threads
 - x86_64-apple-ios
 - x86_64-linux-android
 - x86_64-pc-windows-gnu

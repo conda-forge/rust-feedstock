@@ -67,7 +67,7 @@ source:
     folder: rust-std  # [(linux or win) and x86_64]
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -154,6 +154,10 @@ outputs:
         - test ! -d "${PREFIX}"/share/doc/rust/json  # [unix]
         - if exist %LIBRARY_PREFIX%\share\doc\rust\html exit 1  # [win]
         - if exist %LIBRARY_PREFIX%\share\doc\rust\json exit 1  # [win]
+        # rust-analyzer should not be in the rust package
+        - test ! -f "${PREFIX}"/bin/rust-analyzer  # [unix]
+        - if exist %LIBRARY_PREFIX%\bin\rust-analyzer.exe exit 1  # [win]
+        - if exist %LIBRARY_PREFIX%\bin\rust-analyzer.pdb exit 1  # [win]
 
   - name: rust-src
     script: install-rust-src.sh  # [unix]

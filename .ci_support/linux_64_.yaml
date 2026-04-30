@@ -18,6 +18,7 @@ rust_std_extra:
 - aarch64-apple-ios
 - aarch64-apple-ios-sim
 - aarch64-linux-android
+- aarch64-pc-windows-msvc
 - arm-linux-androideabi
 - armv7-linux-androideabi
 - i686-linux-android
@@ -25,6 +26,7 @@ rust_std_extra:
 - wasm32-unknown-unknown
 - x86_64-apple-ios
 - x86_64-linux-android
+- x86_64-pc-windows-gnu
 - x86_64-pc-windows-msvc
 target_platform:
 - linux-64

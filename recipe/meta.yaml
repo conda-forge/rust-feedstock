@@ -70,11 +70,11 @@ source:
     folder: rust-std  # [(linux or win) and x86_64]
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
-    - posix  # [win]
+    - m2-base  # [win]
   host:
 
 outputs:
@@ -92,7 +92,7 @@ outputs:
       merge_build_host: false
     requirements:
       build:
-        - posix  # [win]
+        - m2-base  # [win]
       host:
       run:
         # The directory structure of windows and unix is different.
@@ -132,7 +132,7 @@ outputs:
           - __glibc >={{ c_stdlib_version }}  # [linux]
     requirements:
       build:
-        - posix  # [win]
+        - m2-base  # [win]
       host:
         - {{ pin_subpackage("rust-std-" ~ rust_arch, exact=True) }}
         - {{ compiler('c') }}  # [linux] -- rustc needs a toolchain to link executables
@@ -145,7 +145,7 @@ outputs:
         - sysroot_{{ target_platform }} >={{ c_stdlib_version }}  # [linux]
     test:
       requires:
-        - posix  # [win]
+        - m2-base  # [win]
       commands:
         - rustc --help
         - rustdoc --help
@@ -173,7 +173,7 @@ outputs:
       string: win_{{ PKG_BUILDNUM }}  # [win]
     requirements:
       build:
-        - posix  # [win]
+        - m2-base  # [win]
       run:
         - __win   # [win]
         - __unix  # [unix]
@@ -203,7 +203,7 @@ outputs:
       string: win_{{ PKG_BUILDNUM }}  # [win]
     requirements:
       build:
-        - posix  # [win]
+        - m2-base  # [win]
       run:
         - __win   # [win]
         - __unix  # [unix]
@@ -231,7 +231,7 @@ outputs:
       string: win_{{ PKG_BUILDNUM }}  # [win]
     requirements:
       build:
-        - posix  # [win]
+        - m2-base  # [win]
       run:
         - __win   # [win]
         - __unix  # [unix]

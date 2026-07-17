@@ -13,6 +13,8 @@ source:
     sha256: b4cdbc7cc6b0ee0a2666b1872769fdb2ad8393b28b63952f6493b4b400e4832b  # [linux and x86_64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-aarch64-unknown-linux-gnu.tar.xz  # [aarch64]
     sha256: 9a7a2c336b4787f1b72f6bab7c35d5b7af2fd03cbd39b4fc721466a70d402a7d  # [aarch64]
+  - url: https://static.rust-lang.org/dist/rust-{{ version }}-riscv64gc-unknown-linux-gnu.tar.xz  # [riscv64]
+    sha256: 2982687edabf8582b21a5497fed8dd5287a24afdb836a64b206959cea81ab947  # [riscv64]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
     sha256: ff524eef5a59d801df09ccad5cdaf9ea1f0a07d75cbed2a7e9f013a9eb76a3c1  # [ppc64le]
   - url: https://static.rust-lang.org/dist/rust-{{ version }}-x86_64-apple-darwin.tar.gz  # [osx and x86_64]

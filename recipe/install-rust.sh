@@ -28,6 +28,7 @@ rm -f "${PREFIX}"/lib/rustlib/manifest-rust-analyzer
 case "$target_platform" in
     linux-64) rust_env_arch=X86_64_UNKNOWN_LINUX_GNU ;;
     linux-aarch64) rust_env_arch=AARCH64_UNKNOWN_LINUX_GNU ;;
+    linux-riscv64) rust_env_arch=RISCV64GC_UNKNOWN_LINUX_GNU ;;
     linux-ppc64le) rust_env_arch=POWERPC64LE_UNKNOWN_LINUX_GNU ;;
     win-64) rust_env_arch=X86_64_PC_WINDOWS_MSVC ;;
     win-arm64) rust_env_arch=AARCH64_PC_WINDOWS_MSVC ;;

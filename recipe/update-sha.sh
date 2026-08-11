@@ -3,6 +3,8 @@ echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }
 echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-nightly-x86_64-unknown-linux-gnu.tar.gz.sha256 | cut -d " " -f1)  # [linux and x86_64]"
 echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]"
 echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-nightly-aarch64-unknown-linux-gnu.tar.gz.sha256 | cut -d " " -f1)  # [aarch64]"
+echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-riscv64gc-unknown-linux-gnu.tar.gz  # [riscv64]"
+echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-nightly-riscv64gc-unknown-linux-gnu.tar.gz.sha256 | cut -d " " -f1)  # [riscv64]"
 echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]"
 echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-nightly-powerpc64le-unknown-linux-gnu.tar.gz.sha256 | cut -d " " -f1)  # [ppc64le]"
 echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx and x86_64]"

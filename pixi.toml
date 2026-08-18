@@ -9,7 +9,7 @@ version = "2026.8.9"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/rust-feedstock"
 authors = ["@conda-forge/rust"]
 channels = ["conda-forge"]
-platforms = ["linux-64", "linux-aarch64", "linux-ppc64le", "osx-64", "win-64"]
+platforms = ["linux-64", "linux-aarch64", "linux-ppc64le", "osx-64", "osx-arm64", "win-64"]
 requires-pixi = ">=0.59.0"
 
 [tasks.build-locally]
@@ -85,6 +85,15 @@ description = "Debug rust-feedstock with variant osx_64_ directly (without setup
 [feature.build.tasks."inspect-osx_64_"]
 cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_.yaml"
 description = "List contents of rust-feedstock packages built for variant osx_64_"
+[feature.build.tasks."build-osx_arm64_"]
+cmd = "conda-build build recipe -m .ci_support/osx_arm64_.yaml --suppress-variables --clobber-file .ci_support/clobber_osx_arm64_.yaml"
+description = "Build rust-feedstock with variant osx_arm64_ directly (without setup scripts)"
+[feature.build.tasks."debug-osx_arm64_"]
+cmd = "conda-build debug recipe -m .ci_support/osx_arm64_.yaml"
+description = "Debug rust-feedstock with variant osx_arm64_ directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_arm64_"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_.yaml"
+description = "List contents of rust-feedstock packages built for variant osx_arm64_"
 [feature.build.tasks."build-win_64_"]
 cmd = "conda-build build recipe -m .ci_support/win_64_.yaml --suppress-variables --clobber-file .ci_support/clobber_win_64_.yaml"
 description = "Build rust-feedstock with variant win_64_ directly (without setup scripts)"

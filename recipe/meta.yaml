@@ -67,6 +67,9 @@ source:
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-thumbv7em-none-eabihf.tar.gz  # [(linux or win) and x86_64]
     sha256: 1514fa34b84a49a85b27e355ba8bfc585a34a77597948d5a60f6ac8cfbb614e9  # [(linux or win) and x86_64]
     folder: rust-std  # [(linux or win) and x86_64]
+  - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-thumbv8m.main-none-eabihf.tar.gz  # [(linux or win) and x86_64]
+    sha256: bb46e17d4fd7624016621be88246269876c865db67ec815cde767d6521118bf3  # [(linux or win) and x86_64]
+    folder: rust-std  # [(linux or win) and x86_64]
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-x86_64-pc-windows-gnu.tar.gz  # [(linux or win) and x86_64]
     sha256: 0e240192a91dace872d72fd2a5ad21b4be5d278b0d0281d58013e11f908fb5b6  # [(linux or win) and x86_64]
     folder: rust-std  # [(linux or win) and x86_64]
@@ -75,7 +78,7 @@ source:
     folder: rust-std  # [(linux or win) and x86_64]
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:

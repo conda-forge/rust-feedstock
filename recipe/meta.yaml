@@ -74,7 +74,7 @@ source:
     sha256: 47bceabaceabc4de97e20f7470d9973fb20e844986da01b3a31cf28e24596660  # [(linux or win) and x86_64]
     folder: rust-std  # [(linux or win) and x86_64]
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-wasm32-wasip1-threads.tar.gz  # [(linux or win) and x86_64]
-    sha256: d269959f8994eacbf8074b2674e31c50785c991d2d1f020eca74171c83827c34  # [(linux or win) and x86_64]
+    sha256: 22646b886793cfb3ea6cfbec10f993f4ef73b614489c782e3bb7af45df80628d  # [(linux or win) and x86_64]
     folder: rust-std  # [(linux or win) and x86_64]
   - url: https://static.rust-lang.org/dist/rust-std-{{ version }}-aarch64-pc-windows-msvc.tar.xz  # [(linux or win) and x86_64]
     sha256: df28cbf39697dfbfac0633814b56c1ca6f07fd32a70ab2074cb095f3871ae338  # [(linux or win) and x86_64]

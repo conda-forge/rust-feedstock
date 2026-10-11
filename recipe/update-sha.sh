@@ -1,65 +1,47 @@
+#!/bin/bash
+set -euo pipefail
+
 ver="${1:-$(date +%Y-%m-%d)}"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-unknown-linux-gnu.tar.gz  # [linux and x86_64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-nightly-x86_64-unknown-linux-gnu.tar.gz.sha256 | cut -d " " -f1)  # [linux and x86_64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-nightly-aarch64-unknown-linux-gnu.tar.gz.sha256 | cut -d " " -f1)  # [aarch64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-riscv64gc-unknown-linux-gnu.tar.gz  # [riscv64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-nightly-riscv64gc-unknown-linux-gnu.tar.gz.sha256 | cut -d " " -f1)  # [riscv64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-nightly-powerpc64le-unknown-linux-gnu.tar.gz.sha256 | cut -d " " -f1)  # [ppc64le]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx and x86_64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-nightly-x86_64-apple-darwin.tar.gz.sha256 | cut -d " " -f1)  # [osx and x86_64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-apple-darwin.tar.gz  # [osx and arm64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-nightly-aarch64-apple-darwin.tar.gz.sha256 | cut -d " " -f1)  # [osx and arm64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-x86_64-pc-windows-msvc.tar.gz  # [win64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-nightly-x86_64-pc-windows-msvc.tar.gz.sha256 | cut -d " " -f1)  # [win64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-nightly-aarch64-pc-windows-msvc.tar.gz  # [win and arm64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-nightly-aarch64-pc-windows-msvc.tar.gz.sha256 | cut -d " " -f1)  # [win and arm64]"
-echo "    patches:"
-echo "      - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.patch"
-echo "  # End of block of primary source files."
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-src-nightly.tar.gz"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-src-nightly.tar.gz.sha256 | cut -d " " -f1)"
-echo "    folder: rust-src"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-aarch64-apple-ios.tar.gz  # [(linux or win) and x86_64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-std-nightly-aarch64-apple-ios.tar.gz.sha256 | cut -d " " -f1)  # [(linux or win) and x86_64]"
-echo "    folder: rust-std  # [(linux or win) and x86_64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-x86_64-apple-ios.tar.gz  # [(linux or win) and x86_64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-std-nightly-x86_64-apple-ios.tar.gz.sha256 | cut -d " " -f1)  # [(linux or win) and x86_64]"
-echo "    folder: rust-std  # [(linux or win) and x86_64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-aarch64-apple-ios-sim.tar.gz  # [(linux or win) and x86_64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-std-nightly-aarch64-apple-ios-sim.tar.gz.sha256 | cut -d " " -f1)  # [(linux or win) and x86_64]"
-echo "    folder: rust-std  # [(linux or win) and x86_64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-aarch64-linux-android.tar.gz  # [(linux or win) and x86_64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-std-nightly-aarch64-linux-android.tar.gz.sha256 | cut -d " " -f1)  # [(linux or win) and x86_64]"
-echo "    folder: rust-std  # [(linux or win) and x86_64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-arm-linux-androideabi.tar.gz  # [(linux or win) and x86_64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-std-nightly-arm-linux-androideabi.tar.gz.sha256 | cut -d " " -f1)  # [(linux or win) and x86_64]"
-echo "    folder: rust-std  # [(linux or win) and x86_64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-armv7-linux-androideabi.tar.gz  # [(linux or win) and x86_64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-std-nightly-armv7-linux-androideabi.tar.gz.sha256 | cut -d " " -f1)  # [(linux or win) and x86_64]"
-echo "    folder: rust-std  # [(linux or win) and x86_64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-i686-linux-android.tar.gz  # [(linux or win) and x86_64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-std-nightly-i686-linux-android.tar.gz.sha256 | cut -d " " -f1)  # [(linux or win) and x86_64]"
-echo "    folder: rust-std  # [(linux or win) and x86_64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-x86_64-linux-android.tar.gz  # [(linux or win) and x86_64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-std-nightly-x86_64-linux-android.tar.gz.sha256 | cut -d " " -f1)  # [(linux or win) and x86_64]"
-echo "    folder: rust-std  # [(linux or win) and x86_64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-wasm32-unknown-unknown.tar.gz  # [(linux or win) and x86_64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-std-nightly-wasm32-unknown-unknown.tar.gz.sha256 | cut -d " " -f1)  # [(linux or win) and x86_64]"
-echo "    folder: rust-std  # [(linux or win) and x86_64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-x86_64-pc-windows-msvc.tar.gz  # [(linux or win) and x86_64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-std-nightly-x86_64-pc-windows-msvc.tar.gz.sha256 | cut -d " " -f1)  # [(linux or win) and x86_64]"
-echo "    folder: rust-std  # [(linux or win) and x86_64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-wasm32-unknown-emscripten.tar.gz  # [(linux or win) and x86_64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-std-nightly-wasm32-unknown-emscripten.tar.gz.sha256 | cut -d " " -f1)  # [(linux or win) and x86_64]"
-echo "    folder: rust-std  # [(linux or win) and x86_64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-thumbv7em-none-eabihf.tar.gz  # [(linux or win) and x86_64]"
-echo "    sha256: $(wget -q -O -  https://static.rust-lang.org/dist/$ver/rust-std-nightly-thumbv7em-none-eabihf.tar.gz.sha256 | cut -d " " -f1)  # [(linux or win) and x86_64]"
-echo "    folder: rust-std  # [(linux or win) and x86_64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-x86_64-pc-windows-gnu.tar.gz  # [(linux or win) and x86_64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-std-nightly-x86_64-pc-windows-gnu.tar.gz.sha256 | cut -d " " -f1)  # [(linux or win) and x86_64]"
-echo "    folder: rust-std  # [(linux or win) and x86_64]"
-echo "  - url: https://static.rust-lang.org/dist/{{ year }}-{{ month }}-{{ day }}/rust-std-nightly-aarch64-pc-windows-msvc.tar.xz  # [(linux or win) and x86_64]"
-echo "    sha256: $(wget -q -O - https://static.rust-lang.org/dist/$ver/rust-std-nightly-aarch64-pc-windows-msvc.tar.xz.sha256 | cut -d " " -f1)  # [(linux or win) and x86_64]"
-echo "    folder: rust-std  # [(linux or win) and x86_64]"
+base_url="https://static.rust-lang.org/dist"
+template_url='https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}'
+patch=0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.patch
+
+emit_source() {
+  local first_indent="$1" indent="$2" archive="$3" target_directory="${4:-}"
+  local checksum
+  checksum=$(curl -fsSL "${base_url}/${ver}/${archive}.sha256")
+  checksum="${checksum%% *}"
+  printf '%surl: %s/%s\n' "$first_indent" "$template_url" "$archive"
+  printf '%ssha256: %s\n' "$indent" "$checksum"
+  if [[ -n "$target_directory" ]]; then
+    printf '%starget_directory: %s\n' "$indent" "$target_directory"
+  else
+    printf '%spatches:\n%s  - %s\n' "$indent" "$indent" "$patch"
+  fi
+}
+
+# noarch outputs still need the archive for their Rust target triple.
+for arch in \
+  x86_64-unknown-linux-gnu aarch64-unknown-linux-gnu \
+  riscv64gc-unknown-linux-gnu powerpc64le-unknown-linux-gnu \
+  x86_64-apple-darwin aarch64-apple-darwin \
+  x86_64-pc-windows-msvc aarch64-pc-windows-msvc; do
+  printf '  - if: rust_arch == "%s"\n    then:\n' "$arch"
+  emit_source '      ' '      ' "rust-nightly-${arch}.tar.gz"
+done
+
+emit_source '  - ' '    ' rust-src-nightly.tar.gz rust-src
+printf '  - if: rust_arch in ["x86_64-unknown-linux-gnu", "x86_64-pc-windows-msvc"]\n    then:\n'
+
+for arch in \
+  aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim \
+  aarch64-linux-android arm-linux-androideabi armv7-linux-androideabi \
+  i686-linux-android x86_64-linux-android wasm32-unknown-unknown \
+  x86_64-pc-windows-msvc wasm32-unknown-emscripten thumbv7em-none-eabihf \
+  x86_64-pc-windows-gnu aarch64-pc-windows-msvc; do
+  extension=tar.gz
+  if [[ "$arch" == aarch64-pc-windows-msvc ]]; then
+    extension=tar.xz
+  fi
+  emit_source '      - ' '        ' "rust-std-nightly-${arch}.${extension}" "rust-std/${arch}"
+done

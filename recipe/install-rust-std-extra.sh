@@ -2,7 +2,8 @@
 
 set -ex
 
-cd $SRC_DIR/rust-std
+# Each target has its own installer and metadata; rattler-build does not support clobbering of archives.
+cd "${SRC_DIR}/rust-std/${rust_std_extra}"
 
 echo $PKG_NAME > ./components
 

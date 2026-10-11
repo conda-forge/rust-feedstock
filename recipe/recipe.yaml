@@ -1,0 +1,369 @@
+schema_version: 1
+
+context:
+  year: "2026"
+  month: "10"
+  day: "02"
+  version: "1.101.0"
+  build_number: 0
+  toolchain_version: ${{ version }}.dev${{ year }}${{ month }}${{ day }}
+  toolchain_upper_bound: ${{ (version | split('.'))[0] }}.${{ (version | split('.'))[1] }}.${{ ((version | split('.'))[2] | int) + 1 }}.0a0
+
+recipe:
+  name: rust-split
+  version: ${{ toolchain_version }}
+
+source:
+  # Select archives by the Rust target triple, not the build machine's
+  # platform: rust-std is noarch but contains target-specific libraries.
+  - if: rust_arch == "x86_64-unknown-linux-gnu"
+    then:
+      url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-nightly-x86_64-unknown-linux-gnu.tar.gz
+      sha256: f0f26fb0740822e2aeb331ec66c7e2089d37c568c952b47649d8c1151dacadc7
+      patches:
+        - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.patch
+  - if: rust_arch == "aarch64-unknown-linux-gnu"
+    then:
+      url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-nightly-aarch64-unknown-linux-gnu.tar.gz
+      sha256: c1451709147f046a36f0674aba08dcaa452e19d7ee44cdff5e630809793617ea
+      patches:
+        - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.patch
+  - if: rust_arch == "riscv64gc-unknown-linux-gnu"
+    then:
+      url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-nightly-riscv64gc-unknown-linux-gnu.tar.gz
+      sha256: d8a7137f6498154d07a4d6a09eb31fafffe4f2065d068e0cc10fece0c86a4b30
+      patches:
+        - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.patch
+  - if: rust_arch == "powerpc64le-unknown-linux-gnu"
+    then:
+      url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-nightly-powerpc64le-unknown-linux-gnu.tar.gz
+      sha256: f90684d913f03241bdde485839992eeeb30d121eaa2b94f43630f6cee9351919
+      patches:
+        - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.patch
+  - if: rust_arch == "x86_64-apple-darwin"
+    then:
+      url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-nightly-x86_64-apple-darwin.tar.gz
+      sha256: 4318029e21833699d4763068442aad363684ea7eab0916311b69df8ea108b4f6
+      patches:
+        - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.patch
+  - if: rust_arch == "aarch64-apple-darwin"
+    then:
+      url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-nightly-aarch64-apple-darwin.tar.gz
+      sha256: 4bada2bedb764be355e2410efa7a8815816dbcf3be174c734ea94f9c589a2beb
+      patches:
+        - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.patch
+  - if: rust_arch == "x86_64-pc-windows-msvc"
+    then:
+      url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-nightly-x86_64-pc-windows-msvc.tar.gz
+      sha256: 9ec7892ec011251b9ca9a355818ac87a861e2dedfc6f61d20e6e6ad2fc6f8f7a
+      patches:
+        - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.patch
+  - if: rust_arch == "aarch64-pc-windows-msvc"
+    then:
+      url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-nightly-aarch64-pc-windows-msvc.tar.gz
+      sha256: 90b2914e2a54d7e7bb9cadd770d7e71a4703e944f7a807458f5ba1782137a0a4
+      patches:
+        - 0001-gh-106-install.sh-Perfomance-Use-more-shell-builtins.patch
+  - url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-src-nightly.tar.gz
+    sha256: 289633a175872b0b6912831468ec24cd2672feefae6088e1255069879617822b
+    target_directory: rust-src
+  - if: rust_arch in ["x86_64-unknown-linux-gnu", "x86_64-pc-windows-msvc"]
+    then:
+      - url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-std-nightly-aarch64-apple-ios.tar.gz
+        sha256: 6ae3ba50039e1352c2f7a2638f3cc5249faec8c0abcc14bcfbc278fb230558a1
+        target_directory: rust-std/aarch64-apple-ios
+      - url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-std-nightly-x86_64-apple-ios.tar.gz
+        sha256: a952bb0489453974e29c89c445a2e466623c4071d4045416a8492465d2837d7a
+        target_directory: rust-std/x86_64-apple-ios
+      - url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-std-nightly-aarch64-apple-ios-sim.tar.gz
+        sha256: b2545135081fe4ffed86c58cf2300062b35d30cd05d86be36d44963a6a99f50a
+        target_directory: rust-std/aarch64-apple-ios-sim
+      - url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-std-nightly-aarch64-linux-android.tar.gz
+        sha256: 55e98cc2eeb6651be5704f1dd3627468b6b824b74368ff8b0b4e179b865e28d8
+        target_directory: rust-std/aarch64-linux-android
+      - url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-std-nightly-arm-linux-androideabi.tar.gz
+        sha256: 605b96b61417d42d060580b03028999bf760a6fafbc5ff9dcad0e3dbeecb156c
+        target_directory: rust-std/arm-linux-androideabi
+      - url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-std-nightly-armv7-linux-androideabi.tar.gz
+        sha256: 7deeef706f5568a64a35915c21a3baa9614778381ce1a4227436c49737cdd5a6
+        target_directory: rust-std/armv7-linux-androideabi
+      - url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-std-nightly-i686-linux-android.tar.gz
+        sha256: e5138da242ace839945f43418a500e89371c2eb182407e9c1341d710637d2ce3
+        target_directory: rust-std/i686-linux-android
+      - url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-std-nightly-x86_64-linux-android.tar.gz
+        sha256: 36c9f68c5ece26b3b5c9c2d34cc0ff68e2902512e20de7dc746c8bba2b7b06c0
+        target_directory: rust-std/x86_64-linux-android
+      - url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-std-nightly-wasm32-unknown-unknown.tar.gz
+        sha256: 58ee87361fda05258d97cf3806623db01750764e7b97381b60ce4a14746ce5fc
+        target_directory: rust-std/wasm32-unknown-unknown
+      - url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-std-nightly-x86_64-pc-windows-msvc.tar.gz
+        sha256: b3f4f392422c385b9a051c68f46bb6025079dfae4887a86181f20ff61ead1b58
+        target_directory: rust-std/x86_64-pc-windows-msvc
+      - url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-std-nightly-wasm32-unknown-emscripten.tar.gz
+        sha256: 55b62430e0292b44f71259e05557e3aec798f78ce8575e2facb773ad379e0648
+        target_directory: rust-std/wasm32-unknown-emscripten
+      - url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-std-nightly-thumbv7em-none-eabihf.tar.gz
+        sha256: ce339aadb0ffc8d3b7f997d6ac9acb79039dd87fa3b72584091286674dba0475
+        target_directory: rust-std/thumbv7em-none-eabihf
+      - url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-std-nightly-x86_64-pc-windows-gnu.tar.gz
+        sha256: 248929e2b287a0dcadaf0d2483172ab1eb4624bf5bc2cd863fea4985e6ebd4ab
+        target_directory: rust-std/x86_64-pc-windows-gnu
+      - url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-std-nightly-aarch64-pc-windows-msvc.tar.xz
+        sha256: fd6e14f26a719ffcfc15a6bfd920be3bbb71c5668014576608127c994631468b
+        target_directory: rust-std/aarch64-pc-windows-msvc
+
+build:
+  number: ${{ build_number }}
+
+outputs:
+  - package:
+      name: rust-std-${{ rust_arch }}
+    build:
+      noarch: generic
+      dynamic_linking:
+        binary_relocation: false
+        missing_dso_allowlist:
+          - if: linux
+            then:
+              - /lib64/librt.so.1
+              - /lib64/libdl.so.2
+              - /lib64/libpthread.so.0
+              - /lib64/libm.so.6
+              - /lib64/libc.so.6
+              - /lib64/ld-linux-x86-64.so.2
+      script:
+        # Outputs have independent source trees/prefixes in v1. Prepare the
+        # destdir in the same prefix as the component's installation script.
+        content:
+          - if: unix
+            then:
+              - bash "${RECIPE_DIR}/build.sh"
+              - bash "${RECIPE_DIR}/install-rust-std.sh"
+            else:
+              - cmd /d /c call "%RECIPE_DIR%\build.bat"
+              - call "%RECIPE_DIR%\install-rust-std.bat"
+        env:
+          rust_arch: ${{ rust_arch }}
+    requirements:
+      build:
+        - if: build_platform == "win-64"
+          then: posix
+      run:
+        # Windows and Unix have different directory structures.
+        - if: unix
+          then: __unix
+          else: __win
+      run_constraints:
+        # Use explicit bounds to avoid a circular pin_subpackage dependency:
+        # rust itself has an exact host dependency on this output.
+        - rust >=${{ toolchain_version }},<${{ toolchain_upper_bound }}
+    tests:
+      - script:
+          - if: unix
+            then: test -d $PREFIX/lib/rustlib
+            else: if not exist %LIBRARY_PREFIX%/lib/rustlib exit 1
+          - echo ${{ rust_arch }}
+
+  - package:
+      name: rust
+    build:
+      dynamic_linking:
+        # The distributed binaries are already relocatable.
+        binary_relocation: false
+        missing_dso_allowlist:
+          - if: linux
+            then:
+              - /lib64/librt.so.1
+              - /lib64/libdl.so.2
+              - /lib64/libpthread.so.0
+              - /lib64/libm.so.6
+              - /lib64/libc.so.6
+              - /lib64/ld-linux-x86-64.so.2
+      script:
+        content:
+          - if: unix
+            then:
+              - bash "${RECIPE_DIR}/build.sh"
+              - bash "${RECIPE_DIR}/install-rust.sh"
+            else:
+              - cmd /d /c call "%RECIPE_DIR%\build.bat"
+              - call "%RECIPE_DIR%\install-rust.bat"
+        env:
+          rust_arch: ${{ rust_arch }}
+    requirements:
+      build:
+        - if: build_platform == "win-64"
+          then: posix
+      host:
+        - ${{ pin_subpackage("rust-std-" ~ rust_arch, exact=true) }}
+        - if: linux
+          then:
+            # rustc needs a toolchain to link executables.
+            - ${{ compiler('c') }}
+            - ${{ stdlib('c') }}
+            # zlib is linked by **/lib/libLLVM-*-rust-*.so.
+            - zlib
+      run:
+        - ${{ pin_subpackage("rust-std-" ~ rust_arch, exact=true) }}
+        - if: linux
+          then:
+            - gcc_impl_${{ target_platform }}
+            - sysroot_${{ target_platform }} >=${{ c_stdlib_version }}
+      run_exports:
+        strong_constraints:
+          - if: osx and x86_64
+            then: __osx >=${{ c_stdlib_version }}
+          - if: linux
+            then: __glibc >=${{ c_stdlib_version }}
+    tests:
+      - requirements:
+          run:
+            - if: build_platform == "win-64"
+              then: posix
+        script:
+          - rustc --help
+          - rustdoc --help
+          - cargo --help
+          - rustc --version
+          - if: unix
+            then: rustc --version | grep "rustc ${{ version }}"
+          - cargo --config registries.crates-io.protocol=\"sparse\" install --force xsv
+          - echo ${{ rust_arch }}
+          # Documentation is provided by rust-docs, not rust.
+          - if: unix
+            then:
+              - test ! -d "${PREFIX}"/share/doc/rust/html
+              - test ! -d "${PREFIX}"/share/doc/rust/json
+              - test ! -f "${PREFIX}"/bin/rust-analyzer
+            else:
+              - if exist %LIBRARY_PREFIX%\share\doc\rust\html exit 1
+              - if exist %LIBRARY_PREFIX%\share\doc\rust\json exit 1
+              - if exist %LIBRARY_PREFIX%\bin\rust-analyzer.exe exit 1
+              - if exist %LIBRARY_PREFIX%\bin\rust-analyzer.pdb exit 1
+
+  - package:
+      name: rust-src
+    build:
+      skip: rust_arch not in ["x86_64-unknown-linux-gnu", "x86_64-pc-windows-msvc"]
+      noarch: generic
+      string: ${{ "win" if "windows" in rust_arch else "unix" }}_${{ build_number }}
+      script: install-rust-src
+    requirements:
+      build:
+        - if: win
+          then: posix
+      run:
+        - if: win
+          then: __win
+          else: __unix
+      run_constraints:
+        # rust-src is specific to the toolchain, just as in rustup.
+        - rust >=${{ toolchain_version }},<${{ toolchain_upper_bound }}
+    tests:
+      - script:
+          - if: unix
+            then:
+              - test -f "${PREFIX}"/lib/rustlib/src/rust/library/Cargo.lock
+              # Do not clobber other Rust components.
+              - test "$(ls "${PREFIX}"/lib/rustlib/)" = "$(printf "manifest-rust-src\nsrc")"
+            else:
+              - if not exist "%LIBRARY_PREFIX%/lib/rustlib/src/rust/library/Cargo.lock" exit 1
+              - if not exist "%LIBRARY_PREFIX%/lib/rustlib/manifest-rust-src" exit 1
+              - if not exist "%LIBRARY_PREFIX%/lib/rustlib/src" exit 1
+
+  - package:
+      name: rust-std-${{ rust_std_extra }}
+    build:
+      skip: rust_arch not in ["x86_64-unknown-linux-gnu", "x86_64-pc-windows-msvc"]
+      noarch: generic
+      string: ${{ "win" if "windows" in rust_arch else "unix" }}_${{ build_number }}
+      script:
+        file: install-rust-std-extra
+        env:
+          rust_std_extra: ${{ rust_std_extra }}
+    requirements:
+      build:
+        - if: win
+          then: posix
+      run:
+        - if: win
+          then: __win
+          else: __unix
+      run_constraints:
+        - rust >=${{ toolchain_version }},<${{ toolchain_upper_bound }}
+    tests:
+      - script:
+          - if: unix
+            then:
+              - test -d $PREFIX/lib/rustlib/${{ rust_std_extra }}
+              - test -f $PREFIX/lib/rustlib/manifest-rust-std-${{ rust_std_extra }}
+              # Do not clobber other Rust components.
+              - test -z "$(ls "${PREFIX}"/lib/rustlib/ | grep -v ${{ rust_std_extra }})"
+            else:
+              - if not exist "%LIBRARY_PREFIX%/lib/rustlib/${{ rust_std_extra }}" exit 1
+              - if not exist "%LIBRARY_PREFIX%/lib/rustlib/manifest-rust-std-${{ rust_std_extra }}" exit 1
+              - dir /b "%LIBRARY_PREFIX%" | findstr /v "${{ rust_std_extra }}" >nul || exit 1
+          - echo ${{ rust_std_extra }}
+
+  - package:
+      name: rust-docs
+    build:
+      skip: rust_arch not in ["x86_64-unknown-linux-gnu", "x86_64-pc-windows-msvc"]
+      noarch: generic
+      string: ${{ "win" if "windows" in rust_arch else "unix" }}_${{ build_number }}
+      script:
+        content:
+          - if: unix
+            then:
+              - bash "${RECIPE_DIR}/build.sh"
+              - bash "${RECIPE_DIR}/install-rust-docs.sh"
+            else:
+              - cmd /d /c call "%RECIPE_DIR%\build.bat"
+              - call "%RECIPE_DIR%\install-rust-docs.bat"
+    requirements:
+      build:
+        - if: win
+          then: posix
+      run:
+        - if: win
+          then: __win
+          else: __unix
+      run_constraints:
+        - rust >=${{ toolchain_version }},<${{ toolchain_upper_bound }}
+    tests:
+      - script:
+          - if: unix
+            then:
+              - test -d "${PREFIX}"/share/doc/rust/html
+              - test -d "${PREFIX}"/share/doc/rust/json
+              - test -f "${PREFIX}"/lib/rustlib/manifest-rust-docs
+              - test -f "${PREFIX}"/lib/rustlib/manifest-rust-docs-json-preview
+            else:
+              - if not exist "%LIBRARY_PREFIX%/share/doc/rust/html" exit 1
+              - if not exist "%LIBRARY_PREFIX%/share/doc/rust/json" exit 1
+              - if not exist "%LIBRARY_PREFIX%/lib/rustlib/manifest-rust-docs" exit 1
+              - if not exist "%LIBRARY_PREFIX%/lib/rustlib/manifest-rust-docs-json-preview" exit 1
+
+about:
+  homepage: https://www.rust-lang.org
+  license: MIT
+  license_file:
+    - LICENSE-APACHE
+    - LICENSE-MIT
+  summary: |
+    Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.
+    This package provides the compiler (rustc) and the documentation utilities rustdoc.
+  repository: https://doc.rust-lang.org/std/
+  documentation: https://www.rust-lang.org/en-US/documentation.html
+
+extra:
+  feedstock-name: rust
+  recipe-maintainers:
+    - timkpaine
+    - xhochy
+    - johanneskoester
+    - abhi18av
+    - pkgw
+    - dlaehnemann
+    - isuruf
+    - mbargull

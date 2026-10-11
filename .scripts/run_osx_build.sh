@@ -79,33 +79,35 @@ source run_conda_forge_build_setup
 
 ( endgroup "Configuring conda" ) 2> /dev/null
 
-echo -e "\n\nMaking the build clobber file"
-make_build_number ./ ./recipe ./.ci_support/${CONFIG}.yaml
-
 if [[ -f LICENSE.txt ]]; then
   cp LICENSE.txt "recipe/recipe-scripts-license.txt"
 fi
 
 if [[ "${BUILD_WITH_CONDA_DEBUG:-0}" == 1 ]]; then
-    if [[ "x${BUILD_OUTPUT_ID:-}" != "x" ]]; then
-        EXTRA_CB_OPTIONS="${EXTRA_CB_OPTIONS:-} --output-id ${BUILD_OUTPUT_ID}"
-    fi
-    CONDA_SUBDIR="${BUILD_PLATFORM}" conda debug ./recipe -m ./.ci_support/${CONFIG}.yaml \
-        ${EXTRA_CB_OPTIONS:-} \
-        --clobber-file ./.ci_support/clobber_${CONFIG}.yaml
+    export CONDA_BLD_PATH="${CONDA_BLD_PATH:-${FEEDSTOCK_ROOT:-$PWD}/build_artifacts}"
+    rattler-build debug setup \
+        --recipe ./recipe \
+        -m ./.ci_support/${CONFIG}.yaml \
+        --build-platform "${BUILD_PLATFORM}" \
+        --target-platform "${HOST_PLATFORM}" \
+        ${BUILD_OUTPUT_ID:+--output-name "${BUILD_OUTPUT_ID}"} \
+        ${EXTRA_CB_OPTIONS:-}
 
-    # Drop into an interactive shell
-    /bin/bash
+    rattler-build debug shell
 else
 
     if [[ "${HOST_PLATFORM}" != "${BUILD_PLATFORM}" ]]; then
-        EXTRA_CB_OPTIONS="${EXTRA_CB_OPTIONS:-} --no-test"
+        EXTRA_CB_OPTIONS="${EXTRA_CB_OPTIONS:-} --test skip"
     fi
 
-    CONDA_SUBDIR="${BUILD_PLATFORM}" conda-build ./recipe -m ./.ci_support/${CONFIG}.yaml \
-        --suppress-variables ${EXTRA_CB_OPTIONS:-} \
-        --clobber-file ./.ci_support/clobber_${CONFIG}.yaml \
-        --extra-meta flow_run_id="$flow_run_id" remote_url="$remote_url" sha="$sha"
+    rattler-build build --recipe ./recipe \
+        -m ./.ci_support/${CONFIG}.yaml \
+        ${EXTRA_CB_OPTIONS:-} \
+        --build-platform "${BUILD_PLATFORM}" \
+        --target-platform "${HOST_PLATFORM}" \
+        --extra-meta flow_run_id="$flow_run_id" \
+        --extra-meta remote_url="$remote_url" \
+        --extra-meta sha="$sha"
 
     ( startgroup "Inspecting artifacts" ) 2> /dev/null
 

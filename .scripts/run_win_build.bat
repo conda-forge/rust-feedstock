@@ -35,6 +35,7 @@ if "%PIXI_CACHE_DIR%"=="%MINIFORGE_HOME%" (
 )
 move /y pixi.toml pixi.toml.bak
 set "arch=64"
+if "%PROCESSOR_ARCHITECTURE%"=="ARM64" set "arch=arm64"
 powershell -NoProfile -ExecutionPolicy unrestricted -Command "(Get-Content pixi.toml.bak -Encoding UTF8) -replace 'platforms = .*', 'platforms = [''win-%arch%'']' | Out-File pixi.toml -Encoding UTF8"
 :: Git on Windows needs to run post link scripts to properly set up SSL certificates
 pixi config set --global run-post-link-scripts insecure
@@ -65,8 +66,8 @@ echo Setting up configuration
 setup_conda_rc .\ ".\recipe" .\.ci_support\%CONFIG%.yaml
 if !errorlevel! neq 0 exit /b !errorlevel!
 echo Running build setup
-CALL run_conda_forge_build_setup
-
+:: Overriding global run_conda_forge_build_setup_win with local copy.
+CALL recipe\run_conda_forge_build_setup_win
 
 if !errorlevel! neq 0 exit /b !errorlevel!
 
@@ -76,24 +77,20 @@ if EXIST LICENSE.txt (
 )
 if NOT [%HOST_PLATFORM%] == [%BUILD_PLATFORM%] (
     if [%CROSSCOMPILING_EMULATOR%] == [] (
-        set "EXTRA_CB_OPTIONS=%EXTRA_CB_OPTIONS% --no-test"
+        set "EXTRA_CB_OPTIONS=%EXTRA_CB_OPTIONS% --test skip"
     )
 )
 
 if NOT [%flow_run_id%] == [] (
-        set "EXTRA_CB_OPTIONS=%EXTRA_CB_OPTIONS% --extra-meta flow_run_id=%flow_run_id% remote_url=%remote_url% sha=%sha%"
+        set "EXTRA_CB_OPTIONS=%EXTRA_CB_OPTIONS% --extra-meta flow_run_id=%flow_run_id% --extra-meta remote_url=%remote_url% --extra-meta sha=%sha%"
 )
 
 call :end_group
 
 :: Build the recipe
 echo Building recipe
-set "_OLD_CONDA_SUBDIR=%CONDA_SUBDIR%"
-set "CONDA_SUBDIR=%BUILD_PLATFORM%"
-conda-build.exe "recipe" -m .ci_support\%CONFIG%.yaml --suppress-variables %EXTRA_CB_OPTIONS%
+rattler-build.exe build --recipe "recipe" -m .ci_support\%CONFIG%.yaml %EXTRA_CB_OPTIONS% --build-platform %BUILD_PLATFORM% --target-platform %HOST_PLATFORM%
 if !errorlevel! neq 0 exit /b !errorlevel!
-set "_OLD_CONDA_SUBDIR="
-set "CONDA_SUBDIR=%_OLD_CONDA_SUBDIR%"
 
 call :start_group "Inspecting artifacts"
 :: inspect_artifacts was only added in conda-forge-ci-setup 4.9.4

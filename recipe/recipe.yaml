@@ -349,11 +349,9 @@ outputs:
 about:
   homepage: https://www.rust-lang.org
   license: MIT
-  # Copy upstream licenses once. Matching both source and recipe copies
-  # triggers an overwrite that fails for read-only files on Windows.
   license_file:
-    - ${{ SRC_DIR }}/LICENSE-APACHE
-    - ${{ SRC_DIR }}/LICENSE-MIT
+    - LICENSE-APACHE
+    - LICENSE-MIT
   summary: |
     Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.
     This package provides the compiler (rustc) and the documentation utilities rustdoc.

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ex
+set -exuo pipefail
 
 # windows shell doesn't start here
 cd $SRC_DIR

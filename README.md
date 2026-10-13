@@ -12,7 +12,7 @@ This package provides the compiler (rustc) and the documentation utilities rustd
 
 Development: https://doc.rust-lang.org/std/
 
-Documentation: https://www.rust-lang.org/en-US/documentation.html
+Documentation: https://rust-lang.org/learn/
 
 Current build status
 ====================

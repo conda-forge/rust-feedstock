@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   version: "1.99.1"
-  build_number: 0
+  build_number: 1
   toolchain_version: ${{ version }}
   toolchain_upper_bound: ${{ (version | split('.'))[0] }}.${{ (version | split('.'))[1] }}.${{ ((version | split('.'))[2] | int) + 1 }}.0a0
 
@@ -115,6 +115,9 @@ source:
       - url: https://static.rust-lang.org/dist/rust-std-${{ version }}-aarch64-pc-windows-msvc.tar.xz
         sha256: 044748841f47007a222dd5b3f5e9dacec1dae7386d7d308c5172d07ea7112fa0
         target_directory: rust-std/aarch64-pc-windows-msvc
+      - url: https://static.rust-lang.org/dist/rust-std-${{ version }}-i686-pc-windows-msvc.tar.gz
+        sha256: d51e884af3a8a8e7d3ea7b3aecce4851fe6a8c6b792980c6c9822c5fc9d04ff9
+        target_directory: rust-std/i686-pc-windows-msvc
 
 build:
   number: ${{ build_number }}

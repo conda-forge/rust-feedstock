@@ -25,5 +25,6 @@ rust_std_extra:
   - wasm32-wasip1-threads
   - x86_64-linux-android
   - x86_64-pc-windows-gnu
+  - i686-pc-windows-msvc
   - x86_64-pc-windows-msvc   # [linux and x86_64]
   - aarch64-pc-windows-msvc  # [linux and x86_64]

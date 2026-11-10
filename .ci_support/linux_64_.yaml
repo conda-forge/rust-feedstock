@@ -1,3 +1,5 @@
+DOCKER_PLATFORM:
+- linux/amd64
 c_compiler:
 - gcc
 c_compiler_version:
@@ -22,6 +24,7 @@ rust_std_extra:
 - arm-linux-androideabi
 - armv7-linux-androideabi
 - i686-linux-android
+- i686-pc-windows-msvc
 - thumbv7em-none-eabihf
 - thumbv8m.main-none-eabihf
 - wasm32-unknown-emscripten

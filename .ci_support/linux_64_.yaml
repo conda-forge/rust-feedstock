@@ -25,6 +25,7 @@ rust_std_extra:
 - armv7-linux-androideabi
 - i686-linux-android
 - thumbv7em-none-eabihf
+- thumbv8m.main-none-eabihf
 - wasm32-unknown-emscripten
 - wasm32-unknown-unknown
 - x86_64-apple-ios

@@ -5,7 +5,7 @@ context:
   month: "11"
   day: "13"
   version: "1.102.0"
-  build_number: 0
+  build_number: 1
   toolchain_version: ${{ version }}.dev${{ year }}${{ month }}${{ day }}
   toolchain_upper_bound: ${{ (version | split('.'))[0] }}.${{ (version | split('.'))[1] }}.${{ ((version | split('.'))[2] | int) + 1 }}.0a0
 
@@ -105,6 +105,9 @@ source:
       - url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-std-nightly-thumbv7em-none-eabihf.tar.gz
         sha256: de9edc59cbb286adec017fd861ed928e200c32083bf24f91ec0bfb3671d8046e
         target_directory: rust-std/thumbv7em-none-eabihf
+      - url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-std-nightly-thumbv8m.main-none-eabihf.tar.gz
+        sha256: dc02a774f448507d663f6c2116f035de7d918c68c13b8d27d8384f2a7910c170
+        target_directory: rust-std/thumbv8m.main-none-eabihf
       - url: https://static.rust-lang.org/dist/${{ year }}-${{ month }}-${{ day }}/rust-std-nightly-x86_64-pc-windows-gnu.tar.gz
         sha256: 7bd1e06fbcc939f85325e20d59f6076812e31613ac78cbbdf2289848878784e7
         target_directory: rust-std/x86_64-pc-windows-gnu
